@@ -363,3 +363,15 @@ a:hover, a:focus, a:active {
 .text-secondary {
   color: #ecb807 !important;
 }
+
+.custom-range::-webkit-slider-thumb {
+  background: #f8ab11;
+}
+
+.custom-range::-moz-range-thumb {
+  background: #f8ab11;
+}
+
+.custom-range::-ms-thumb {
+  background: #f8ab11;
+}
