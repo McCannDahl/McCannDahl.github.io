@@ -75345,7 +75345,7 @@ this.aX()},
 oi(a,b){return this.aeC(a,b)},
 aeC(a,b){var s=0,r=A.a4(t.nA),q,p,o,n,m,l,k
 var $async$oi=A.a5(function(c,d){if(c===1)return A.a1(d,r)
-while(true)switch(s){case 0:n=A.me("https://render-flask-api.onrender.com/"+b,0,null)
+while(true)switch(s){case 0:n=A.me("https://3228-24-32-50-70.ngrok-free.app/"+b,0,null)
 m=t.N
 l=A.ao(["Content-Type","application/json; charset=UTF-8"],m,m)
 s=3
