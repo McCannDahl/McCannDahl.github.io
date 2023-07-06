@@ -1,3 +1,5 @@
 gptSway/myvenv/**/*
 gptSway/generate.py
 gptSway/requirements.txt
+personal_web/node_modules/**/*
+personal_web/package-lock.json
