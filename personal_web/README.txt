@@ -15,3 +15,8 @@ Credits:
 		Bootstrap (https://www.getbootstrap.com)
 		Bootstrap Affix (http://getbootstrap.com/javascript/#affix) 
 
+Ideas:
+[] Create family section
+[] Create faith section - mission, book of mormon
+[] have "references" section
+[] Create hobbies section - disc golf, scuba, boy scouts, making apps, hnhy
