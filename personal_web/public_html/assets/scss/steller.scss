@@ -111,3 +111,15 @@
       max-width: 100%;
     }
   }
+  .mccann-image-article-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+.mccann-image-article-header img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
