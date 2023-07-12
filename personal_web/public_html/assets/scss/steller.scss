@@ -123,3 +123,19 @@
     min-width: 100%;
     min-height: 100%
 }
+.mccann-title-and-work-year {
+  display: flex;
+  justify-content: space-between;
+}
+.mccann-work-year {
+  margin-top: 3rem !important;
+}
+@media screen and (max-width: 400px) {
+  .mccann-title-and-work-year {
+    display: flex;
+    flex-direction: column;
+  }
+  .mccann-work-year {
+    margin-top: 0 !important;
+  }
+}

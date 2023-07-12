@@ -11012,7 +11012,7 @@ pre {
 
 .section {
   position: relative;
-  padding: 5rem 0;
+  padding: 4rem 0;
 }
 .section:nth-child(even) {
   background: white;
@@ -11094,4 +11094,36 @@ pre {
           flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+.mccann-title-and-work-year {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mccann-work-year {
+  margin-top: 3rem !important;
+}
+
+@media screen and (max-width: 400px) {
+  .mccann-title-and-work-year {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mccann-work-year {
+    margin-top: 0 !important;
+  }
 }
