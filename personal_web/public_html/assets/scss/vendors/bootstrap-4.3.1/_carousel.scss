@@ -165,7 +165,7 @@
     margin-left: $carousel-indicator-spacer;
     text-indent: -999px;
     cursor: pointer;
-    background-color: $carousel-indicator-active-bg;
+    background-color: $carousel-indicator-inactive-bg;
     background-clip: padding-box;
     // Use transparent borders to increase the hit area by 10px on top and bottom.
     border-top: $carousel-indicator-hit-area-height solid transparent;
@@ -176,6 +176,7 @@
 
   .active {
     opacity: 1;
+    background-color: $carousel-indicator-active-bg;
   }
 }
 

@@ -6490,7 +6490,7 @@ a.close.disabled {
   margin-left: 3px;
   text-indent: -999px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #6c757d;
   background-clip: padding-box;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
@@ -6506,6 +6506,7 @@ a.close.disabled {
 }
 .carousel-indicators .active {
   opacity: 1;
+  background-color: #fff;
 }
 
 .carousel-caption {
@@ -10639,10 +10640,7 @@ pre {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  box-shadow: inset 1px 1px 10px rgba(173, 181, 189, 0.3), inset -1px -1px 7px rgba(173, 181, 189, 0.3);
-}
-.carousel .carousel-indicators li.active {
-  box-shadow: 0 0 5px rgba(108, 117, 125, 0.3);
+  box-shadow: inset 4px 4px 4px rgba(173, 181, 189, 0.3), inset -1px -1px 1px rgba(173, 181, 189, 0.3);
 }
 
 .contact {
