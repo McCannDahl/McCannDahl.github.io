@@ -3099,10 +3099,8 @@ fieldset:disabled a.btn {
 }
 .btn-link:hover {
   color: #ff3d0b;
-  text-decoration: underline;
 }
 .btn-link:focus, .btn-link.focus {
-  text-decoration: underline;
   box-shadow: none;
 }
 .btn-link:disabled, .btn-link.disabled {
@@ -11010,7 +11008,7 @@ pre {
 
 .section {
   position: relative;
-  padding: 4rem 0;
+  padding: 6rem 0 0 0;
 }
 .section:nth-child(even) {
   background: white;
@@ -11124,4 +11122,16 @@ pre {
   .mccann-work-year {
     margin-top: 0 !important;
   }
+}
+.card-header .icon {
+  -webkit-transition: 0.3s -webkit-transform ease-in-out;
+  transition: 0.3s -webkit-transform ease-in-out;
+  transition: 0.3s transform ease-in-out;
+  transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out;
+}
+
+.card-header .collapsed .icon {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }

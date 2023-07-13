@@ -81,12 +81,12 @@ fieldset:disabled a.btn {
 
   @include hover {
     color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
+    //text-decoration: $link-hover-decoration;
   }
 
   &:focus,
   &.focus {
-    text-decoration: $link-hover-decoration;
+    //text-decoration: $link-hover-decoration;
     box-shadow: none;
   }
 
