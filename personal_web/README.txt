@@ -17,6 +17,8 @@ Credits:
 
 Ideas:
 [x] Create family section
-[ ] Create faith section - mission, book of mormon
+[x] Create faith section - mission, book of mormon
 [x] have "references" section
-[ ] Create hobbies section - disc golf, scuba, boy scouts, making apps, hnhy
+[x] Create hobbies section - disc golf, scuba, boy scouts, making apps, hnhy
+[ ] touchup articles
+[ ] setup custom domain
