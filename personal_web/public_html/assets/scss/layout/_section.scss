@@ -1,6 +1,6 @@
 .section {
 	position: relative;
-	padding: 4rem 0;
+	padding: 6rem 0 0 0;
 
 	&:nth-child(even) {
 		background: lighten($gray-200, 5%);

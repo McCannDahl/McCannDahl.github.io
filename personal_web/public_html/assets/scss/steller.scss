@@ -139,3 +139,10 @@
     margin-top: 0 !important;
   }
 }
+
+.card-header .icon {
+  transition: .3s transform ease-in-out;
+}
+.card-header .collapsed .icon {
+  transform: rotate(90deg);
+}
