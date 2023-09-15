@@ -20,7 +20,7 @@ Ideas:
 [x] Create faith section - mission, book of mormon
 [x] have "references" section
 [x] Create hobbies section - disc golf, scuba, boy scouts, making apps, hnhy
-[ ] touchup articles
+[x] touchup articles
 [ ] setup custom domain
 [ ] personal projects
 [ ] Ideas
