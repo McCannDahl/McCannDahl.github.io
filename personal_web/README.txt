@@ -22,3 +22,6 @@ Ideas:
 [x] Create hobbies section - disc golf, scuba, boy scouts, making apps, hnhy
 [ ] touchup articles
 [ ] setup custom domain
+[ ] personal projects
+[ ] Ideas
+[ ] Spiritual lessons
