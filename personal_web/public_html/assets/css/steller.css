@@ -11135,3 +11135,12 @@ pre {
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
+
+.crop {
+  height: 150px;
+  overflow: hidden;
+}
+
+.crop img {
+  max-height: 150px;
+}
