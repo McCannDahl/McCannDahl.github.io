@@ -21,7 +21,11 @@ Ideas:
 [x] have "references" section
 [x] Create hobbies section - disc golf, scuba, boy scouts, making apps, hnhy
 [x] touchup articles
-[ ] setup custom domain
+[x] setup custom domain
 [ ] personal projects
 [ ] Ideas
 [ ] Spiritual lessons
+--------
+[ ] Family website - temples
+[ ] Family website - vacations
+[ ] Family website - person bios
