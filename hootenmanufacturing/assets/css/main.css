@@ -2526,6 +2526,7 @@ input, select, textarea {
 		overflow: hidden;
 	}
 
+
 		.image:before {
 			content: '';
 			display: block;
@@ -2571,6 +2572,15 @@ input, select, textarea {
 
 			.image.fit img {
 				width: 100%;
+			}
+
+			.image.meet-the-team {
+				width: 200px;
+				height: 200px;
+				object-fit: cover;
+				border-radius: 50%;
+				box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.6);
+				margin-bottom: 1em;
 			}
 
 /* List */
