@@ -4077,6 +4077,12 @@ body.is-touch #banner {
 		border: 0;
 	}
 
+	#titleBar .title img {
+		height: 30px;
+		vertical-align: middle;
+		margin-right: 0.5em;
+	}
+
 	#titleBar .toggle {
 		text-decoration: none;
 		height: 60px;
@@ -4284,4 +4290,68 @@ body.is-touch #banner {
 		padding: 0;
 	}
 
+}
+
+/* Contact Section Custom Styles */
+.contact-owner {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.contact-owner img {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 50%;
+	box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.6);
+	margin-bottom: 1em;
+}
+
+.contact-owner h3 {
+	margin-bottom: 0.25em;
+}
+
+.contact-owner p {
+	font-size: 1.05em;
+	margin-bottom: 0;
+}
+
+.contact-info {
+	margin-top: 1.5em;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.contact-info>div {
+	margin-bottom: 1em;
+}
+
+.contact-info>div:last-child {
+	margin-bottom: 0;
+}
+
+.contact-info h4 {
+	margin-bottom: 0.25em;
+}
+
+.contact-info p {
+	font-size: 1.1em;
+	margin: 0;
+}
+
+@media screen and (max-width: 980px) {
+	.contact-owner {
+		align-items: center;
+		text-align: center;
+	}
+
+	.contact-info {
+		align-items: center;
+		text-align: center;
+	}
 }
