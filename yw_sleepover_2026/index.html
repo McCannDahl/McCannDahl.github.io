@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:sans-serif;
+  background:#111;
+  color:white;
+}
+
+#arrow{
+  font-size:120px;
+  transition: transform 0.2s linear;
+}
+
+#info{
+  position:fixed;
+  bottom:20px;
+  text-align:center;
+  width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<div id="arrow">↑</div>
+<div id="info">Loading...</div>
+
+<script>
+
+// predetermined waypoints
+const waypoints = [
+  {lat: 33.3493, lon: -96.5525},
+  {lat: 33.3498, lon: -96.5520},
+  {lat: 33.3503, lon: -96.5515}
+]
+
+const ARRIVAL_DISTANCE = 20 // meters
+
+let waypointIndex = Number(localStorage.getItem("waypointIndex") || 0)
+let heading = 0
+
+const arrow = document.getElementById("arrow")
+const info = document.getElementById("info")
+
+function toRad(deg){
+  return deg * Math.PI / 180
+}
+
+function distanceMeters(a,b){
+
+  const R = 6371000
+
+  const dLat = toRad(b.lat-a.lat)
+  const dLon = toRad(b.lon-a.lon)
+
+  const lat1 = toRad(a.lat)
+  const lat2 = toRad(b.lat)
+
+  const x =
+    Math.sin(dLat/2)*Math.sin(dLat/2) +
+    Math.sin(dLon/2)*Math.sin(dLon/2)*Math.cos(lat1)*Math.cos(lat2)
+
+  const c = 2 * Math.atan2(Math.sqrt(x),Math.sqrt(1-x))
+
+  return R*c
+}
+
+function bearing(a,b){
+
+  const lat1 = toRad(a.lat)
+  const lat2 = toRad(b.lat)
+  const dLon = toRad(b.lon-a.lon)
+
+  const y = Math.sin(dLon)*Math.cos(lat2)
+  const x = Math.cos(lat1)*Math.sin(lat2) -
+            Math.sin(lat1)*Math.cos(lat2)*Math.cos(dLon)
+
+  return (Math.atan2(y,x)*180/Math.PI + 360)%360
+}
+
+function updateArrow(user){
+
+  if(waypointIndex >= waypoints.length){
+    info.innerText = "Goal reached!"
+    arrow.style.display="none"
+    return
+  }
+
+  const target = waypoints[waypointIndex]
+
+  const dist = distanceMeters(user,target)
+
+  if(dist < ARRIVAL_DISTANCE){
+    waypointIndex++
+    localStorage.setItem("waypointIndex", waypointIndex)
+    return
+  }
+
+  const targetBearing = bearing(user,target)
+
+  const rotation = targetBearing - heading
+
+  arrow.style.transform = `rotate(${rotation}deg)`
+
+  info.innerText =
+    "Waypoint "+(waypointIndex+1)+"\n"+
+    "Distance: "+Math.round(dist)+"m"
+}
+
+// GPS tracking
+navigator.geolocation.watchPosition(pos=>{
+  const user = {
+    lat: pos.coords.latitude,
+    lon: pos.coords.longitude
+  }
+
+  updateArrow(user)
+
+},{
+  enableHighAccuracy:true
+})
+
+// compass heading
+window.addEventListener("deviceorientationabsolute",e=>{
+  if(e.alpha != null){
+    heading = e.alpha
+  }
+})
+
+</script>
+
+</body>
+</html>
