@@ -1,366 +1,366 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-body{
-margin:0;
-background:#111;
-color:white;
-font-family:sans-serif;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-}
+        /* compass widget */
 
-/* compass widget */
+        #compass {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-#compass{
-position:fixed;
-top:15px;
-left:15px;
-width:80px;
-height:80px;
-border-radius:50%;
-border:2px solid white;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+        #compassArrow {
+            font-size: 36px;
+            transition: transform .1s linear;
+        }
 
-#compassArrow{
-font-size:36px;
-transition:transform .1s linear;
-}
+        /* radar */
 
-/* radar */
+        #radar {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .4s;
+        }
 
-#radar{
-width:260px;
-height:260px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-transition:background .4s;
-}
+        /* navigation arrow */
 
-/* navigation arrow */
+        #arrow {
+            font-size: 130px;
+            transition: transform .15s linear;
+        }
 
-#arrow{
-font-size:130px;
-transition:transform .15s linear;
-}
+        #info {
+            margin-top: 20px;
+            text-align: center;
+            line-height: 1.4;
+        }
 
-#info{
-margin-top:20px;
-text-align:center;
-line-height:1.4;
-}
+        #startBtn {
+            padding: 16px 28px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+        }
 
-#startBtn{
-padding:16px 28px;
-font-size:20px;
-border:none;
-border-radius:8px;
-}
-
-#debug{
-position:fixed;
-bottom:10px;
-left:10px;
-font-size:12px;
-opacity:.7;
-}
-
-</style>
+        #debug {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 12px;
+            opacity: .7;
+        }
+    </style>
 </head>
 
 <body>
 
-<div id="compass">
-<div id="compassArrow">↑</div>
-</div>
+    <div id="compass">
+        <div id="compassArrow">↑</div>
+    </div>
 
-<button id="startBtn">Start Navigation</button>
+    <button id="startBtn">Start Navigation</button>
 
-<div id="radar" style="display:none">
-<div id="arrow">↑</div>
-</div>
+    <div id="radar" style="display:none">
+        <div id="arrow">↑</div>
+    </div>
 
-<div id="info"></div>
-<div id="debug"></div>
+    <div id="info"></div>
+    <div id="debug"></div>
 
-<script>
+    <script>
 
-// ---------------- CONFIG ----------------
+        // ---------------- CONFIG ----------------
 
-const ARRIVAL_DISTANCE = 20
-const MAX_RADAR_DISTANCE = 150
+        const ARRIVAL_DISTANCE = 20
+        const MAX_RADAR_DISTANCE = 150
 
-const waypoints = [
-{lat:33.3493, lon:-96.5525},
-{lat:33.3498, lon:-96.5520},
-{lat:33.3503, lon:-96.5515}
-]
+        const waypoints = [
+            { lat: 33.3493, lon: -96.5525 },
+            { lat: 33.3498, lon: -96.5520 },
+            { lat: 33.3503, lon: -96.5515 }
+        ]
 
-// ---------------- STATE ----------------
+        // ---------------- STATE ----------------
 
-let waypointIndex =
-Number(localStorage.getItem("waypointIndex") || 0)
+        let waypointIndex =
+            Number(localStorage.getItem("waypointIndex") || 0)
 
-let heading = 0
-let gpsHeading = null
-let userPosition = null
+        let heading = 0
+        let gpsHeading = null
+        let userPosition = null
 
-const arrow = document.getElementById("arrow")
-const radar = document.getElementById("radar")
-const info = document.getElementById("info")
-const debug = document.getElementById("debug")
-const startBtn = document.getElementById("startBtn")
-const compassArrow = document.getElementById("compassArrow")
+        const arrow = document.getElementById("arrow")
+        const radar = document.getElementById("radar")
+        const info = document.getElementById("info")
+        const debug = document.getElementById("debug")
+        const startBtn = document.getElementById("startBtn")
+        const compassArrow = document.getElementById("compassArrow")
 
-// ---------------- MATH ----------------
+        // ---------------- MATH ----------------
 
-function toRad(d){ return d*Math.PI/180 }
+        function toRad(d) { return d * Math.PI / 180 }
 
-function distanceMeters(a,b){
+        function distanceMeters(a, b) {
 
-const R=6371000
+            const R = 6371000
 
-const dLat=toRad(b.lat-a.lat)
-const dLon=toRad(b.lon-a.lon)
+            const dLat = toRad(b.lat - a.lat)
+            const dLon = toRad(b.lon - a.lon)
 
-const lat1=toRad(a.lat)
-const lat2=toRad(b.lat)
+            const lat1 = toRad(a.lat)
+            const lat2 = toRad(b.lat)
 
-const x=
-Math.sin(dLat/2)**2+
-Math.sin(dLon/2)**2*
-Math.cos(lat1)*Math.cos(lat2)
+            const x =
+                Math.sin(dLat / 2) ** 2 +
+                Math.sin(dLon / 2) ** 2 *
+                Math.cos(lat1) * Math.cos(lat2)
 
-const c=2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x))
+            const c = 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x))
 
-return R*c
-}
+            return R * c
+        }
 
-function bearing(a,b){
+        function bearing(a, b) {
 
-const lat1=toRad(a.lat)
-const lat2=toRad(b.lat)
-const dLon=toRad(b.lon-a.lon)
+            const lat1 = toRad(a.lat)
+            const lat2 = toRad(b.lat)
+            const dLon = toRad(b.lon - a.lon)
 
-const y=Math.sin(dLon)*Math.cos(lat2)
+            const y = Math.sin(dLon) * Math.cos(lat2)
 
-const x=
-Math.cos(lat1)*Math.sin(lat2)-
-Math.sin(lat1)*Math.cos(lat2)*Math.cos(dLon)
+            const x =
+                Math.cos(lat1) * Math.sin(lat2) -
+                Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon)
 
-return (Math.atan2(y,x)*180/Math.PI+360)%360
-}
+            return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360
+        }
 
-function angleDiff(a,b){
-let diff=b-a
-return ((diff+540)%360)-180
-}
+        function angleDiff(a, b) {
+            let diff = b - a
+            return ((diff + 540) % 360) - 180
+        }
 
-function smoothHeading(prev,newVal){
+        function smoothHeading(prev, newVal) {
 
-const diff=angleDiff(prev,newVal)
+            const diff = angleDiff(prev, newVal)
 
-return (prev + diff*0.2 + 360) % 360
-}
+            return (prev + diff * 0.2 + 360) % 360
+        }
 
-// ---------------- RADAR ----------------
+        // ---------------- RADAR ----------------
 
-function updateRadar(dist){
+        function updateRadar(dist) {
 
-const ratio=Math.max(0,Math.min(1,1-dist/MAX_RADAR_DISTANCE))
+            const ratio = Math.max(0, Math.min(1, 1 - dist / MAX_RADAR_DISTANCE))
 
-const r=Math.floor(255*(1-ratio))
-const g=Math.floor(255*ratio)
+            const r = Math.floor(255 * (1 - ratio))
+            const g = Math.floor(255 * ratio)
 
-radar.style.background=`rgb(${r},${g},80)`
-}
+            radar.style.background = `rgb(${r},${g},80)`
+        }
 
-// ---------------- NAVIGATION ----------------
+        // ---------------- NAVIGATION ----------------
 
-function updateNavigation(){
+        function updateNavigation() {
 
-if(!userPosition) return
+            if (!userPosition) return
 
-if(waypointIndex>=waypoints.length){
+            if (waypointIndex >= waypoints.length) {
 
-radar.style.display="none"
-info.innerText="🎉 Goal Reached!"
-return
-}
+                radar.style.display = "none"
+                info.innerText = "🎉 Goal Reached!"
+                return
+            }
 
-const target=waypoints[waypointIndex]
+            const target = waypoints[waypointIndex]
 
-const dist=distanceMeters(userPosition,target)
+            const dist = distanceMeters(userPosition, target)
 
-if(dist<ARRIVAL_DISTANCE){
+            if (dist < ARRIVAL_DISTANCE) {
 
-waypointIndex++
-localStorage.setItem("waypointIndex",waypointIndex)
+                waypointIndex++
+                localStorage.setItem("waypointIndex", waypointIndex)
 
-if(navigator.vibrate)
-navigator.vibrate([200,100,200])
+                if (navigator.vibrate)
+                    navigator.vibrate([200, 100, 200])
 
-return
-}
+                return
+            }
 
-const targetBearing=bearing(userPosition,target)
+            const targetBearing = bearing(userPosition, target)
 
-let activeHeading=heading
+            let activeHeading = heading
 
-if(gpsHeading && dist>30){
-activeHeading=gpsHeading
-}
+            if (gpsHeading && dist > 30) {
+                activeHeading = gpsHeading
+            }
 
-const rotation=angleDiff(activeHeading,targetBearing)
+            const rotation = angleDiff(activeHeading, targetBearing)
 
-arrow.style.transform=`rotate(${rotation}deg)`
+            arrow.style.transform = `rotate(${rotation}deg)`
 
-updateRadar(dist)
+            updateRadar(dist)
 
-info.innerText=
-"Waypoint "+(waypointIndex+1)+"\n"+
-"Distance: "+Math.round(dist)+" m\n\n"+
-"GPS:\n"+
-userPosition.lat.toFixed(6)+", "+
-userPosition.lon.toFixed(6)
+            info.innerText =
+                "Waypoint " + (waypointIndex + 1) + "\n" +
+                "Distance: " + Math.round(dist) + " m\n\n" +
+                "GPS:\n" +
+                userPosition.lat.toFixed(6) + ", " +
+                userPosition.lon.toFixed(6)
 
-debug.innerText=
-"compass:"+Math.round(heading)+"\n"+
-"gpsHeading:"+Math.round(gpsHeading||0)+"\n"+
-"bearing:"+Math.round(targetBearing)
-}
+            debug.innerText =
+                "compass:" + Math.round(heading) + "\n" +
+                "gpsHeading:" + Math.round(gpsHeading || 0) + "\n" +
+                "bearing:" + Math.round(targetBearing)
+        }
 
-// ---------------- COMPASS ----------------
+        // ---------------- COMPASS ----------------
 
-function handleOrientation(event){
+        function handleOrientation(event) {
 
-let newHeading
+            let newHeading
 
-if(event.webkitCompassHeading !== undefined){
+            if (event.webkitCompassHeading !== undefined) {
 
-if(event.webkitCompassAccuracy &&
-event.webkitCompassAccuracy > 50){
-return
-}
+                if (event.webkitCompassAccuracy &&
+                    event.webkitCompassAccuracy > 50) {
+                    return
+                }
 
-newHeading=event.webkitCompassHeading
+                newHeading = event.webkitCompassHeading
 
-}else if(event.alpha != null){
+            } else if (event.alpha != null) {
 
-newHeading=360-event.alpha
+                newHeading = 360 - event.alpha
 
-}else{
-return
-}
+            } else {
+                return
+            }
 
-heading=smoothHeading(heading,newHeading)
+            heading = smoothHeading(heading, newHeading)
 
-// rotate compass arrow
+            // rotate compass arrow
 
-compassArrow.style.transform=`rotate(${heading}deg)`
+            compassArrow.style.transform = `rotate(${heading}deg)`
 
-// update navigation when phone rotates
+            // update navigation when phone rotates
 
-updateNavigation()
+            updateNavigation()
 
-}
+        }
 
-// ---------------- GPS ----------------
+        // ---------------- GPS ----------------
 
-function startGPS(){
+        function startGPS() {
 
-navigator.geolocation.watchPosition(
+            navigator.geolocation.watchPosition(
 
-pos=>{
+                pos => {
 
-userPosition={
-lat:pos.coords.latitude,
-lon:pos.coords.longitude
-}
+                    userPosition = {
+                        lat: pos.coords.latitude,
+                        lon: pos.coords.longitude
+                    }
 
-if(pos.coords.heading != null &&
-pos.coords.speed > 1){
+                    if (pos.coords.heading != null &&
+                        pos.coords.speed > 1) {
 
-gpsHeading=pos.coords.heading
+                        gpsHeading = pos.coords.heading
 
-}
+                    }
 
-updateNavigation()
+                    updateNavigation()
 
-},
+                },
 
-err=>{
-info.innerText="GPS Error: "+err.message
-},
+                err => {
+                    info.innerText = "GPS Error: " + err.message
+                },
 
-{
-enableHighAccuracy:true,
-maximumAge:0,
-timeout:10000
-}
+                {
+                    enableHighAccuracy: true,
+                    maximumAge: 0,
+                    timeout: 10000
+                }
 
-)
+            )
 
-}
+        }
 
-// ---------------- START ----------------
+        // ---------------- START ----------------
 
-function startCompass(){
+        function startCompass() {
 
-window.addEventListener(
-"deviceorientationabsolute",
-handleOrientation,true)
+            window.addEventListener(
+                "deviceorientationabsolute",
+                handleOrientation, true)
 
-window.addEventListener(
-"deviceorientation",
-handleOrientation,true)
+            window.addEventListener(
+                "deviceorientation",
+                handleOrientation, true)
 
-}
+        }
 
-async function startApp(){
+        async function startApp() {
 
-startBtn.style.display="none"
-radar.style.display="flex"
+            startBtn.style.display = "none"
+            radar.style.display = "flex"
 
-if(typeof DeviceOrientationEvent!=="undefined" &&
-typeof DeviceOrientationEvent.requestPermission==="function"){
+            if (typeof DeviceOrientationEvent !== "undefined" &&
+                typeof DeviceOrientationEvent.requestPermission === "function") {
 
-try{
+                try {
 
-const permission=
-await DeviceOrientationEvent.requestPermission()
+                    const permission =
+                        await DeviceOrientationEvent.requestPermission()
 
-if(permission!=="granted"){
-info.innerText="Compass permission required"
-return
-}
+                    if (permission !== "granted") {
+                        info.innerText = "Compass permission required"
+                        return
+                    }
 
-}catch(e){
-console.log(e)
-}
+                } catch (e) {
+                    console.log(e)
+                }
 
-}
+            }
 
-startCompass()
-startGPS()
+            startCompass()
+            startGPS()
 
-}
+        }
 
-startBtn.addEventListener("click",startApp)
+        startBtn.addEventListener("click", startApp)
 
-</script>
+    </script>
 
 </body>
+
 </html>
