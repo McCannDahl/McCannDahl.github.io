@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
@@ -10,14 +11,48 @@
             background: #111;
             color: white;
             font-family: sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
         }
 
-        /* compass widget */
+        #timer {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 22px;
+        }
+
+        #challengeBox {
+            max-width: 420px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 8px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        #radar {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+
+        #arrow {
+            font-size: 120px;
+        }
 
         #compass {
             position: fixed;
@@ -31,86 +66,36 @@
             align-items: center;
             justify-content: center;
         }
-
-        #compassArrow {
-            font-size: 36px;
-            transition: transform .1s linear;
-        }
-
-        /* radar */
-
-        #radar {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background .4s;
-        }
-
-        /* navigation arrow */
-
-        #arrow {
-            font-size: 130px;
-            transition: transform .15s linear;
-        }
-
-        #info {
-            margin-top: 20px;
-            text-align: center;
-            line-height: 1.4;
-        }
-
-        #startBtn {
-            padding: 16px 28px;
-            font-size: 20px;
-            border: none;
-            border-radius: 8px;
-        }
-
-        #debug {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            font-size: 12px;
-            opacity: .7;
-        }
     </style>
+
 </head>
 
 <body>
+
+    <div id="timer"></div>
 
     <div id="compass">
         <div id="compassArrow">↑</div>
     </div>
 
-    <button id="startBtn">Start Navigation</button>
+    <button id="startBtn">Start Adventure</button>
 
     <div id="radar" style="display:none">
         <div id="arrow">↑</div>
     </div>
 
-    <div id="info"></div>
-    <div id="debug"></div>
+    <div id="challengeBox"></div>
 
     <script>
 
-        // ---------------- CONFIG ----------------
-
+        const TOTAL_TIME = 90
         const ARRIVAL_DISTANCE = 20
         const MAX_RADAR_DISTANCE = 150
 
-        const waypoints = [
-            { lat: 33.3493, lon: -96.5525 },
-            { lat: 33.3498, lon: -96.5520 },
-            { lat: 33.3503, lon: -96.5515 }
-        ]
+        let challenges = []
 
-        // ---------------- STATE ----------------
-
-        let waypointIndex =
-            Number(localStorage.getItem("waypointIndex") || 0)
+        let startTime = Number(localStorage.getItem("startTime")) || null
+        let currentChallengeId = Number(localStorage.getItem("currentChallengeId")) || 1
 
         let heading = 0
         let gpsHeading = null
@@ -118,19 +103,168 @@
 
         const arrow = document.getElementById("arrow")
         const radar = document.getElementById("radar")
-        const info = document.getElementById("info")
-        const debug = document.getElementById("debug")
-        const startBtn = document.getElementById("startBtn")
         const compassArrow = document.getElementById("compassArrow")
+        const startBtn = document.getElementById("startBtn")
+        const challengeBox = document.getElementById("challengeBox")
+        const timerEl = document.getElementById("timer")
 
-        // ---------------- MATH ----------------
+        function getChallenge(id) {
+            return challenges.find(c => c.challengeId == id)
+        }
+
+        function remainingMinutes() {
+
+            if (!startTime) return TOTAL_TIME
+
+            const elapsed = (Date.now() - startTime) / 60000
+            return TOTAL_TIME - elapsed
+        }
+
+        function estimateRemainingTime(id) {
+
+            let total = 0
+            let c = getChallenge(id)
+
+            while (c) {
+
+                total += c.expectedMinutes
+
+                if (c.nextChallenge)
+                    c = getChallenge(c.nextChallenge)
+                else
+                    break
+
+            }
+
+            return total
+        }
+
+        function maybeSkip(challenge) {
+
+            let remain = remainingMinutes()
+            let required = estimateRemainingTime(challenge.challengeId)
+
+            if (remain < required && challenge.priority > 1) {
+
+                if (challenge.nextChallenge)
+                    return getChallenge(challenge.nextChallenge)
+
+            }
+
+            return challenge
+        }
+
+        function showChallenge() {
+
+            let challenge = getChallenge(currentChallengeId)
+
+            challenge = maybeSkip(challenge)
+
+            if (!challenge) return
+
+            currentChallengeId = challenge.challengeId
+            localStorage.setItem("currentChallengeId", currentChallengeId)
+
+            challengeBox.innerHTML = `
+<h2>${challenge.title}</h2>
+<p>${challenge.description}</p>
+`
+
+            if (challenge.answer) {
+
+                challengeBox.innerHTML += `
+<input id="answerBox">
+<button onclick="submitAnswer('${challenge.answer}')">
+Submit
+</button>
+`
+            }
+
+            if (challenge.mustUploadPicture) {
+
+                challengeBox.innerHTML += `
+<p>Upload photo:</p>
+<iframe src="YOUR_GOOGLE_FORM_LINK" width="100%" height="300"></iframe>
+<button onclick="completeChallenge()">Done</button>
+`
+            }
+
+            if (challenge.options) {
+
+                challenge.options.forEach(o => {
+
+                    let btn = document.createElement("button")
+                    btn.innerText = o.text
+                    btn.onclick = () => goTo(o.challengeId)
+
+                    challengeBox.appendChild(btn)
+
+                })
+
+            } else if (!challenge.answer && !challenge.mustUploadPicture) {
+
+                let btn = document.createElement("button")
+                btn.innerText = "Continue"
+                btn.onclick = completeChallenge
+                challengeBox.appendChild(btn)
+
+            }
+
+        }
+
+        function submitAnswer(correct) {
+
+            let val = document.getElementById("answerBox").value.trim().toLowerCase()
+
+            if (val === correct.toLowerCase())
+                completeChallenge()
+            else
+                alert("Try again")
+        }
+
+        function completeChallenge() {
+
+            let challenge = getChallenge(currentChallengeId)
+
+            if (challenge.nextChallenge)
+                goTo(challenge.nextChallenge)
+            else
+                challengeBox.innerHTML = "<h2>🎉 Adventure Complete!</h2>"
+
+        }
+
+        function goTo(id) {
+
+            currentChallengeId = id
+            localStorage.setItem("currentChallengeId", id)
+
+            showChallenge()
+        }
+
+        function updateTimer() {
+
+            let remain = remainingMinutes()
+
+            if (remain <= 0) {
+
+                timerEl.innerText = "Time Up!"
+                return
+            }
+
+            let m = Math.floor(remain)
+            let s = Math.floor((remain - m) * 60)
+
+            timerEl.innerText = `${m}:${s.toString().padStart(2, '0')}`
+
+        }
+
+        setInterval(updateTimer, 1000)
 
         function toRad(d) { return d * Math.PI / 180 }
 
         function distanceMeters(a, b) {
 
             const R = 6371000
-
             const dLat = toRad(b.lat - a.lat)
             const dLon = toRad(b.lon - a.lon)
 
@@ -167,81 +301,38 @@
             return ((diff + 540) % 360) - 180
         }
 
-        function smoothHeading(prev, newVal) {
-
-            const diff = angleDiff(prev, newVal)
-
-            return (prev + diff * 0.2 + 360) % 360
-        }
-
-        // ---------------- RADAR ----------------
-
-        function updateRadar(dist) {
-
-            const ratio = Math.max(0, Math.min(1, 1 - dist / MAX_RADAR_DISTANCE))
-
-            const r = Math.floor(255 * (1 - ratio))
-            const g = Math.floor(255 * ratio)
-
-            radar.style.background = `rgb(${r},${g},80)`
-        }
-
-        // ---------------- NAVIGATION ----------------
-
         function updateNavigation() {
 
             if (!userPosition) return
 
-            if (waypointIndex >= waypoints.length) {
+            let challenge = getChallenge(currentChallengeId)
 
-                radar.style.display = "none"
-                info.innerText = "🎉 Goal Reached!"
-                return
-            }
+            if (!challenge.lat) return
 
-            const target = waypoints[waypointIndex]
+            let target = { lat: challenge.lat, lon: challenge.lon }
 
-            const dist = distanceMeters(userPosition, target)
+            let dist = distanceMeters(userPosition, target)
 
             if (dist < ARRIVAL_DISTANCE) {
 
-                waypointIndex++
-                localStorage.setItem("waypointIndex", waypointIndex)
+                navigator.vibrate?.([200, 100, 200])
 
-                if (navigator.vibrate)
-                    navigator.vibrate([200, 100, 200])
-
+                showChallenge()
                 return
             }
 
-            const targetBearing = bearing(userPosition, target)
+            let targetBearing = bearing(userPosition, target)
 
             let activeHeading = heading
 
-            if (gpsHeading && dist > 30) {
+            if (gpsHeading && dist > 30)
                 activeHeading = gpsHeading
-            }
 
-            const rotation = angleDiff(activeHeading, targetBearing)
+            let rotation = angleDiff(activeHeading, targetBearing)
 
             arrow.style.transform = `rotate(${rotation}deg)`
 
-            updateRadar(dist)
-
-            info.innerText =
-                "Waypoint " + (waypointIndex + 1) + "\n" +
-                "Distance: " + Math.round(dist) + " m\n\n" +
-                "GPS:\n" +
-                userPosition.lat.toFixed(6) + ", " +
-                userPosition.lon.toFixed(6)
-
-            debug.innerText =
-                "compass:" + Math.round(heading) + "\n" +
-                "gpsHeading:" + Math.round(gpsHeading || 0) + "\n" +
-                "bearing:" + Math.round(targetBearing)
         }
-
-        // ---------------- COMPASS ----------------
 
         function handleOrientation(event) {
 
@@ -249,34 +340,21 @@
 
             if (event.webkitCompassHeading !== undefined) {
 
-                if (event.webkitCompassAccuracy &&
-                    event.webkitCompassAccuracy > 50) {
-                    return
-                }
-
                 newHeading = event.webkitCompassHeading
 
             } else if (event.alpha != null) {
 
                 newHeading = 360 - event.alpha
 
-            } else {
-                return
-            }
+            } else return
 
-            heading = smoothHeading(heading, newHeading)
-
-            // rotate compass arrow
+            heading = (heading + (newHeading - heading) * 0.2 + 360) % 360
 
             compassArrow.style.transform = `rotate(${heading}deg)`
-
-            // update navigation when phone rotates
 
             updateNavigation()
 
         }
-
-        // ---------------- GPS ----------------
 
         function startGPS() {
 
@@ -289,34 +367,39 @@
                         lon: pos.coords.longitude
                     }
 
-                    if (pos.coords.heading != null &&
-                        pos.coords.speed > 1) {
-
+                    if (pos.coords.heading && pos.coords.speed > 1)
                         gpsHeading = pos.coords.heading
-
-                    }
 
                     updateNavigation()
 
                 },
 
-                err => {
-                    info.innerText = "GPS Error: " + err.message
-                },
+                err => alert(err.message),
 
-                {
-                    enableHighAccuracy: true,
-                    maximumAge: 0,
-                    timeout: 10000
-                }
+                { enableHighAccuracy: true }
 
             )
 
         }
 
-        // ---------------- START ----------------
+        async function startApp() {
 
-        function startCompass() {
+            startBtn.style.display = "none"
+            radar.style.display = "flex"
+
+            if (!startTime) {
+
+                startTime = Date.now()
+                localStorage.setItem("startTime", startTime)
+
+            }
+
+            const res = await fetch("challenges.json")
+            challenges = await res.json()
+
+            showChallenge()
+
+            startGPS()
 
             window.addEventListener(
                 "deviceorientationabsolute",
@@ -328,36 +411,7 @@
 
         }
 
-        async function startApp() {
-
-            startBtn.style.display = "none"
-            radar.style.display = "flex"
-
-            if (typeof DeviceOrientationEvent !== "undefined" &&
-                typeof DeviceOrientationEvent.requestPermission === "function") {
-
-                try {
-
-                    const permission =
-                        await DeviceOrientationEvent.requestPermission()
-
-                    if (permission !== "granted") {
-                        info.innerText = "Compass permission required"
-                        return
-                    }
-
-                } catch (e) {
-                    console.log(e)
-                }
-
-            }
-
-            startCompass()
-            startGPS()
-
-        }
-
-        startBtn.addEventListener("click", startApp)
+        startBtn.onclick = startApp
 
     </script>
 
