@@ -2,56 +2,124 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
+
 body{
   margin:0;
+  background:#111;
+  color:white;
+  font-family:sans-serif;
   height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Radar circle */
+
+#radar{
+  width:260px;
+  height:260px;
+  border-radius:50%;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-family:sans-serif;
-  background:#111;
-  color:white;
+  transition:background 0.4s;
 }
+
+/* Arrow */
 
 #arrow{
-  font-size:120px;
-  transition: transform 0.2s linear;
+  font-size:130px;
+  transition:transform 0.15s linear;
 }
 
+/* Info text */
+
 #info{
-  position:fixed;
-  bottom:20px;
+  margin-top:20px;
   text-align:center;
-  width:100%;
+  line-height:1.4;
 }
+
+/* Start button */
+
+#startBtn{
+  padding:16px 28px;
+  font-size:20px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* Debug overlay */
+
+#debug{
+  position:fixed;
+  bottom:10px;
+  left:10px;
+  font-size:12px;
+  opacity:0.7;
+}
+
 </style>
 </head>
 
 <body>
 
-<div id="arrow">↑</div>
-<div id="info">Loading...</div>
+<button id="startBtn">Start Navigation</button>
+
+<div id="radar" style="display:none">
+  <div id="arrow">↑</div>
+</div>
+
+<div id="info"></div>
+
+<div id="debug"></div>
 
 <script>
 
-// predetermined waypoints
+// ------------------
+// CONFIG
+// ------------------
+
+const ARRIVAL_DISTANCE = 20
+const MAX_RADAR_DISTANCE = 150
+
 const waypoints = [
-  {lat: 33.3493, lon: -96.5525},
-  {lat: 33.3498, lon: -96.5520},
-  {lat: 33.3503, lon: -96.5515}
+
+  {lat:33.3493, lon:-96.5525},
+  {lat:33.3498, lon:-96.5520},
+  {lat:33.3503, lon:-96.5515}
+
 ]
 
-const ARRIVAL_DISTANCE = 20 // meters
+// ------------------
+// STATE
+// ------------------
 
-let waypointIndex = Number(localStorage.getItem("waypointIndex") || 0)
+let waypointIndex =
+Number(localStorage.getItem("waypointIndex") || 0)
+
 let heading = 0
+let userPosition = null
+
+// elements
 
 const arrow = document.getElementById("arrow")
+const radar = document.getElementById("radar")
 const info = document.getElementById("info")
+const debug = document.getElementById("debug")
+const startBtn = document.getElementById("startBtn")
 
-function toRad(deg){
-  return deg * Math.PI / 180
+// ------------------
+// MATH
+// ------------------
+
+function toRad(d){
+  return d * Math.PI / 180
 }
 
 function distanceMeters(a,b){
@@ -65,8 +133,9 @@ function distanceMeters(a,b){
   const lat2 = toRad(b.lat)
 
   const x =
-    Math.sin(dLat/2)*Math.sin(dLat/2) +
-    Math.sin(dLon/2)*Math.sin(dLon/2)*Math.cos(lat1)*Math.cos(lat2)
+    Math.sin(dLat/2)**2 +
+    Math.sin(dLon/2)**2 *
+    Math.cos(lat1)*Math.cos(lat2)
 
   const c = 2 * Math.atan2(Math.sqrt(x),Math.sqrt(1-x))
 
@@ -79,61 +148,191 @@ function bearing(a,b){
   const lat2 = toRad(b.lat)
   const dLon = toRad(b.lon-a.lon)
 
-  const y = Math.sin(dLon)*Math.cos(lat2)
-  const x = Math.cos(lat1)*Math.sin(lat2) -
-            Math.sin(lat1)*Math.cos(lat2)*Math.cos(dLon)
+  const y = Math.sin(dLon) * Math.cos(lat2)
+
+  const x =
+    Math.cos(lat1)*Math.sin(lat2) -
+    Math.sin(lat1)*Math.cos(lat2)*Math.cos(dLon)
 
   return (Math.atan2(y,x)*180/Math.PI + 360)%360
 }
 
-function updateArrow(user){
+// ------------------
+// RADAR COLOR
+// ------------------
+
+function updateRadar(distance){
+
+  const ratio =
+  Math.max(0,Math.min(1,1 - distance/MAX_RADAR_DISTANCE))
+
+  const red = Math.floor(255*(1-ratio))
+  const green = Math.floor(255*ratio)
+
+  radar.style.background =
+  `rgb(${red},${green},80)`
+
+}
+
+// ------------------
+// NAVIGATION
+// ------------------
+
+function updateNavigation(){
+
+  if(!userPosition) return
 
   if(waypointIndex >= waypoints.length){
-    info.innerText = "Goal reached!"
-    arrow.style.display="none"
+
+    radar.style.display="none"
+    info.innerText="🎉 Goal Reached!"
     return
   }
 
   const target = waypoints[waypointIndex]
 
-  const dist = distanceMeters(user,target)
+  const dist = distanceMeters(userPosition,target)
+
+  // waypoint reached
 
   if(dist < ARRIVAL_DISTANCE){
+
     waypointIndex++
     localStorage.setItem("waypointIndex", waypointIndex)
+
+    if(navigator.vibrate)
+      navigator.vibrate([200,100,200])
+
     return
   }
 
-  const targetBearing = bearing(user,target)
+  // arrow direction
+
+  const targetBearing = bearing(userPosition,target)
 
   const rotation = targetBearing - heading
 
-  arrow.style.transform = `rotate(${rotation}deg)`
+  arrow.style.transform =
+  `rotate(${rotation}deg)`
+
+  // radar color
+
+  updateRadar(dist)
+
+  // UI text
 
   info.innerText =
-    "Waypoint "+(waypointIndex+1)+"\n"+
-    "Distance: "+Math.round(dist)+"m"
+  "Waypoint "+(waypointIndex+1)+"\n"+
+  "Distance: "+Math.round(dist)+" m\n\n"+
+  "Your GPS:\n"+
+  userPosition.lat.toFixed(6)+", "+
+  userPosition.lon.toFixed(6)
+
+  debug.innerText =
+  "heading:"+Math.round(heading)+"\n"+
+  "bearing:"+Math.round(targetBearing)+"\n"+
+  "distance:"+Math.round(dist)
+
 }
 
-// GPS tracking
-navigator.geolocation.watchPosition(pos=>{
-  const user = {
-    lat: pos.coords.latitude,
-    lon: pos.coords.longitude
+// ------------------
+// GPS
+// ------------------
+
+function startGPS(){
+
+  navigator.geolocation.watchPosition(
+
+    pos=>{
+
+      userPosition={
+        lat:pos.coords.latitude,
+        lon:pos.coords.longitude
+      }
+
+      updateNavigation()
+
+    },
+
+    err=>{
+      info.innerText="GPS Error: "+err.message
+    },
+
+    {
+      enableHighAccuracy:true,
+      maximumAge:0,
+      timeout:10000
+    }
+
+  )
+
+}
+
+// ------------------
+// COMPASS
+// ------------------
+
+function startCompass(){
+
+  window.addEventListener(
+    "deviceorientationabsolute",
+    e=>{
+      if(e.alpha!=null)
+        heading=e.alpha
+    },true
+  )
+
+  window.addEventListener(
+    "deviceorientation",
+    e=>{
+      if(e.alpha!=null)
+        heading=e.alpha
+    },true
+  )
+
+}
+
+// ------------------
+// START FLOW
+// ------------------
+
+async function startApp(){
+
+  startBtn.style.display="none"
+  radar.style.display="flex"
+
+  // iOS compass permission
+
+  if(typeof DeviceOrientationEvent !== "undefined" &&
+     typeof DeviceOrientationEvent.requestPermission === "function"){
+
+    try{
+
+      const permission =
+      await DeviceOrientationEvent.requestPermission()
+
+      if(permission!=="granted"){
+        info.innerText=
+        "Compass permission required"
+        return
+      }
+
+    }catch(e){
+      console.log(e)
+    }
+
   }
 
-  updateArrow(user)
+  startCompass()
+  startGPS()
 
-},{
-  enableHighAccuracy:true
-})
+}
 
-// compass heading
-window.addEventListener("deviceorientationabsolute",e=>{
-  if(e.alpha != null){
-    heading = e.alpha
-  }
-})
+// ------------------
+// BUTTON
+// ------------------
+
+startBtn.addEventListener("click",startApp)
 
 </script>
 
