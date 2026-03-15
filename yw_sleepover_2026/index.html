@@ -278,16 +278,31 @@
         }
 
         function handleOrientation(event) {
-            let newHeading
+            let newHeading;
+
+            // iOS: webkitCompassHeading
             if (event.webkitCompassHeading !== undefined) {
-                if (event.webkitCompassAccuracy && event.webkitCompassAccuracy > 50) return
-                newHeading = event.webkitCompassHeading
-            } else if (event.alpha != null) {
-                newHeading = 360 - event.alpha
-            } else return
-            heading = (heading + (newHeading - heading) * 0.1 + 360) % 360
-            compassArrow.style.transform = `rotate(${heading}deg)`
-            updateNavigation()
+                if (event.webkitCompassAccuracy && event.webkitCompassAccuracy > 50) return;
+                newHeading = event.webkitCompassHeading; // 0 = north
+            }
+            // Android/other browsers: use absolute orientation
+            else if (event.alpha != null) {
+                if (!event.absolute) {
+                    // if not absolute, we can't trust alpha for true north
+                    return;
+                }
+                // invert so arrow points north correctly
+                newHeading = 360 - event.alpha;
+            } else return;
+
+            // smoothing to reduce wobble
+            heading = (heading + (newHeading - heading) * 0.1 + 360) % 360;
+
+            // update compass arrow
+            compassArrow.style.transform = `rotate(${heading}deg)`;
+
+            // update middle navigation arrow if any
+            updateNavigation();
         }
 
         function startGPS() {
