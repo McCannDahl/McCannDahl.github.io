@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Adventure Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        #map {
+            height: 500px;
+        }
+
+        #challengeList {
+            padding: 20px;
+        }
+
+        .challengeCard {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="map"></div>
+    <div id="challengeList"></div>
+
+    <script>
+
+        async function loadChallenges() {
+
+            const res = await fetch("challenges.json");
+            const challenges = await res.json();
+
+            const map = L.map('map').setView([33.3498, -96.552], 16);
+
+            L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                { attribution: '© OpenStreetMap' }
+            ).addTo(map);
+
+            const byId = {};
+
+            challenges.forEach(c => {
+                byId[c.challengeId] = c;
+            });
+
+            const listDiv = document.getElementById("challengeList");
+
+            challenges.forEach(challenge => {
+
+                // ---------- Map Marker ----------
+
+                if (challenge.lat && challenge.lon) {
+
+                    const marker = L.marker(
+                        [challenge.lat, challenge.lon]
+                    ).addTo(map);
+
+                    marker.bindPopup(`
+                <b>${challenge.title}</b><br>
+                ${challenge.description}
+            `);
+
+                }
+
+                // ---------- Challenge Card ----------
+
+                const card = document.createElement("div");
+                card.className = "challengeCard";
+
+                let next = "";
+
+                if (challenge.nextChallenge) {
+                    next = `Next → ${challenge.nextChallenge}`;
+                }
+
+                if (challenge.options) {
+                    next = challenge.options
+                        .map(o => `Option: ${o.text} → ${o.challengeId}`)
+                        .join("<br>");
+                }
+
+                card.innerHTML = `
+            <div class="title">
+                ${challenge.challengeId}. ${challenge.title}
+            </div>
+
+            <div>
+                ${challenge.description}
+            </div>
+
+            <div class="meta">
+                Expected Time: ${challenge.expectedMinutes || "?"} minutes
+            </div>
+
+            <div class="meta">
+                Priority: ${challenge.priority || "?"}
+            </div>
+
+            <div class="meta">
+                ${next}
+            </div>
+        `;
+
+                listDiv.appendChild(card);
+
+            });
+
+        }
+
+        loadChallenges();
+
+    </script>
+
+</body>
+
+</html>
