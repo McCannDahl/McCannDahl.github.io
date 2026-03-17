@@ -251,7 +251,7 @@
             else
                 challengeBox.innerHTML = "<h2>🎉 You did it!</h2>"
         }
-        function goTo(id) {
+        const goToBase = (id) => {
             currentChallengeId = id
             localStorage.setItem("currentChallengeId", id)
             showChallenge()
@@ -429,6 +429,9 @@
         }
 
         startBtn.onclick = startApp
+
+        // Auto-resume if a session is already in progress
+        if (startTime) startApp()
         document.addEventListener("change", (e) => {
             if (e.target.id === "photoInput") {
                 if (e.target.files && e.target.files.length > 0) {
@@ -449,10 +452,9 @@
         })
 
         // Reset photoTaken flag when moving to a new challenge
-        const _origGoTo = goTo
         function goTo(id) {
             photoTaken = false
-            _origGoTo(id)
+            goToBase(id)
         }
     </script>
 </body>
