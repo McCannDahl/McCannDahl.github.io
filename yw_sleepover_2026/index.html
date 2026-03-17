@@ -98,6 +98,7 @@
         const MAX_RADAR_DISTANCE = 150
 
         let challenges = []
+        let photoTaken = false
 
         let startTime = Number(localStorage.getItem("startTime")) || null
         let currentChallengeId = Number(localStorage.getItem("currentChallengeId")) || 1
@@ -147,15 +148,10 @@
             return challenge
         }
         function handlePhotoUpload() {
-            const input = document.getElementById("photoInput")
-
-            if (!input.files || input.files.length === 0) {
-                alert("Please upload a photo before continuing.")
+            if (!photoTaken) {
+                alert("Please take a photo before continuing.")
                 return
             }
-
-            // Optional: you can preview or process the image here if you ever want
-
             completeChallenge()
         }
 
@@ -227,9 +223,8 @@
 
             // 📸 Enforce photo upload
             if (challenge.mustUploadPicture) {
-                const input = document.getElementById("photoInput")
-                if (!input || !input.files || input.files.length === 0) {
-                    alert("You must upload a photo to continue.")
+                if (!photoTaken) {
+                    alert("You must take a photo to continue.")
                     return
                 }
             }
@@ -342,9 +337,7 @@
 
             let uploadBtn = document.getElementById("uploadBtn")
             if (uploadBtn) {
-                const photoInput = document.getElementById("photoInput")
-                let hasPhoto = photoInput && photoInput.files && photoInput.files.length > 0
-                uploadBtn.disabled = (dist > ARRIVAL_DISTANCE) || !hasPhoto
+                uploadBtn.disabled = (dist > ARRIVAL_DISTANCE) || !photoTaken
             }
 
             if (dist < ARRIVAL_DISTANCE) {
@@ -438,17 +431,29 @@
         startBtn.onclick = startApp
         document.addEventListener("change", (e) => {
             if (e.target.id === "photoInput") {
+                if (e.target.files && e.target.files.length > 0) {
+                    photoTaken = true
+                    // Clear the input immediately so the browser can free the image from memory
+                    e.target.value = ""
+                }
                 const btn = document.getElementById("uploadBtn")
                 if (btn) {
                     let challenge = getChallenge(currentChallengeId)
                     if (challenge.lat && challenge.lon && userPosition) {
                         updateNavigation()
                     } else {
-                        btn.disabled = e.target.files.length === 0
+                        btn.disabled = !photoTaken
                     }
                 }
             }
         })
+
+        // Reset photoTaken flag when moving to a new challenge
+        const _origGoTo = goTo
+        function goTo(id) {
+            photoTaken = false
+            _origGoTo(id)
+        }
     </script>
 </body>
 
