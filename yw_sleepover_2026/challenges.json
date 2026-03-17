@@ -1,67 +1,264 @@
 [
     {
         "challengeId": 1,
-        "title": "Start at Home",
-        "description": "Gather your group and get ready for your fairy tale adventure! Walk to the next waypoint.",
-        "lat": 33.34843062459922,
-        "lon": -96.55569433816828,
-        "expectedMinutes": 5,
-        "priority": 1,
-        "nextChallenge": 2
+        "title": "Intro",
+        "description": "Please HELP! Many of your kinfolk throughout your kindom are in need of your assistance. Follow these questful instructions, overcome the bewitching challenges, choose wisely, and you shall be eternally rewarded.",
+        "expectedMinutes": 1,
+        "priority": 1
     },
     {
         "challengeId": 2,
-        "title": "Kindness Riddle",
-        "description": "What is the greatest commandment? Type your answer below.",
-        "answer": "love god",
-        "expectedMinutes": 3,
-        "priority": 2,
-        "nextChallenge": 3
+        "title": "Go outside Dahls",
+        "description": "Go here",
+        "lat": 33.348348,
+        "lon": -96.555787,
+        "expectedMinutes": 2,
+        "priority": 1
     },
     {
         "challengeId": 3,
-        "title": "Deliver Cookies",
-        "description": "Bring cookies to a neighbor or family member and upload a photo of your group delivering them.",
-        "lat": 33.34800795925087,
-        "lon": -96.55568900015454,
-        "mustUploadPicture": true,
-        "expectedMinutes": 5,
-        "priority": 1,
-        "nextChallenge": 4
+        "title": "Go outside Aarons",
+        "description": "Go here",
+        "lat": 33.349520,
+        "lon": -96.555883,
+        "expectedMinutes": 2,
+        "priority": 1
     },
     {
         "challengeId": 4,
-        "title": "Choose Your Path",
-        "description": "You have two fairy-tale options: eat the cookies or give them away.",
+        "title": "Do stuff",
+        "description": "Do one of these things for the people that live here:",
         "options": [
             {
-                "text": "Eat the cookies",
-                "challengeId": 5
+                "text": "Clean a mirror"
             },
             {
-                "text": "Give them away",
-                "challengeId": 6
+                "text": "Take out the trash"
+            },
+            {
+                "text": "Unload the dishwasher"
+            },
+            {
+                "text": "Load the dishwasher"
+            },
+            {
+                "text": "Clean a sink"
+            },
+            {
+                "text": "Sweep the kitchen"
+            },
+            {
+                "text": "Sweep the porch or sidewalk"
+            },
+            {
+                "text": "Clean a window"
+            },
+            {
+                "text": "Vacuum the stairs"
+            },
+            {
+                "text": "Vacuum a room"
+            },
+            {
+                "text": "Wipe out the windowsills"
+            },
+            {
+                "text": "Read a book to a child (if they’re still awake!)"
+            },
+            {
+                "text": "Dust a room"
+            },
+            {
+                "text": "Clean the microwave"
+            },
+            {
+                "text": "Wipe down dishwasher, stove & fridge"
+            },
+            {
+                "text": "Wash a sink full of dishes"
+            },
+            {
+                "text": "Dust the blinds"
+            },
+            {
+                "text": "Clean baseboards in one room"
+            },
+            {
+                "text": "Pull weeds"
+            },
+            {
+                "text": "Homeowner’s choice"
             }
         ],
         "expectedMinutes": 3,
-        "priority": 3
+        "priority": 3,
+        "mustUploadPicture": true
     },
     {
         "challengeId": 5,
-        "title": "Cookie Feast",
-        "description": "Enjoy your cookies together! Next, head to the final waypoint.",
-        "lat": 33.34843062459922,
-        "lon": -96.55569433816828,
+        "title": "Go outside Northrups",
+        "description": "Go here",
+        "lat": 33.350054,
+        "lon": -96.558496,
         "expectedMinutes": 2,
-        "priority": 2
+        "priority": 1
     },
     {
         "challengeId": 6,
-        "title": "Spread Joy",
-        "description": "Give the cookies away and share a kind word with someone. Next, head to the final waypoint.",
-        "lat": 33.34843062459922,
-        "lon": -96.55569433816828,
+        "title": "Do stuff",
+        "description": "Do one of these things for the people that live here:",
+        "options": [
+            {
+                "text": "Clean a mirror"
+            },
+            {
+                "text": "Take out the trash"
+            },
+            {
+                "text": "Unload the dishwasher"
+            },
+            {
+                "text": "Load the dishwasher"
+            },
+            {
+                "text": "Clean a sink"
+            },
+            {
+                "text": "Sweep the kitchen"
+            },
+            {
+                "text": "Sweep the porch or sidewalk"
+            },
+            {
+                "text": "Clean a window"
+            },
+            {
+                "text": "Vacuum the stairs"
+            },
+            {
+                "text": "Vacuum a room"
+            },
+            {
+                "text": "Wipe out the windowsills"
+            },
+            {
+                "text": "Read a book to a child (if they’re still awake!)"
+            },
+            {
+                "text": "Dust a room"
+            },
+            {
+                "text": "Clean the microwave"
+            },
+            {
+                "text": "Wipe down dishwasher, stove & fridge"
+            },
+            {
+                "text": "Wash a sink full of dishes"
+            },
+            {
+                "text": "Dust the blinds"
+            },
+            {
+                "text": "Clean baseboards in one room"
+            },
+            {
+                "text": "Pull weeds"
+            },
+            {
+                "text": "Homeowner’s choice"
+            }
+        ],
+        "expectedMinutes": 3,
+        "priority": 3,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 7,
+        "title": "Go outside Clarks",
+        "description": "Go here",
+        "lat": 33.349406,
+        "lon": -96.559720,
         "expectedMinutes": 2,
-        "priority": 2
+        "priority": 1
+    },
+    {
+        "challengeId": 8,
+        "title": "Do stuff",
+        "description": "Do one of these things for the people that live here:",
+        "options": [
+            {
+                "text": "Clean a mirror"
+            },
+            {
+                "text": "Take out the trash"
+            },
+            {
+                "text": "Unload the dishwasher"
+            },
+            {
+                "text": "Load the dishwasher"
+            },
+            {
+                "text": "Clean a sink"
+            },
+            {
+                "text": "Sweep the kitchen"
+            },
+            {
+                "text": "Sweep the porch or sidewalk"
+            },
+            {
+                "text": "Clean a window"
+            },
+            {
+                "text": "Vacuum the stairs"
+            },
+            {
+                "text": "Vacuum a room"
+            },
+            {
+                "text": "Wipe out the windowsills"
+            },
+            {
+                "text": "Read a book to a child (if they’re still awake!)"
+            },
+            {
+                "text": "Dust a room"
+            },
+            {
+                "text": "Clean the microwave"
+            },
+            {
+                "text": "Wipe down dishwasher, stove & fridge"
+            },
+            {
+                "text": "Wash a sink full of dishes"
+            },
+            {
+                "text": "Dust the blinds"
+            },
+            {
+                "text": "Clean baseboards in one room"
+            },
+            {
+                "text": "Pull weeds"
+            },
+            {
+                "text": "Homeowner’s choice"
+            }
+        ],
+        "expectedMinutes": 3,
+        "priority": 3,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 9,
+        "title": "Go outside Dahls",
+        "description": "Go here",
+        "lat": 33.348348,
+        "lon": -96.555787,
+        "expectedMinutes": 2,
+        "priority": 1
     }
 ]

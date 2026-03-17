@@ -1,0 +1,65 @@
+[
+    {
+        "challengeId": 1,
+        "title": "Intro",
+        "description": "Please HELP! Many of your kinfolk throughout your kindom are in need of your assistance. Follow these questful instructions, overcome the bewitching challenges, choose wisely, and you shall be eternally rewarded.",
+        "expectedMinutes": 1,
+        "priority": 1,
+        "nextChallenge": 2
+    },
+    {
+        "challengeId": 2,
+        "title": "Go outside",
+        "description": "What is the greatest commandment? Type your answer below.",
+        "answer": "love god",
+        "expectedMinutes": 3,
+        "priority": 2,
+        "nextChallenge": 3
+    },
+    {
+        "challengeId": 3,
+        "title": "Deliver Cookies",
+        "description": "Bring cookies to a neighbor or family member and upload a photo of your group delivering them.",
+        "lat": 33.34800795925087,
+        "lon": -96.55568900015454,
+        "mustUploadPicture": true,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "nextChallenge": 4
+    },
+    {
+        "challengeId": 4,
+        "title": "Choose Your Path",
+        "description": "You have two fairy-tale options: eat the cookies or give them away.",
+        "options": [
+            {
+                "text": "Eat the cookies",
+                "challengeId": 5
+            },
+            {
+                "text": "Give them away",
+                "challengeId": 6
+            }
+        ],
+        "expectedMinutes": 3,
+        "priority": 3
+    },
+    {
+        "challengeId": 5,
+        "title": "Cookie Feast",
+        "description": "Enjoy your cookies together! Next, head to the final waypoint.",
+        "lat": 33.34843062459922,
+        "lon": -96.55569433816828,
+        "expectedMinutes": 2,
+        "priority": 2
+    },
+    {
+        "challengeId": 6,
+        "title": "Spread Joy",
+        "description": "Give the cookies away and share a kind word with someone. Next, head to the final waypoint.",
+        "lat": 33.34843062459922,
+        "lon": -96.55569433816828,
+        "expectedMinutes": 2,
+        "priority": 2
+    }
+]

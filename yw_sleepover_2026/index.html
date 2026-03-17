@@ -198,7 +198,7 @@
                 challenge.options.forEach(o => {
                     let btn = document.createElement("button")
                     btn.innerText = o.text
-                    btn.onclick = () => goTo(o.challengeId)
+                    btn.onclick = () => goTo(o.challengeId ?? currentChallengeId + 1)
                     challengeBox.appendChild(btn)
                 })
             } else if (!challenge.answer && !challenge.mustUploadPicture) {
@@ -246,8 +246,10 @@
             }
 
             // ✅ proceed normally
-            if (challenge.nextChallenge)
-                goTo(challenge.nextChallenge)
+            let nextId = challenge.nextChallenge ?? (challenge.challengeId + 1)
+            let nextChallenge = getChallenge(nextId)
+            if (nextChallenge)
+                goTo(nextId)
             else
                 challengeBox.innerHTML = "<h2>🎉 You did it!</h2>"
         }
