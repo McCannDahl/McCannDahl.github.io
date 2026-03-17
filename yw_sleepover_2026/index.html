@@ -301,27 +301,61 @@
         function updateNavigation() {
             if (!userPosition) return
             let challenge = getChallenge(currentChallengeId)
+            
+            let distDisplay = document.getElementById("distanceIndicator")
+            if (!distDisplay && document.getElementById("radar")) {
+                distDisplay = document.createElement("div")
+                distDisplay.id = "distanceIndicator"
+                distDisplay.style.fontSize = "22px"
+                distDisplay.style.fontWeight = "bold"
+                distDisplay.style.margin = "15px auto"
+                document.getElementById("radar").insertAdjacentElement('afterend', distDisplay)
+            }
+
             if (!challenge.lat || !challenge.lon) {
                 arrow.style.display = "none"
+                if (distDisplay) distDisplay.style.display = "none"
+                document.body.style.background = "#111"
                 return
             }
             arrow.style.display = "block"
+            if (distDisplay) distDisplay.style.display = "block"
+
             let target = { lat: challenge.lat, lon: challenge.lon }
             let dist = distanceMeters(userPosition, target)
+            
+            if (distDisplay) {
+                distDisplay.innerText = `You're ${Math.round(dist)}m away`
+            }
+
+            // Smooth gradient background based on distance
+            let lightness = Math.max(10, 50 - ((dist - ARRIVAL_DISTANCE) / (MAX_RADAR_DISTANCE - ARRIVAL_DISTANCE)) * 40)
+            if (dist > MAX_RADAR_DISTANCE) lightness = 10
+            if (dist <= ARRIVAL_DISTANCE) lightness = 50
+            document.body.style.background = `radial-gradient(circle at center, hsl(120, 80%, ${lightness}%), #111)`
+            document.body.style.backgroundAttachment = "fixed"
+
             let btn = document.getElementById("continueBtn")
-            if (btn && challenge.lat && challenge.lon && userPosition) {
+            if (btn) {
                 btn.disabled = dist > ARRIVAL_DISTANCE
             }
+
+            let uploadBtn = document.getElementById("uploadBtn")
+            if (uploadBtn) {
+                const photoInput = document.getElementById("photoInput")
+                let hasPhoto = photoInput && photoInput.files && photoInput.files.length > 0
+                uploadBtn.disabled = (dist > ARRIVAL_DISTANCE) || !hasPhoto
+            }
+
             if (dist < ARRIVAL_DISTANCE) {
                 navigator.vibrate?.([200, 100, 200])
-                return
             }
+
             let targetBearing = bearing(userPosition, target)
             let activeHeading = heading
             if (gpsHeading && dist > 30) activeHeading = gpsHeading
             let rotation = angleDiff(activeHeading, targetBearing)
             arrow.style.transform = `rotate(${rotation}deg)`
-
         }
 
         function handleOrientation(event) {
@@ -394,6 +428,9 @@
             startBtn.style.display = "inline-block"
             restartBtn.style.display = "none"
             radar.style.display = "none"
+            let distDisplay = document.getElementById("distanceIndicator")
+            if (distDisplay) distDisplay.style.display = "none"
+            document.body.style.background = "#111"
             challengeBox.innerHTML = ""
             timerEl.innerText = ""
         }
@@ -402,7 +439,14 @@
         document.addEventListener("change", (e) => {
             if (e.target.id === "photoInput") {
                 const btn = document.getElementById("uploadBtn")
-                if (btn) btn.disabled = e.target.files.length === 0
+                if (btn) {
+                    let challenge = getChallenge(currentChallengeId)
+                    if (challenge.lat && challenge.lon && userPosition) {
+                        updateNavigation()
+                    } else {
+                        btn.disabled = e.target.files.length === 0
+                    }
+                }
             }
         })
     </script>
