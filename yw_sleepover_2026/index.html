@@ -94,8 +94,8 @@
 
     <script>
         const TOTAL_TIME = 90 // total minutes
-        const ARRIVAL_DISTANCE = 20
-        const MAX_RADAR_DISTANCE = 150
+        const ARRIVAL_DISTANCE = 5
+        const MAX_RADAR_DISTANCE = 30
 
         let challenges = []
         let photoTaken = false
@@ -296,7 +296,7 @@
         function updateNavigation() {
             if (!userPosition) return
             let challenge = getChallenge(currentChallengeId)
-            
+
             let distDisplay = document.getElementById("distanceIndicator")
             if (!distDisplay && document.getElementById("radar")) {
                 distDisplay = document.createElement("div")
@@ -318,7 +318,7 @@
 
             let target = { lat: challenge.lat, lon: challenge.lon }
             let dist = distanceMeters(userPosition, target)
-            
+
             if (distDisplay) {
                 distDisplay.innerText = `You're ${Math.round(dist)}m away`
             }
