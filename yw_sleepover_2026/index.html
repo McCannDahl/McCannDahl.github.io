@@ -146,6 +146,19 @@
             }
             return challenge
         }
+        function handlePhotoUpload() {
+            const input = document.getElementById("photoInput")
+
+            if (!input.files || input.files.length === 0) {
+                alert("Please upload a photo before continuing.")
+                return
+            }
+
+            // Optional: you can preview or process the image here if you ever want
+
+            completeChallenge()
+        }
+
 
         function showChallenge() {
             let challenge = getChallenge(currentChallengeId)
@@ -178,9 +191,10 @@
 
             if (challenge.mustUploadPicture) {
                 challengeBox.innerHTML += `
-      <p>Upload photo:</p>
-      <iframe src="https://docs.google.com/forms/d/1hEhWrlXAq8ehRcv2Zh7gRT0EHJ8H2-3mFgZpqUHdGl0/viewform?embedded=true" width="100%" height="300"></iframe>
-      <button onclick="completeChallenge()">Done</button>
+        <p>Upload photo:</p>
+        <input type="file" id="photoInput" accept="image/*" capture="environment">
+        <br><br>
+        <button id="uploadBtn" disabled onclick="handlePhotoUpload()">Submit Photo</button>
     `
             }
 
@@ -208,31 +222,40 @@
                 alert("Try again")
         }
 
-function completeChallenge() {
-    let challenge = getChallenge(currentChallengeId)
+        function completeChallenge() {
+            let challenge = getChallenge(currentChallengeId)
 
-    // 🚨 Enforce GPS proximity if required
-    if (challenge.lat && challenge.lon) {
-        if (!userPosition) {
-            alert("Waiting for GPS signal...")
-            return
+            // 📸 Enforce photo upload
+            if (challenge.mustUploadPicture) {
+                const input = document.getElementById("photoInput")
+                if (!input || !input.files || input.files.length === 0) {
+                    alert("You must upload a photo to continue.")
+                    return
+                }
+            }
+
+            // 🚨 Enforce GPS proximity if required
+            if (challenge.lat && challenge.lon) {
+                if (!userPosition) {
+                    alert("Waiting for GPS signal...")
+                    return
+                }
+
+                let target = { lat: challenge.lat, lon: challenge.lon }
+                let dist = distanceMeters(userPosition, target)
+
+                if (dist > ARRIVAL_DISTANCE) {
+                    alert(`You need to get closer! (${Math.round(dist)}m away)`)
+                    return
+                }
+            }
+
+            // ✅ proceed normally
+            if (challenge.nextChallenge)
+                goTo(challenge.nextChallenge)
+            else
+                challengeBox.innerHTML = "<h2>🎉 Adventure Complete!</h2>"
         }
-
-        let target = { lat: challenge.lat, lon: challenge.lon }
-        let dist = distanceMeters(userPosition, target)
-
-        if (dist > ARRIVAL_DISTANCE) {
-            alert(`You need to get closer! (${Math.round(dist)}m away)`)
-            return
-        }
-    }
-
-    // ✅ proceed normally
-    if (challenge.nextChallenge)
-        goTo(challenge.nextChallenge)
-    else
-        challengeBox.innerHTML = "<h2>🎉 Adventure Complete!</h2>"
-}
         function goTo(id) {
             currentChallengeId = id
             localStorage.setItem("currentChallengeId", id)
@@ -273,6 +296,7 @@ function completeChallenge() {
             return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360
         }
         function angleDiff(a, b) { return ((b - a + 540) % 360) - 180 }
+
 
         function updateNavigation() {
             if (!userPosition) return
@@ -349,9 +373,9 @@ function completeChallenge() {
                 startTime = Date.now()
                 localStorage.setItem("startTime", startTime)
             }
-const res = await fetch(`challenges.json?v=${Date.now()}`, {
-    cache: "no-store"
-})
+            const res = await fetch(`challenges.json?v=${Date.now()}`, {
+                cache: "no-store"
+            })
             challenges = await res.json()
 
             showChallenge()
@@ -375,6 +399,12 @@ const res = await fetch(`challenges.json?v=${Date.now()}`, {
         }
 
         startBtn.onclick = startApp
+        document.addEventListener("change", (e) => {
+            if (e.target.id === "photoInput") {
+                const btn = document.getElementById("uploadBtn")
+                if (btn) btn.disabled = e.target.files.length === 0
+            }
+        })
     </script>
 </body>
 
