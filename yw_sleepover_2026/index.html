@@ -194,6 +194,7 @@
             } else if (!challenge.answer && !challenge.mustUploadPicture) {
                 let btn = document.createElement("button")
                 btn.innerText = "Continue"
+                btn.id = "continueBtn"
                 btn.onclick = completeChallenge
                 challengeBox.appendChild(btn)
             }
@@ -207,14 +208,31 @@
                 alert("Try again")
         }
 
-        function completeChallenge() {
-            let challenge = getChallenge(currentChallengeId)
-            if (challenge.nextChallenge)
-                goTo(challenge.nextChallenge)
-            else
-                challengeBox.innerHTML = "<h2>🎉 Adventure Complete!</h2>"
+function completeChallenge() {
+    let challenge = getChallenge(currentChallengeId)
+
+    // 🚨 Enforce GPS proximity if required
+    if (challenge.lat && challenge.lon) {
+        if (!userPosition) {
+            alert("Waiting for GPS signal...")
+            return
         }
 
+        let target = { lat: challenge.lat, lon: challenge.lon }
+        let dist = distanceMeters(userPosition, target)
+
+        if (dist > ARRIVAL_DISTANCE) {
+            alert(`You need to get closer! (${Math.round(dist)}m away)`)
+            return
+        }
+    }
+
+    // ✅ proceed normally
+    if (challenge.nextChallenge)
+        goTo(challenge.nextChallenge)
+    else
+        challengeBox.innerHTML = "<h2>🎉 Adventure Complete!</h2>"
+}
         function goTo(id) {
             currentChallengeId = id
             localStorage.setItem("currentChallengeId", id)
@@ -266,9 +284,12 @@
             arrow.style.display = "block"
             let target = { lat: challenge.lat, lon: challenge.lon }
             let dist = distanceMeters(userPosition, target)
+            let btn = document.getElementById("continueBtn")
+            if (btn && challenge.lat && challenge.lon && userPosition) {
+                btn.disabled = dist > ARRIVAL_DISTANCE
+            }
             if (dist < ARRIVAL_DISTANCE) {
                 navigator.vibrate?.([200, 100, 200])
-                showChallenge()
                 return
             }
             let targetBearing = bearing(userPosition, target)
@@ -276,6 +297,7 @@
             if (gpsHeading && dist > 30) activeHeading = gpsHeading
             let rotation = angleDiff(activeHeading, targetBearing)
             arrow.style.transform = `rotate(${rotation}deg)`
+
         }
 
         function handleOrientation(event) {
@@ -327,8 +349,9 @@
                 startTime = Date.now()
                 localStorage.setItem("startTime", startTime)
             }
-
-            const res = await fetch("challenges.json")
+const res = await fetch(`challenges.json?v=${Date.now()}`, {
+    cache: "no-store"
+})
             challenges = await res.json()
 
             showChallenge()
