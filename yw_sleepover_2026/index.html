@@ -83,8 +83,8 @@
         <div id="compassArrow">↑</div>
     </div>
 
-    <button id="startBtn">Start Adventure</button>
-    <button id="restartBtn">Restart Adventure</button>
+    <button id="startBtn">Start</button>
+    <button id="restartBtn">Restart</button>
 
     <div id="radar" style="display:none">
         <div id="arrow">↑</div>
@@ -249,7 +249,7 @@
             if (challenge.nextChallenge)
                 goTo(challenge.nextChallenge)
             else
-                challengeBox.innerHTML = "<h2>🎉 Adventure Complete!</h2>"
+                challengeBox.innerHTML = "<h2>🎉 You did it!</h2>"
         }
         function goTo(id) {
             currentChallengeId = id
@@ -413,7 +413,7 @@
 
         // ---------------- RESTART APP ----------------
         restartBtn.onclick = () => {
-            if (!confirm("Restart the adventure?")) return
+            if (!confirm("Restart?")) return
             localStorage.removeItem("startTime")
             localStorage.removeItem("currentChallengeId")
             startTime = null

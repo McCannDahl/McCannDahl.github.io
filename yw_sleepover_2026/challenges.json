@@ -53,8 +53,7 @@
         "lat": 33.34843062459922,
         "lon": -96.55569433816828,
         "expectedMinutes": 2,
-        "priority": 2,
-        "nextChallenge": 7
+        "priority": 2
     },
     {
         "challengeId": 6,
@@ -63,14 +62,6 @@
         "lat": 33.34843062459922,
         "lon": -96.55569433816828,
         "expectedMinutes": 2,
-        "priority": 2,
-        "nextChallenge": 7
-    },
-    {
-        "challengeId": 7,
-        "title": "Temple Reveal",
-        "description": "Congratulations! Your adventure ends here. Enjoy the view of the temple and reflect on your journey.",
-        "expectedMinutes": 5,
-        "priority": 1
+        "priority": 2
     }
 ]
