@@ -187,8 +187,8 @@
 
             if (challenge.mustUploadPicture) {
                 challengeBox.innerHTML += `
-        <p>Upload photo:</p>
-        <input type="file" id="photoInput" accept="image/*" capture="environment">
+        <input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none">
+        <button id="openCameraBtn" onclick="openCamera()">📷 Open Camera</button>
         <br><br>
         <button id="uploadBtn" disabled onclick="handlePhotoUpload()">Submit Photo</button>
     `
@@ -432,24 +432,47 @@
 
         // Auto-resume if a session is already in progress
         if (startTime) startApp()
+        let cameraOpened = false
+
+        function openCamera() {
+            const input = document.getElementById("photoInput")
+            if (!input) return
+            cameraOpened = true
+            // When window regains focus after camera is closed, treat it as photo taken
+            window.addEventListener("focus", onCameraReturn, { once: true })
+            input.click()
+        }
+
+        function onCameraReturn() {
+            if (!cameraOpened) return
+            cameraOpened = false
+            markPhotoTaken()
+        }
+
         document.addEventListener("change", (e) => {
             if (e.target.id === "photoInput") {
-                if (e.target.files && e.target.files.length > 0) {
-                    photoTaken = true
-                    // Clear the input immediately so the browser can free the image from memory
-                    e.target.value = ""
-                }
-                const btn = document.getElementById("uploadBtn")
-                if (btn) {
-                    let challenge = getChallenge(currentChallengeId)
-                    if (challenge.lat && challenge.lon && userPosition) {
-                        updateNavigation()
-                    } else {
-                        btn.disabled = !photoTaken
-                    }
-                }
+                // Clear the input immediately so the browser can free the image from memory
+                e.target.value = ""
+                cameraOpened = false
+                window.removeEventListener("focus", onCameraReturn)
+                markPhotoTaken()
             }
         })
+
+        function markPhotoTaken() {
+            photoTaken = true
+            const openBtn = document.getElementById("openCameraBtn")
+            if (openBtn) openBtn.innerText = "📷 Retake Photo"
+            const btn = document.getElementById("uploadBtn")
+            if (btn) {
+                let challenge = getChallenge(currentChallengeId)
+                if (challenge.lat && challenge.lon && userPosition) {
+                    updateNavigation()
+                } else {
+                    btn.disabled = false
+                }
+            }
+        }
 
         // Reset photoTaken flag when moving to a new challenge
         function goTo(id) {
