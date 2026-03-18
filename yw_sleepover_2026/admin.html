@@ -99,7 +99,7 @@
     <script>
         function copyStepLink(challengeId, challengeTitle, el) {
             const url = `${window.location.origin}${window.location.pathname}?step=${challengeId}&title=${encodeURIComponent(challengeTitle)}`;
-
+            url = url.replace("admin", "index");
             navigator.clipboard.writeText(url).then(() => {
                 el.innerText = "copied";
                 setTimeout(() => {
