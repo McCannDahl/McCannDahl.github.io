@@ -145,5 +145,31 @@
         "imageToShowAfterAnswer": "https://pbs.twimg.com/media/DrkWYOYWsAA-Yr8.jpg",
         "expectedMinutes": 2,
         "priority": 8
+    },
+    {
+        "challengeId": 16,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.350054,
+        "lon": -96.558496,
+        "expectedMinutes": 9,
+        "priority": 1,
+        "adminExplaination": "This is the Northrup home location"
+    },
+    {
+        "challengeId": 17,
+        "title": "Answer",
+        "description": "How can I know if I’m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
+        "answer": "time, practice, and patience",
+        "expectedMinutes": 4,
+        "priority": 8
+    },
+    {
+        "challengeId": 18,
+        "title": "Service",
+        "description": "Do at least 2 of these things for the people that live here: \nDeliver your cards to Rosie \nFold a basket of laundry \nWater plants \nRead a book to a child \nHomeowner’s choice",
+        "expectedMinutes": 15,
+        "priority": 1,
+        "mustUploadPicture": true
     }
 ]
