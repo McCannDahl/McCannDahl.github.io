@@ -84,7 +84,7 @@
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     },
     {
-        "challengeId": 6,
+        "challengeId": 9,
         "title": "Well done!",
         "description": "Now go here",
         "lat": 33.349520,
@@ -94,7 +94,7 @@
         "adminExplaination": "This is the Aaron home location"
     },
     {
-        "challengeId": 2,
+        "challengeId": 10,
         "title": "Answer",
         "description": "when ye are in the service of your fellow beings ye are only in the service of your",
         "answer": "god",
@@ -102,7 +102,7 @@
         "priority": 8
     },
     {
-        "challengeId": 4,
+        "challengeId": 11,
         "title": "Service",
         "description": "Do at least 2 of these things for the people that live here: \nSweep the floors \nMop the floors \nClean windows \nTake out the trash \nHomeowner’s choice",
         "expectedMinutes": 15,
@@ -110,62 +110,40 @@
         "mustUploadPicture": true
     },
     {
-        "challengeId": 5,
-        "title": "Go here",
-        "description": "",
-        "lat": 33.350054,
-        "lon": -96.558496,
-        "expectedMinutes": 2,
-        "priority": 1
+        "challengeId": 12,
+        "title": "Well done!",
+        "description": "Now go here",
+        "lat": 33.349273,
+        "lon": -96.556238,
+        "expectedMinutes": 1,
+        "priority": 1,
+        "adminExplaination": "This is the Aaron home's culdasac"
     },
     {
-        "challengeId": 6,
-        "title": "Do stuff",
-        "description": "Do one of these things for the people that live here:",
-        "options": [
-            {
-                "text": "Clean a mirror"
-            },
-            {
-                "text": "Take out the trash"
-            }
-        ],
+        "challengeId": 13,
+        "title": "Dig",
+        "description": "Your next clue is buried",
+        "dontShowContinue": true,
         "expectedMinutes": 3,
-        "priority": 3,
-        "mustUploadPicture": true
+        "priority": 1,
+        "adminExplaination": "They should dig and find a bag with paper and a QR code"
     },
     {
-        "challengeId": 7,
-        "title": "Go here",
-        "description": "",
-        "lat": 33.349406,
-        "lon": -96.559720,
+        "challengeId": 14,
+        "title": "Baptism notes",
+        "description": "Write a note to someone who just got baptized. What would the savior say to someone that just got baptized?",
+        "confirmationText": "Everyone wrote a note.",
+        "expectedMinutes": 6,
+        "priority": 1,
+        "adminExplaination": ""
+    },
+    {
+        "challengeId": 15,
+        "title": "Answer",
+        "description": "Which princess would have done best following the star to Bethlehem?",
+        "answer": "Moana",
+        "imageToShowAfterAnswer": "https://pbs.twimg.com/media/DrkWYOYWsAA-Yr8.jpg",
         "expectedMinutes": 2,
-        "priority": 1
-    },
-    {
-        "challengeId": 8,
-        "title": "Do stuff",
-        "description": "Do one of these things for the people that live here:",
-        "options": [
-            {
-                "text": "Clean a mirror"
-            },
-            {
-                "text": "Take out the trash"
-            }
-        ],
-        "expectedMinutes": 3,
-        "priority": 3,
-        "mustUploadPicture": true
-    },
-    {
-        "challengeId": 9,
-        "title": "Go outside Dahls",
-        "description": "Go here",
-        "lat": 33.348348,
-        "lon": -96.555787,
-        "expectedMinutes": 2,
-        "priority": 1
+        "priority": 8
     }
 ]
