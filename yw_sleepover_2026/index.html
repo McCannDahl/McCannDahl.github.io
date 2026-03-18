@@ -224,7 +224,7 @@
 
         function submitAnswer(correct) {
             let val = document.getElementById("answerBox").value.trim().toLowerCase()
-            if (val === correct.toLowerCase()) {
+            if (correct === null || val === correct.toLowerCase()) {
                 let challenge = getChallenge(currentChallengeId)
                 if (challenge.imageToShowAfterAnswer) {
                     challengeBox.innerHTML += `

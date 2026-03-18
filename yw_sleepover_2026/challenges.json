@@ -58,7 +58,7 @@
             },
             {
                 "text": "Everyone does something",
-                "challengeId": 8
+                "challengeId": 9
             }
         ],
         "expectedMinutes": 1,
@@ -66,16 +66,24 @@
     },
     {
         "challengeId": 7,
-        "title": "Slide",
-        "description": "One person slides down the slide 6.5 times.",
-        "mustUploadPicture": true,
-        "expectedMinutes": 5,
-        "priority": 1,
-        "nextChallenge": 9,
-        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+        "title": "Answer",
+        "description": "Who will it be?",
+        "answer": null,
+        "expectedMinutes": 2,
+        "priority": 1
     },
     {
         "challengeId": 8,
+        "title": "Slide",
+        "description": "The chosen person slides down the slide 6.5 times.",
+        "mustUploadPicture": true,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "nextChallenge": 10,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 9,
         "title": "Slide",
         "description": "Everyone slide down the slide at the same time together.",
         "mustUploadPicture": true,
@@ -84,7 +92,7 @@
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     },
     {
-        "challengeId": 9,
+        "challengeId": 10,
         "title": "Well done!",
         "description": "Now go here",
         "lat": 33.349520,
@@ -94,7 +102,7 @@
         "adminExplaination": "This is the Aaron home location"
     },
     {
-        "challengeId": 10,
+        "challengeId": 11,
         "title": "Answer",
         "description": "when ye are in the service of your fellow beings ye are only in the service of your",
         "answer": "god",
@@ -102,7 +110,7 @@
         "priority": 8
     },
     {
-        "challengeId": 11,
+        "challengeId": 12,
         "title": "Service",
         "description": "Do at least 2 of these things for the people that live here: \nSweep the floors \nMop the floors \nClean windows \nTake out the trash \nHomeowner’s choice",
         "expectedMinutes": 15,
@@ -110,7 +118,7 @@
         "mustUploadPicture": true
     },
     {
-        "challengeId": 12,
+        "challengeId": 13,
         "title": "Well done!",
         "description": "Now go here",
         "lat": 33.349273,
@@ -120,7 +128,7 @@
         "adminExplaination": "This is the Aaron home's culdasac"
     },
     {
-        "challengeId": 13,
+        "challengeId": 14,
         "title": "Dig",
         "description": "Your next clue is buried",
         "dontShowContinue": true,
@@ -129,7 +137,7 @@
         "adminExplaination": "They should dig and find a bag with paper and a QR code"
     },
     {
-        "challengeId": 14,
+        "challengeId": 15,
         "title": "Baptism notes",
         "description": "Write a note to someone who just got baptized. What would the savior say to someone that just got baptized?",
         "confirmationText": "Everyone wrote a note.",
@@ -138,7 +146,7 @@
         "adminExplaination": ""
     },
     {
-        "challengeId": 15,
+        "challengeId": 16,
         "title": "Answer",
         "description": "Which princess would have done best following the star to Bethlehem?",
         "answer": "Moana",
@@ -147,7 +155,7 @@
         "priority": 8
     },
     {
-        "challengeId": 16,
+        "challengeId": 17,
         "title": "Now go here",
         "description": "",
         "lat": 33.350054,
@@ -157,7 +165,7 @@
         "adminExplaination": "This is the Northrup home location"
     },
     {
-        "challengeId": 17,
+        "challengeId": 18,
         "title": "Answer",
         "description": "How can I know if I’m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
         "answer": "time, practice, and patience",
@@ -165,11 +173,66 @@
         "priority": 8
     },
     {
-        "challengeId": 18,
+        "challengeId": 19,
         "title": "Service",
         "description": "Do at least 2 of these things for the people that live here: \nDeliver your cards to Rosie \nFold a basket of laundry \nWater plants \nRead a book to a child \nHomeowner’s choice",
         "expectedMinutes": 15,
         "priority": 1,
         "mustUploadPicture": true
+    },
+    {
+        "challengeId": 20,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.350477,
+        "lon": -96.558396,
+        "expectedMinutes": 4,
+        "priority": 1,
+        "adminExplaination": "This is the Northrup culdesac"
+    },
+    {
+        "challengeId": 21,
+        "title": "Choose",
+        "description": "You have two options. Which do you choose?",
+        "options": [
+            {
+                "text": "One person does something (it cannot be the same individual as the previous challenge if you chose that)",
+                "challengeId": 22
+            },
+            {
+                "text": "Everyone does something",
+                "challengeId": 24
+            }
+        ],
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 22,
+        "title": "Answer",
+        "description": "Who will it be? (it cannot be the same individual as the previous challenge if you chose that)",
+        "answer": null,
+        "expectedMinutes": 2,
+        "priority": 1
+    },
+    {
+        "challengeId": 23,
+        "title": "Jump",
+        "description": "One person must jump over everyoone else.",
+        "mustUploadPicture": true,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "nextChallenge": 25,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 24,
+        "title": "Pyramid",
+        "description": "Form a human pyramid.",
+        "mustUploadPicture": true,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "nextChallenge": 9,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     }
 ]
