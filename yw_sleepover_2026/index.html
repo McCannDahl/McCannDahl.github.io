@@ -419,6 +419,8 @@
             })
             challenges = await res.json()
 
+            // Check query params again now that challenges are loaded
+            checkQueryParams()
             showChallenge()
             startGPS()
             window.addEventListener("deviceorientationabsolute", handleOrientation, true)
@@ -446,6 +448,48 @@
 
         // Auto-resume if a session is already in progress
         if (startTime) startApp()
+
+        // Check for query parameters to skip to specific challenge
+        function checkQueryParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const stepParam = urlParams.get('step');
+            const titleParam = urlParams.get('title');
+            
+            if (stepParam) {
+                const stepId = parseInt(stepParam);
+                if (!isNaN(stepId) && stepId > 0) {
+                    // If challenges are loaded, validate the title matches
+                    if (challenges.length > 0) {
+                        const challenge = challenges.find(c => c.challengeId === stepId);
+                        if (challenge) {
+                            // Validate title if provided
+                            if (titleParam) {
+                                const decodedTitle = decodeURIComponent(titleParam);
+                                if (challenge.title !== decodedTitle) {
+                                    console.warn('Title mismatch - expected:', challenge.title, 'got:', decodedTitle);
+                                    return; // Don't proceed if title doesn't match
+                                }
+                            }
+                            
+                            // Override the current challenge ID from query parameter
+                            currentChallengeId = stepId;
+                            localStorage.setItem("currentChallengeId", currentChallengeId);
+                            
+                            // Show the challenge immediately
+                            showChallenge();
+                        }
+                    } else {
+                        // Challenges not loaded yet, just set the ID and let startApp handle validation
+                        currentChallengeId = stepId;
+                        localStorage.setItem("currentChallengeId", currentChallengeId);
+                    }
+                }
+            }
+        }
+        
+        // Check query params on page load
+        checkQueryParams();
+
         let cameraOpened = false
 
         function openCamera() {

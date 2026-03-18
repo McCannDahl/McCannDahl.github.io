@@ -97,8 +97,8 @@
     <div id="challengeList"></div>
 
     <script>
-        function copyStepLink(challengeId, el) {
-            const url = `${window.location.origin}${window.location.pathname}?step=${challengeId}`;
+        function copyStepLink(challengeId, challengeTitle, el) {
+            const url = `${window.location.origin}${window.location.pathname}?step=${challengeId}&title=${encodeURIComponent(challengeTitle)}`;
 
             navigator.clipboard.writeText(url).then(() => {
                 el.innerText = "copied";
@@ -193,7 +193,7 @@ const res = await fetch(`challenges.json?v=${Date.now()}`, {
 
     <div class="challengeMeta" style="margin-top:10px;">
         <a href="javascript:void(0);" 
-           onclick="copyStepLink(${c.challengeId}, this)">
+           onclick="copyStepLink(${c.challengeId},'${c.title}', this)">
            copy link to skip to this step
         </a>
     </div>

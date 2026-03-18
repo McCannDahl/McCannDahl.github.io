@@ -94,19 +94,19 @@
         "adminExplaination": "This is the Aaron home location"
     },
     {
+        "challengeId": 2,
+        "title": "Answer",
+        "description": "when ye are in the service of your fellow beings ye are only in the service of your",
+        "answer": "god",
+        "expectedMinutes": 2,
+        "priority": 8
+    },
+    {
         "challengeId": 4,
-        "title": "Do stuff",
-        "description": "Do one of these things for the people that live here:",
-        "options": [
-            {
-                "text": "Clean a mirror"
-            },
-            {
-                "text": "Take out the trash"
-            }
-        ],
-        "expectedMinutes": 3,
-        "priority": 3,
+        "title": "Service",
+        "description": "Do at least 2 of these things for the people that live here: \nSweep the floors \nMop the floors \nClean windows \nTake out the trash \nHomeowner’s choice",
+        "expectedMinutes": 15,
+        "priority": 1,
         "mustUploadPicture": true
     },
     {
