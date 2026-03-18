@@ -212,11 +212,13 @@
                     challengeBox.appendChild(btn)
                 })
             } else if (!challenge.answer && !challenge.mustUploadPicture) {
-                let btn = document.createElement("button")
-                btn.innerText = "Continue"
-                btn.id = "continueBtn"
-                btn.onclick = completeChallenge
-                challengeBox.appendChild(btn)
+                if (!challenge.dontShowContinue) {
+                    let btn = document.createElement("button")
+                    btn.innerText = challenge.confirmationText || "Continue"
+                    btn.id = "continueBtn"
+                    btn.onclick = completeChallenge
+                    challengeBox.appendChild(btn)
+                }
             }
         }
 

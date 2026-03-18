@@ -159,6 +159,13 @@ const res = await fetch(`challenges.json?v=${Date.now()}`, {
                     ? `<div class="challengeMeta">✅ Answer: ${c.answer}</div>`
                     : "";
 
+                const adminExplainationHtml = c.adminExplaination
+                    ? `<div class="challengeMeta" style="background: #fff3cd; padding: 8px; border-radius: 4px; border-left: 4px solid #ffc107; margin-top: 8px;">
+                        <strong>📝 Admin Explanation:</strong><br>
+                        ${c.adminExplaination}
+                    </div>`
+                    : "";
+
                 card.innerHTML = `
     <div class="challengeTitle">
         ${c.challengeId}. ${c.title}
@@ -169,6 +176,8 @@ const res = await fetch(`challenges.json?v=${Date.now()}`, {
     </div>
 
     ${answerHtml}
+
+    ${adminExplainationHtml}
 
     <div class="challengeMeta">
         ⏱ ${c.expectedMinutes || "?"} minutes

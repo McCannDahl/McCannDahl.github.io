@@ -8,21 +8,90 @@
     },
     {
         "challengeId": 2,
-        "title": "Go outside Dahls",
-        "description": "Go here",
-        "lat": 33.348348,
-        "lon": -96.555787,
+        "title": "Requirements",
+        "description": "For your quest you need cookies. Find the cookies.",
+        "confirmationText": "We have a plate of cookies.",
         "expectedMinutes": 2,
         "priority": 1
     },
     {
         "challengeId": 3,
-        "title": "Go outside Aarons",
-        "description": "Go here",
+        "title": "Choose",
+        "description": "You have two options. Which do you choose?",
+        "options": [
+            {
+                "text": "Eat the cookies now",
+                "challengeId": 4
+            },
+            {
+                "text": "Take them with us",
+                "challengeId": 5
+            }
+        ],
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 4,
+        "title": "Enjoy",
+        "description": "Enjoy your cookies.",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 5,
+        "title": "Clue",
+        "description": "\"To dream I'd find romance\"",
+        "dontShowContinue": true,
+        "expectedMinutes": 2,
+        "priority": 1,
+        "adminExplaination": "This is a quote from Frozen. When Anna is singing, a painting is shown. What is the name of the painting?"
+    },
+    {
+        "challengeId": 6,
+        "title": "Choose",
+        "description": "You have two options. Which do you choose?",
+        "options": [
+            {
+                "text": "One person does something",
+                "challengeId": 7
+            },
+            {
+                "text": "Everyone does something",
+                "challengeId": 8
+            }
+        ],
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 7,
+        "title": "Slide",
+        "description": "One person slides down the slide 6.5 times.",
+        "mustUploadPicture": true,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "nextChallenge": 9,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 8,
+        "title": "Slide",
+        "description": "Everyone slide down the slide at the same time together.",
+        "mustUploadPicture": true,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 6,
+        "title": "Well done!",
+        "description": "Now go here",
         "lat": 33.349520,
         "lon": -96.555883,
-        "expectedMinutes": 2,
-        "priority": 1
+        "expectedMinutes": 3,
+        "priority": 1,
+        "adminExplaination": "This is the Aaron home location"
     },
     {
         "challengeId": 4,
@@ -34,105 +103,6 @@
             },
             {
                 "text": "Take out the trash"
-            },
-            {
-                "text": "Unload the dishwasher"
-            },
-            {
-                "text": "Load the dishwasher"
-            },
-            {
-                "text": "Clean a sink"
-            },
-            {
-                "text": "Sweep the kitchen"
-            },
-            {
-                "text": "Sweep the porch or sidewalk"
-            },
-            {
-                "text": "Clean a window"
-            },
-            {
-                "text": "Vacuum the stairs"
-            },
-            {
-                "text": "Vacuum a room"
-            },
-            {
-                "text": "Wipe out the windowsills"
-            },
-            {
-                "text": "Read a book to a child (if they’re still awake!)"
-            },
-            {
-                "text": "Dust a room"
-            },
-            {
-                "text": "Clean the microwave"
-            },
-            {
-                "text": "Wipe down dishwasher, stove & fridge"
-            },
-            {
-                "text": "Wash a sink full of dishes"
-            },
-            {
-                "text": "Dust the blinds"
-            },
-            {
-                "text": "Clean baseboards in one room"
-            },
-            {
-                "text": "Pull weeds"
-            },
-            {
-                "text": "Walk their dog"
-            },
-            {
-                "text": "Water outdoor plants"
-            },
-            {
-                "text": "Water indoor plants"
-            },
-            {
-                "text": "Take recycling out"
-            },
-            {
-                "text": "Wipe down kitchen counters"
-            },
-            {
-                "text": "Organize a small drawer"
-            },
-            {
-                "text": "Make a bed"
-            },
-            {
-                "text": "Fold a basket of laundry"
-            },
-            {
-                "text": "Pick up sticks in the yard"
-            },
-            {
-                "text": "Rake a small area of leaves"
-            },
-            {
-                "text": "Clean a bathroom counter"
-            },
-            {
-                "text": "Wipe down light switches and door handles"
-            },
-            {
-                "text": "Empty small trash cans"
-            },
-            {
-                "text": "Help carry in groceries"
-            },
-            {
-                "text": "Write a kind note and leave it on the door"
-            },
-            {
-                "text": "Homeowner’s choice"
             }
         ],
         "expectedMinutes": 3,
@@ -141,8 +111,8 @@
     },
     {
         "challengeId": 5,
-        "title": "Go outside Northrups",
-        "description": "Go here",
+        "title": "Go here",
+        "description": "",
         "lat": 33.350054,
         "lon": -96.558496,
         "expectedMinutes": 2,
@@ -158,105 +128,6 @@
             },
             {
                 "text": "Take out the trash"
-            },
-            {
-                "text": "Unload the dishwasher"
-            },
-            {
-                "text": "Load the dishwasher"
-            },
-            {
-                "text": "Clean a sink"
-            },
-            {
-                "text": "Sweep the kitchen"
-            },
-            {
-                "text": "Sweep the porch or sidewalk"
-            },
-            {
-                "text": "Clean a window"
-            },
-            {
-                "text": "Vacuum the stairs"
-            },
-            {
-                "text": "Vacuum a room"
-            },
-            {
-                "text": "Wipe out the windowsills"
-            },
-            {
-                "text": "Read a book to a child (if they’re still awake!)"
-            },
-            {
-                "text": "Dust a room"
-            },
-            {
-                "text": "Clean the microwave"
-            },
-            {
-                "text": "Wipe down dishwasher, stove & fridge"
-            },
-            {
-                "text": "Wash a sink full of dishes"
-            },
-            {
-                "text": "Dust the blinds"
-            },
-            {
-                "text": "Clean baseboards in one room"
-            },
-            {
-                "text": "Pull weeds"
-            },
-            {
-                "text": "Walk their dog"
-            },
-            {
-                "text": "Water outdoor plants"
-            },
-            {
-                "text": "Water indoor plants"
-            },
-            {
-                "text": "Take recycling out"
-            },
-            {
-                "text": "Wipe down kitchen counters"
-            },
-            {
-                "text": "Organize a small drawer"
-            },
-            {
-                "text": "Make a bed"
-            },
-            {
-                "text": "Fold a basket of laundry"
-            },
-            {
-                "text": "Pick up sticks in the yard"
-            },
-            {
-                "text": "Rake a small area of leaves"
-            },
-            {
-                "text": "Clean a bathroom counter"
-            },
-            {
-                "text": "Wipe down light switches and door handles"
-            },
-            {
-                "text": "Empty small trash cans"
-            },
-            {
-                "text": "Help carry in groceries"
-            },
-            {
-                "text": "Write a kind note and leave it on the door"
-            },
-            {
-                "text": "Homeowner’s choice"
             }
         ],
         "expectedMinutes": 3,
@@ -265,8 +136,8 @@
     },
     {
         "challengeId": 7,
-        "title": "Go outside Clarks",
-        "description": "Go here",
+        "title": "Go here",
+        "description": "",
         "lat": 33.349406,
         "lon": -96.559720,
         "expectedMinutes": 2,
@@ -282,105 +153,6 @@
             },
             {
                 "text": "Take out the trash"
-            },
-            {
-                "text": "Unload the dishwasher"
-            },
-            {
-                "text": "Load the dishwasher"
-            },
-            {
-                "text": "Clean a sink"
-            },
-            {
-                "text": "Sweep the kitchen"
-            },
-            {
-                "text": "Sweep the porch or sidewalk"
-            },
-            {
-                "text": "Clean a window"
-            },
-            {
-                "text": "Vacuum the stairs"
-            },
-            {
-                "text": "Vacuum a room"
-            },
-            {
-                "text": "Wipe out the windowsills"
-            },
-            {
-                "text": "Read a book to a child (if they’re still awake!)"
-            },
-            {
-                "text": "Dust a room"
-            },
-            {
-                "text": "Clean the microwave"
-            },
-            {
-                "text": "Wipe down dishwasher, stove & fridge"
-            },
-            {
-                "text": "Wash a sink full of dishes"
-            },
-            {
-                "text": "Dust the blinds"
-            },
-            {
-                "text": "Clean baseboards in one room"
-            },
-            {
-                "text": "Pull weeds"
-            },
-            {
-                "text": "Walk their dog"
-            },
-            {
-                "text": "Water outdoor plants"
-            },
-            {
-                "text": "Water indoor plants"
-            },
-            {
-                "text": "Take recycling out"
-            },
-            {
-                "text": "Wipe down kitchen counters"
-            },
-            {
-                "text": "Organize a small drawer"
-            },
-            {
-                "text": "Make a bed"
-            },
-            {
-                "text": "Fold a basket of laundry"
-            },
-            {
-                "text": "Pick up sticks in the yard"
-            },
-            {
-                "text": "Rake a small area of leaves"
-            },
-            {
-                "text": "Clean a bathroom counter"
-            },
-            {
-                "text": "Wipe down light switches and door handles"
-            },
-            {
-                "text": "Empty small trash cans"
-            },
-            {
-                "text": "Help carry in groceries"
-            },
-            {
-                "text": "Write a kind note and leave it on the door"
-            },
-            {
-                "text": "Homeowner’s choice"
             }
         ],
         "expectedMinutes": 3,
