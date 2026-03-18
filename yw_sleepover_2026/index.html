@@ -72,13 +72,14 @@
             background: #c33;
             color: white;
         }
+
         #version {
-    position: fixed;
-    bottom: 8px;
-    right: 10px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-}
+            position: fixed;
+            bottom: 8px;
+            right: 10px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
     </style>
 </head>
 
@@ -461,39 +462,41 @@
             const urlParams = new URLSearchParams(window.location.search);
             const stepParam = urlParams.get('step');
             const titleParam = urlParams.get('title');
-            
+
             if (stepParam) {
                 const stepId = parseInt(stepParam);
                 if (!isNaN(stepId) && stepId > 0) {
-                    // If challenges are loaded, validate the title matches
-                    if (challenges.length > 0) {
-                        const challenge = challenges.find(c => c.challengeId === stepId);
-                        if (challenge) {
-                            // Validate title if provided
-                            if (titleParam) {
-                                const decodedTitle = decodeURIComponent(titleParam);
-                                if (challenge.title !== decodedTitle) {
-                                    console.warn('Title mismatch - expected:', challenge.title, 'got:', decodedTitle);
-                                    return; // Don't proceed if title doesn't match
+                    if (stepId > currentChallengeId) {
+                        // If challenges are loaded, validate the title matches
+                        if (challenges.length > 0) {
+                            const challenge = challenges.find(c => c.challengeId === stepId);
+                            if (challenge) {
+                                // Validate title if provided
+                                if (titleParam) {
+                                    const decodedTitle = decodeURIComponent(titleParam);
+                                    if (challenge.title !== decodedTitle) {
+                                        console.warn('Title mismatch - expected:', challenge.title, 'got:', decodedTitle);
+                                        return; // Don't proceed if title doesn't match
+                                    }
                                 }
+
+                                // Override the current challenge ID from query parameter
+                                currentChallengeId = stepId;
+                                localStorage.setItem("currentChallengeId", currentChallengeId);
+
+                                // Show the challenge immediately
+                                showChallenge();
                             }
-                            
-                            // Override the current challenge ID from query parameter
+                        } else {
+                            // Challenges not loaded yet, just set the ID and let startApp handle validation
                             currentChallengeId = stepId;
                             localStorage.setItem("currentChallengeId", currentChallengeId);
-                            
-                            // Show the challenge immediately
-                            showChallenge();
                         }
-                    } else {
-                        // Challenges not loaded yet, just set the ID and let startApp handle validation
-                        currentChallengeId = stepId;
-                        localStorage.setItem("currentChallengeId", currentChallengeId);
                     }
                 }
             }
         }
-        
+
         // Check query params on page load
         checkQueryParams();
 
