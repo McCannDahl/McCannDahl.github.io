@@ -345,16 +345,15 @@
                 document.body.style.background = "#111"
                 return
             }
+            let target = { lat: challenge.lat, lon: challenge.lon }
+            let dist = distanceMeters(userPosition, target)
+
             if (dist <= ARRIVAL_DISTANCE) {
                 arrow.style.display = "none"
             } else {
                 arrow.style.display = "block"
             }
             if (distDisplay) distDisplay.style.display = "block"
-
-            let target = { lat: challenge.lat, lon: challenge.lon }
-            let dist = distanceMeters(userPosition, target)
-
             if (distDisplay) {
                 distDisplay.innerText = `You're ${Math.round(dist)}m away`
             }
