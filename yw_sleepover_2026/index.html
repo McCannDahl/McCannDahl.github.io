@@ -73,6 +73,13 @@
             color: white;
         }
 
+        #video, #canvas {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
         #version {
             position: fixed;
             bottom: 8px;
@@ -198,10 +205,10 @@
 
             if (challenge.mustUploadPicture) {
                 challengeBox.innerHTML += `
-        <video id="video" width="640" height="480" autoplay></video>
-        <button id="snap">Take Photo</button>
-        <canvas id="canvas" width="640" height="480" style="display:none"></canvas>
+        <video id="video" autoplay></video>
+        <canvas id="canvas" style="display:none"></canvas>
         <br><br>
+        <button id="snap">Take Photo</button>
         <button id="uploadBtn" disabled onclick="handlePhotoUpload()">Submit Photo</button>
     `
                 // Initialize camera after DOM elements are created
@@ -534,15 +541,29 @@
             
             // Trigger photo take
             snapButton.addEventListener("click", function() {
-                context.drawImage(video, 0, 0, 640, 480);
-                markPhotoTaken();
+                if (photoTaken) {
+                    retakePhoto();
+                } else {
+                    // Set canvas dimensions to match video
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    
+                    // Draw the current video frame to canvas
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    
+                    // Hide video and show canvas (frozen image)
+                    video.style.display = 'none';
+                    canvas.style.display = 'block';
+                    
+                    markPhotoTaken();
+                }
             });
         }
         
         function markPhotoTaken() {
             photoTaken = true
             const snapBtn = document.getElementById("snap")
-            if (snapBtn) snapBtn.innerText = " Retake Photo"
+            if (snapBtn) snapBtn.innerText = "Retake Photo"
             const btn = document.getElementById("uploadBtn")
             if (btn) {
                 let challenge = getChallenge(currentChallengeId)
@@ -552,6 +573,21 @@
                     btn.disabled = false
                 }
             }
+        }
+        
+        function retakePhoto() {
+            photoTaken = false
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const snapBtn = document.getElementById("snap");
+            const uploadBtn = document.getElementById("uploadBtn");
+            
+            if (video && canvas) {
+                video.style.display = 'block';
+                canvas.style.display = 'none';
+            }
+            if (snapBtn) snapBtn.innerText = "Take Photo";
+            if (uploadBtn) uploadBtn.disabled = true;
         }
 
         // Reset photoTaken flag when moving to a new challenge
