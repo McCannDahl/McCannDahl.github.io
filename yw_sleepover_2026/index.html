@@ -192,7 +192,7 @@
             if (challenge.hasOwnProperty('answer')) {
                 challengeBox.innerHTML += `
       <input id="answerBox" placeholder="Type answer here">
-      <button onclick="submitAnswer(${JSON.stringify(challenge.answer)})">Submit</button>
+      <button onclick='submitAnswer(${JSON.stringify(challenge.answer)})'>Submit</button>
     `
             }
 
