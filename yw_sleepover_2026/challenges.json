@@ -249,5 +249,26 @@
         "answer": "Ariel",
         "expectedMinutes": 2,
         "priority": 8
+    },
+    {
+        "challengeId": 27,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.349406,
+        "lon": -96.559720,
+        "expectedMinutes": 17,
+        "priority": 1,
+        "adminExplaination": "This is the Clark's house"
+    },
+    {
+        "challengeId": 28,
+        "title": "Watch & Answer",
+        "description": "How many Os are in the snake? (hint: watch more than the first 10s)",
+        "link": "https://www.youtube.com/watch?v=22OWX1NUprU",
+        "answer": "9",
+        "expectedMinutes": 5,
+        "priority": 8
     }
+
+
 ]

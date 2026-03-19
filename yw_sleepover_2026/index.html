@@ -174,10 +174,11 @@
         function maybeSkip(challenge) {
             let remain = remainingMinutes()
             let required = estimateRemainingTime(challenge.challengeId)
-            if (remain < required && challenge.priority > 1) {
-                if (challenge.nextChallenge)
-                    return getChallenge(challenge.nextChallenge)
-            }
+            // Lets not skip anything right now
+            // if (remain < required && challenge.priority > 1) {
+            //     if (challenge.nextChallenge)
+            //         return getChallenge(challenge.nextChallenge)
+            // }
             return challenge
         }
         function handlePhotoUpload() {
@@ -204,6 +205,13 @@
     <h2>${challenge.title}</h2>
     <p>${challenge.description}</p>
   `
+
+            // Show link if present
+            if (challenge.link) {
+                challengeBox.innerHTML += `
+        <br><a href="${challenge.link}" target="_blank" style="color: #4CAF50; text-decoration: underline; font-size: 16px; margin: 10px 0; display: inline-block;">Open Link</a>
+    `
+            }
 
             // Show/Hide radar arrow depending on challenge GPS
             if (challenge.lat && challenge.lon) {
