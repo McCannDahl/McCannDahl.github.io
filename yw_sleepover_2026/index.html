@@ -521,7 +521,8 @@
             
             // Get access to the camera
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true })
+                const constraints = { video: { facingMode: "user" } };
+                navigator.mediaDevices.getUserMedia(constraints)
                     .then(function(stream) {
                         video.srcObject = stream;
                         video.play();

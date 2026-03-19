@@ -119,6 +119,14 @@
     },
     {
         "challengeId": 13,
+        "title": "Cookie",
+        "description": "Give them a few cookies if you have some",
+        "expectedMinutes": 2,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 14,
         "title": "Well done!",
         "description": "Now go here",
         "lat": 33.349273,
@@ -128,7 +136,7 @@
         "adminExplaination": "This is the Aaron home's culdasac"
     },
     {
-        "challengeId": 14,
+        "challengeId": 15,
         "title": "Dig",
         "description": "Your next clue is buried",
         "dontShowContinue": true,
@@ -137,7 +145,7 @@
         "adminExplaination": "They should dig and find a bag with paper and a QR code"
     },
     {
-        "challengeId": 15,
+        "challengeId": 16,
         "title": "Baptism notes",
         "description": "Write a note to someone who just got baptized. What would the savior say to someone that just got baptized?",
         "confirmationText": "Everyone wrote a note.",
@@ -146,7 +154,7 @@
         "adminExplaination": ""
     },
     {
-        "challengeId": 16,
+        "challengeId": 17,
         "title": "Answer",
         "description": "Which princess would have done best following the star to Bethlehem?",
         "answer": "Moana",
@@ -155,7 +163,7 @@
         "priority": 8
     },
     {
-        "challengeId": 17,
+        "challengeId": 18,
         "title": "Now go here",
         "description": "",
         "lat": 33.350054,
@@ -165,23 +173,22 @@
         "adminExplaination": "This is the Northrup home location"
     },
     {
-        "challengeId": 18,
-        "title": "Answer",
+        "challengeId": 19,
+        "title": "Answer using FSY",
         "description": "How can I know if I’m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
         "answer": "time, practice, and patience",
         "expectedMinutes": 4,
         "priority": 8
     },
     {
-        "challengeId": 19,
-        "title": "Service",
-        "description": "Do at least 2 of these things for the people that live here: \nDeliver your cards to Rosie \nFold a basket of laundry \nWater plants \nRead a book to a child \nHomeowner’s choice",
-        "expectedMinutes": 15,
-        "priority": 1,
-        "mustUploadPicture": true
+        "challengeId": 20,
+        "title": "Dropoff",
+        "description": "Drop off your notes in their mailbox. Also drop off some cookies if you have some.",
+        "expectedMinutes": 2,
+        "priority": 1
     },
     {
-        "challengeId": 20,
+        "challengeId": 21,
         "title": "Now go here",
         "description": "",
         "lat": 33.350477,
@@ -191,24 +198,24 @@
         "adminExplaination": "This is the Northrup culdesac"
     },
     {
-        "challengeId": 21,
+        "challengeId": 22,
         "title": "Choose",
         "description": "You have two options. Which do you choose?",
         "options": [
             {
                 "text": "One person does something (it cannot be the same individual as the previous challenge if you chose that)",
-                "challengeId": 22
+                "challengeId": 23
             },
             {
                 "text": "Everyone does something",
-                "challengeId": 24
+                "challengeId": 25
             }
         ],
         "expectedMinutes": 1,
         "priority": 1
     },
     {
-        "challengeId": 22,
+        "challengeId": 23,
         "title": "Answer",
         "description": "Who will it be? (it cannot be the same individual as the previous challenge if you chose that)",
         "answer": null,
@@ -216,17 +223,17 @@
         "priority": 1
     },
     {
-        "challengeId": 23,
+        "challengeId": 24,
         "title": "Jump",
         "description": "One person must jump over everyoone else.",
         "mustUploadPicture": true,
         "expectedMinutes": 5,
         "priority": 1,
-        "nextChallenge": 25,
+        "nextChallenge": 26,
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     },
     {
-        "challengeId": 24,
+        "challengeId": 25,
         "title": "Pyramid",
         "description": "Form a human pyramid.",
         "mustUploadPicture": true,
