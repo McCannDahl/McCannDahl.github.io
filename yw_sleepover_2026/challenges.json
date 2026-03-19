@@ -178,14 +178,16 @@
         "description": "How can I know if I’m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
         "answer": "time, practice, and patience",
         "expectedMinutes": 4,
-        "priority": 8
+        "priority": 8,
+        "adminExplaination": "p19 of the strength of youth"
     },
     {
         "challengeId": 20,
         "title": "Dropoff",
         "description": "Drop off your notes in their mailbox. Also drop off some cookies if you have some.",
         "expectedMinutes": 2,
-        "priority": 1
+        "priority": 1,
+        "mustUploadPicture": true
     },
     {
         "challengeId": 21,
@@ -239,7 +241,7 @@
         "mustUploadPicture": true,
         "expectedMinutes": 5,
         "priority": 1,
-        "nextChallenge": 9,
+        "nextChallenge": 26,
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     },
     {
@@ -284,7 +286,136 @@
         "expectedMinutes": 2,
         "priority": 1,
         "mustUploadPicture": true
-    }
+    },
+    {
+        "challengeId": 31,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.348896,
+        "lon": -96.559648,
+        "expectedMinutes": 5,
+        "priority": 1
+    },
+    {
+        "challengeId": 32,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.348704,
+        "lon": -96.558113,
+        "expectedMinutes": 5,
+        "priority": 1
+    },
+    {
+        "challengeId": 33,
+        "title": "Answer",
+        "description": "Choose the smallest person in the group",
+        "answer": null,
+        "expectedMinutes": 2,
+        "priority": 1
+    },
+    {
+        "challengeId": 34,
+        "title": "Pickup",
+        "description": "You must carry them to the next waypoint",
+        "expectedMinutes": 2,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 35,
+        "title": "Carry her here",
+        "description": "",
+        "lat": 33.346300,
+        "lon": -96.558395,
+        "expectedMinutes": 5,
+        "priority": 1
+    },
+    {
+        "challengeId": 36,
+        "title": "Answer",
+        "description": "Which princess would understand Samson best?",
+        "answer": "Rapunzel",
+        "expectedMinutes": 2,
+        "priority": 8
+    },
+    {
+        "challengeId": 37,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.346137,
+        "lon": -96.557328,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "adminExplaination": "This is the Smith's house"
+    },
+    {
+        "challengeId": 38,
+        "title": "Who said this to royalty?",
+        "description": "there has not been such great faith among all the people",
+        "answer": "Ammon",
+        "expectedMinutes": 2,
+        "priority": 8
+    },
+    {
+        "challengeId": 39,
+        "title": "Service",
+        "description": "Do at least 3 of these things for the people that live here: \nPull weeds, \nClean baseboards in one room, \nTake out the trash, \nVacuum a room, \nor Homeowner’s choice",
+        "expectedMinutes": 15,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 40,
+        "title": "Cookie",
+        "description": "Give them a few cookies if you have some",
+        "expectedMinutes": 2,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 41,
+        "title": "Answer",
+        "description": "Which princess could have also survived Daniel's lions’ den?",
+        "answer": "Jasmine",
+        "expectedMinutes": 2,
+        "priority": 8
+    },
+    {
+        "challengeId": 42,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.346137,
+        "lon": -96.557328,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "adminExplaination": "This is the Smith's house"
+    },
+    {
+        "challengeId": 43,
+        "title": "Service",
+        "description": "Walk their dog",
+        "expectedMinutes": 15,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 44,
+        "title": "Cookie",
+        "description": "Give the owners a few cookies if still you have some",
+        "expectedMinutes": 2,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 45,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.348348,
+        "lon": -96.555787,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "adminExplaination": "This is the Smith's house"
+    },
 
 
 ]
