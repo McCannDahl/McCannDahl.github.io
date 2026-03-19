@@ -112,7 +112,7 @@
     {
         "challengeId": 12,
         "title": "Service",
-        "description": "Do at least 2 of these things for the people that live here: \nSweep the floors \nMop the floors \nClean windows \nTake out the trash \nHomeowner’s choice",
+        "description": "Do at least 2 of these things for the people that live here: \nSweep the floors, \nMop the floors, \nClean windows, \nTake out the trash, \nor Homeowner’s choice",
         "expectedMinutes": 15,
         "priority": 1,
         "mustUploadPicture": true
@@ -241,5 +241,13 @@
         "priority": 1,
         "nextChallenge": 9,
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 26,
+        "title": "Answer",
+        "description": "Which princess loves the story of Jonah?",
+        "answer": "Ariel",
+        "expectedMinutes": 2,
+        "priority": 8
     }
 ]

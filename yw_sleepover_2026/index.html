@@ -87,6 +87,19 @@
             font-size: 12px;
             color: rgba(255, 255, 255, 0.5);
         }
+
+        #challengeNumber {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
     </style>
 </head>
 
@@ -94,6 +107,7 @@
 
     <div id="timer"></div>
     <div id="version"></div>
+    <div id="challengeNumber"></div>
 
     <div id="compass">
         <div id="compassArrow">↑</div>
@@ -132,6 +146,7 @@
         const restartBtn = document.getElementById("restartBtn")
         const challengeBox = document.getElementById("challengeBox")
         const timerEl = document.getElementById("timer")
+        const challengeNumberEl = document.getElementById("challengeNumber")
 
         // ---------------- CHALLENGE LOGIC ----------------
         function getChallenge(id) {
@@ -181,6 +196,9 @@
 
             currentChallengeId = challenge.challengeId
             localStorage.setItem("currentChallengeId", currentChallengeId)
+
+            // Update challenge number display
+            challengeNumberEl.innerText = `Challenge ${currentChallengeId}`
 
             challengeBox.innerHTML = `
     <h2>${challenge.title}</h2>
@@ -463,6 +481,7 @@
             document.body.style.background = "#111"
             challengeBox.innerHTML = ""
             timerEl.innerText = ""
+            challengeNumberEl.innerText = ""
             
             // Clear URL parameters to prevent jumping to challenge on refresh
             window.history.replaceState({}, document.title, window.location.pathname)
