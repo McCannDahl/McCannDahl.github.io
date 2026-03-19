@@ -112,7 +112,7 @@
     {
         "challengeId": 12,
         "title": "Service",
-        "description": "Do at least 2 of these things for the people that live here: \nSweep the floors, \nMop the floors, \nClean windows, \nTake out the trash, \nor Homeowner’s choice",
+        "description": "Do at least 3 of these things for the people that live here: \nSweep the floors, \nMop the floors, \nClean windows, \nTake out the trash, \nor Homeowner’s choice",
         "expectedMinutes": 15,
         "priority": 1,
         "mustUploadPicture": true
@@ -268,6 +268,22 @@
         "answer": "9",
         "expectedMinutes": 5,
         "priority": 8
+    },
+    {
+        "challengeId": 29,
+        "title": "Service",
+        "description": "Do at least 3 of these things for the people that live here: \nRead a child a book, \nSweep the floors, \nClean a mirror, \nVacuum a room, \nor Homeowner’s choice",
+        "expectedMinutes": 15,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 30,
+        "title": "Cookie",
+        "description": "Give them a few cookies if you have some",
+        "expectedMinutes": 2,
+        "priority": 1,
+        "mustUploadPicture": true
     }
 
 
