@@ -122,8 +122,7 @@
         "title": "Cookie",
         "description": "Give them a few cookies if you have some",
         "expectedMinutes": 2,
-        "priority": 1,
-        "mustUploadPicture": true
+        "priority": 1
     },
     {
         "challengeId": 14,
@@ -284,8 +283,7 @@
         "title": "Cookie",
         "description": "Give them a few cookies if you have some",
         "expectedMinutes": 2,
-        "priority": 1,
-        "mustUploadPicture": true
+        "priority": 1
     },
     {
         "challengeId": 31,
@@ -369,8 +367,7 @@
         "title": "Cookie",
         "description": "Give them a few cookies if you have some",
         "expectedMinutes": 2,
-        "priority": 1,
-        "mustUploadPicture": true
+        "priority": 1
     },
     {
         "challengeId": 41,

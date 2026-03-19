@@ -222,6 +222,13 @@
 
             restartBtn.style.display = "inline-block"
 
+            // Add back button if not on first challenge
+            if (currentChallengeId > 1) {
+                challengeBox.innerHTML += `
+        <button onclick="goToPrevious()" style="background: #666; color: white;">← Back</button>
+    `
+            }
+
             if (challenge.hasOwnProperty('answer')) {
                 challengeBox.innerHTML += `
       <input id="answerBox" placeholder="Type answer here">
@@ -620,6 +627,13 @@
         function goTo(id) {
             photoTaken = false
             goToBase(id)
+        }
+
+        // Go to previous challenge
+        function goToPrevious() {
+            if (currentChallengeId > 1) {
+                goTo(currentChallengeId - 1)
+            }
         }
     </script>
 </body>
