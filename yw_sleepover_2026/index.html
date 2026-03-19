@@ -198,11 +198,14 @@
 
             if (challenge.mustUploadPicture) {
                 challengeBox.innerHTML += `
-        <input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none">
-        <button id="openCameraBtn" onclick="openCamera()">📷 Open Camera</button>
+        <video id="video" width="640" height="480" autoplay></video>
+        <button id="snap">Take Photo</button>
+        <canvas id="canvas" width="640" height="480" style="display:none"></canvas>
         <br><br>
         <button id="uploadBtn" disabled onclick="handlePhotoUpload()">Submit Photo</button>
     `
+                // Initialize camera after DOM elements are created
+                setTimeout(() => initializeCamera(), 100)
             }
 
             if (challenge.options) {
@@ -241,7 +244,7 @@
         function completeChallenge() {
             let challenge = getChallenge(currentChallengeId)
 
-            // 📸 Enforce photo upload
+            // Enforce photo upload
             if (challenge.mustUploadPicture) {
                 if (!photoTaken) {
                     alert("You must take a photo to continue.")
@@ -249,7 +252,7 @@
                 }
             }
 
-            // 🚨 Enforce GPS proximity if required
+            // Enforce GPS proximity if required
             if (challenge.lat && challenge.lon) {
                 if (!userPosition) {
                     alert("Waiting for GPS signal...")
@@ -265,13 +268,13 @@
                 }
             }
 
-            // ✅ proceed normally
+            // proceed normally
             let nextId = challenge.nextChallenge ?? (challenge.challengeId + 1)
             let nextChallenge = getChallenge(nextId)
             if (nextChallenge)
                 goTo(nextId)
             else
-                challengeBox.innerHTML = "<h2>🎉 You did it!</h2>"
+                challengeBox.innerHTML = "<h2> You did it!</h2>"
         }
         const goToBase = (id) => {
             currentChallengeId = id
@@ -503,37 +506,38 @@
         // Check query params on page load
         checkQueryParams();
 
-        let cameraOpened = false
-
-        function openCamera() {
-            const input = document.getElementById("photoInput")
-            if (!input) return
-            cameraOpened = true
-            // When window regains focus after camera is closed, treat it as photo taken
-            window.addEventListener("focus", onCameraReturn, { once: true })
-            input.click()
-        }
-
-        function onCameraReturn() {
-            if (!cameraOpened) return
-            cameraOpened = false
-            markPhotoTaken()
-        }
-
-        document.addEventListener("change", (e) => {
-            if (e.target.id === "photoInput") {
-                // Clear the input immediately so the browser can free the image from memory
-                e.target.value = ""
-                cameraOpened = false
-                window.removeEventListener("focus", onCameraReturn)
-                markPhotoTaken()
+        // Initialize camera when page loads
+        function initializeCamera() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            const snapButton = document.getElementById('snap');
+            
+            if (!video || !canvas || !snapButton) return;
+            
+            // Get access to the camera
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function(stream) {
+                        video.srcObject = stream;
+                        video.play();
+                    })
+                    .catch(function(error) {
+                        console.error("Error accessing the camera: ", error);
+                    });
             }
-        })
-
+            
+            // Trigger photo take
+            snapButton.addEventListener("click", function() {
+                context.drawImage(video, 0, 0, 640, 480);
+                markPhotoTaken();
+            });
+        }
+        
         function markPhotoTaken() {
             photoTaken = true
-            const openBtn = document.getElementById("openCameraBtn")
-            if (openBtn) openBtn.innerText = "📷 Retake Photo"
+            const snapBtn = document.getElementById("snap")
+            if (snapBtn) snapBtn.innerText = " Retake Photo"
             const btn = document.getElementById("uploadBtn")
             if (btn) {
                 let challenge = getChallenge(currentChallengeId)
