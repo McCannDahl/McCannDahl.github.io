@@ -189,10 +189,10 @@
 
             restartBtn.style.display = "inline-block"
 
-            if (challenge.answer) {
+            if (challenge.hasOwnProperty('answer')) {
                 challengeBox.innerHTML += `
       <input id="answerBox" placeholder="Type answer here">
-      <button onclick="submitAnswer('${challenge.answer}')">Submit</button>
+      <button onclick="submitAnswer(${JSON.stringify(challenge.answer)})">Submit</button>
     `
             }
 
@@ -212,7 +212,7 @@
                     btn.onclick = () => goTo(o.challengeId ?? currentChallengeId + 1)
                     challengeBox.appendChild(btn)
                 })
-            } else if (!challenge.answer && !challenge.mustUploadPicture) {
+            } else if (!challenge.hasOwnProperty('answer') && !challenge.mustUploadPicture) {
                 if (!challenge.dontShowContinue) {
                     let btn = document.createElement("button")
                     btn.innerText = challenge.confirmationText || "Continue"
@@ -450,6 +450,9 @@
             document.body.style.background = "#111"
             challengeBox.innerHTML = ""
             timerEl.innerText = ""
+            
+            // Clear URL parameters to prevent jumping to challenge on refresh
+            window.history.replaceState({}, document.title, window.location.pathname)
         }
 
         startBtn.onclick = startApp
