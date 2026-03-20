@@ -8,47 +8,54 @@
     },
     {
         "challengeId": 2,
-        "title": "Requirements",
-        "description": "For your quest you need cookies. Find the cookies.",
-        "confirmationText": "We have a plate of cookies.",
-        "expectedMinutes": 2,
+        "title": "But quickly!!!!",
+        "description": "Time is of the essence! You must complete these challenges within 90mins. If you get stuck, you can refresh this page and/or ask your leaders for help.",
+        "expectedMinutes": 1,
         "priority": 1
     },
     {
         "challengeId": 3,
+        "title": "Requirements",
+        "description": "For your quest you need cookies. Find the cookies.",
+        "confirmationText": "We have a plate of cookies.",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 4,
         "title": "Choose",
         "description": "You have two options. Which do you choose?",
         "options": [
             {
                 "text": "Eat the cookies now",
-                "challengeId": 4
+                "challengeId": 5
             },
             {
                 "text": "Take them with us",
-                "challengeId": 5
+                "challengeId": 6
             }
         ],
         "expectedMinutes": 1,
         "priority": 1
     },
     {
-        "challengeId": 4,
+        "challengeId": 5,
         "title": "Enjoy",
         "description": "Enjoy your cookies.",
-        "expectedMinutes": 1,
+        "expectedMinutes": 2,
         "priority": 1
     },
     {
-        "challengeId": 5,
+        "challengeId": 6,
         "title": "Clue",
         "description": "\"To dream I'd find romance\"",
         "dontShowContinue": true,
-        "expectedMinutes": 2,
+        "expectedMinutes": 4,
         "priority": 1,
         "adminExplaination": "This is a quote from Frozen. When Anna is singing, a painting is shown. What is the name of the painting?"
     },
     {
-        "challengeId": 6,
+        "challengeId": 7,
         "title": "Choose",
         "description": "You have two options. Which do you choose?",
         "options": [
@@ -65,384 +72,395 @@
         "priority": 1
     },
     {
-        "challengeId": 7,
+        "challengeId": 8,
         "title": "Answer",
         "description": "Who will it be?",
         "answer": null,
-        "expectedMinutes": 2,
+        "expectedMinutes": 1,
         "priority": 1
     },
     {
-        "challengeId": 8,
+        "challengeId": 9,
         "title": "Slide",
         "description": "The chosen person slides down the slide 6.5 times.",
         "mustUploadPicture": true,
-        "expectedMinutes": 5,
+        "expectedMinutes": 3,
         "priority": 1,
         "nextChallenge": 10,
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     },
     {
-        "challengeId": 9,
+        "challengeId": 10,
         "title": "Slide",
         "description": "Everyone slide down the slide at the same time together.",
         "mustUploadPicture": true,
-        "expectedMinutes": 5,
+        "expectedMinutes": 3,
         "priority": 1,
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     },
     {
-        "challengeId": 10,
+        "challengeId": 11,
         "title": "Well done!",
         "description": "Now go here",
-        "lat": 33.349520,
+        "lat": 33.34952,
         "lon": -96.555883,
-        "expectedMinutes": 3,
+        "expectedMinutes": 2,
         "priority": 1,
         "adminExplaination": "This is the Aaron home location"
     },
     {
-        "challengeId": 11,
+        "challengeId": 12,
         "title": "Answer",
         "description": "when ye are in the service of your fellow beings ye are only in the service of your",
         "answer": "god",
-        "expectedMinutes": 2,
-        "priority": 8
+        "expectedMinutes": 1,
+        "priority": 1
     },
     {
-        "challengeId": 12,
+        "challengeId": 13,
         "title": "Service",
-        "description": "Do at least 3 of these things for the people that live here: \nSweep the floors, \nMop the floors, \nClean windows, \nTake out the trash, \nor Homeowner’s choice",
-        "expectedMinutes": 15,
+        "description": "Do at least 3 of these things for the people that live here: \nSweep the floors, \nMop the floors, \nClean windows, \nTake out the trash, \nor Homeowner\u00e2\u20ac\u2122s choice",
+        "expectedMinutes": 8,
         "priority": 1,
         "mustUploadPicture": true
     },
     {
-        "challengeId": 13,
+        "challengeId": 14,
         "title": "Cookie",
         "description": "Give them a few cookies if you have some",
-        "expectedMinutes": 2,
+        "expectedMinutes": 1,
         "priority": 1
     },
     {
-        "challengeId": 14,
+        "challengeId": 15,
         "title": "Well done!",
         "description": "Now go here",
-        "lat": 33.349273,
-        "lon": -96.556238,
+        "lat": 33.349275,
+        "lon": -96.556309,
         "expectedMinutes": 1,
         "priority": 1,
         "adminExplaination": "This is the Aaron home's culdasac"
     },
     {
-        "challengeId": 15,
+        "challengeId": 16,
         "title": "Dig",
         "description": "Your next clue is buried",
         "dontShowContinue": true,
-        "expectedMinutes": 3,
+        "expectedMinutes": 2,
         "priority": 1,
         "adminExplaination": "They should dig and find a bag with paper and a QR code"
     },
     {
-        "challengeId": 16,
+        "challengeId": 17,
         "title": "Baptism notes",
         "description": "Write a note to someone who just got baptized. What would the savior say to someone that just got baptized?",
         "confirmationText": "Everyone wrote a note.",
-        "expectedMinutes": 6,
+        "expectedMinutes": 3,
         "priority": 1,
         "adminExplaination": ""
     },
     {
-        "challengeId": 17,
+        "challengeId": 18,
         "title": "Answer",
         "description": "Which princess would have done best following the star to Bethlehem?",
         "answer": "Moana",
         "imageToShowAfterAnswer": "https://pbs.twimg.com/media/DrkWYOYWsAA-Yr8.jpg",
-        "expectedMinutes": 2,
+        "expectedMinutes": 1,
         "priority": 8
     },
     {
-        "challengeId": 18,
+        "challengeId": 19,
         "title": "Now go here",
         "description": "",
-        "lat": 33.350054,
-        "lon": -96.558496,
-        "expectedMinutes": 9,
-        "priority": 1,
-        "adminExplaination": "This is the Northrup home location"
-    },
-    {
-        "challengeId": 19,
-        "title": "Answer using FSY",
-        "description": "How can I know if I’m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
-        "answer": "time, practice, and patience",
-        "expectedMinutes": 4,
-        "priority": 8,
-        "adminExplaination": "p19 of the strength of youth"
+        "lat": 33.348644,
+        "lon": -96.556285,
+        "expectedMinutes": 2,
+        "priority": 1
     },
     {
         "challengeId": 20,
-        "title": "Dropoff",
-        "description": "Drop off your notes in their mailbox. Also drop off some cookies if you have some.",
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.348985,
+        "lon": -96.558604,
         "expectedMinutes": 2,
-        "priority": 1,
-        "mustUploadPicture": true
+        "priority": 1
     },
     {
         "challengeId": 21,
         "title": "Now go here",
         "description": "",
-        "lat": 33.350477,
-        "lon": -96.558396,
-        "expectedMinutes": 4,
+        "lat": 33.350054,
+        "lon": -96.558496,
+        "expectedMinutes": 2,
         "priority": 1,
-        "adminExplaination": "This is the Northrup culdesac"
+        "adminExplaination": "This is the Northrup home location"
     },
     {
         "challengeId": 22,
+        "title": "Answer using FSY",
+        "description": "How can I know if I\u00e2\u20ac\u2122m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
+        "answer": "time, practice, and patience",
+        "expectedMinutes": 3,
+        "priority": 8,
+        "adminExplaination": "p19 of the strength of youth"
+    },
+    {
+        "challengeId": 23,
+        "title": "Dropoff",
+        "description": "Drop off your notes in their mailbox. Also drop off some cookies if you have some.",
+        "expectedMinutes": 1,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 24,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.348995,
+        "lon": -96.55877,
+        "expectedMinutes": 2,
+        "priority": 1
+    },
+    {
+        "challengeId": 25,
         "title": "Choose",
         "description": "You have two options. Which do you choose?",
         "options": [
             {
                 "text": "One person does something (it cannot be the same individual as the previous challenge if you chose that)",
-                "challengeId": 23
+                "challengeId": 26
             },
             {
                 "text": "Everyone does something",
-                "challengeId": 25
+                "challengeId": 28
             }
         ],
         "expectedMinutes": 1,
         "priority": 1
     },
     {
-        "challengeId": 23,
+        "challengeId": 26,
         "title": "Answer",
         "description": "Who will it be? (it cannot be the same individual as the previous challenge if you chose that)",
         "answer": null,
-        "expectedMinutes": 2,
+        "expectedMinutes": 1,
         "priority": 1
     },
     {
-        "challengeId": 24,
+        "challengeId": 27,
         "title": "Jump",
         "description": "One person must jump over everyoone else.",
         "mustUploadPicture": true,
-        "expectedMinutes": 5,
+        "expectedMinutes": 3,
         "priority": 1,
-        "nextChallenge": 26,
+        "nextChallenge": 29,
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     },
     {
-        "challengeId": 25,
+        "challengeId": 28,
         "title": "Pyramid",
         "description": "Form a human pyramid.",
         "mustUploadPicture": true,
-        "expectedMinutes": 5,
+        "expectedMinutes": 3,
         "priority": 1,
-        "nextChallenge": 26,
         "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
     },
     {
-        "challengeId": 26,
+        "challengeId": 29,
         "title": "Answer",
         "description": "Which princess loves the story of Jonah?",
         "answer": "Ariel",
-        "expectedMinutes": 2,
+        "expectedMinutes": 1,
         "priority": 8
     },
     {
-        "challengeId": 27,
+        "challengeId": 30,
         "title": "Now go here",
         "description": "",
         "lat": 33.349406,
-        "lon": -96.559720,
-        "expectedMinutes": 17,
+        "lon": -96.55972,
+        "expectedMinutes": 9,
         "priority": 1,
         "adminExplaination": "This is the Clark's house"
     },
     {
-        "challengeId": 28,
+        "challengeId": 31,
         "title": "Watch & Answer",
         "description": "How many Os are in the snake? (hint: watch more than the first 10s)",
         "link": "https://www.youtube.com/watch?v=22OWX1NUprU",
         "answer": "9",
-        "expectedMinutes": 5,
+        "expectedMinutes": 3,
         "priority": 8
     },
     {
-        "challengeId": 29,
+        "challengeId": 32,
         "title": "Service",
         "description": "Wash a car",
-        "expectedMinutes": 15,
+        "expectedMinutes": 8,
         "priority": 1,
         "mustUploadPicture": true
     },
     {
-        "challengeId": 30,
+        "challengeId": 33,
         "title": "Cookie",
         "description": "Give them a few cookies if you have some",
-        "expectedMinutes": 2,
-        "priority": 1
-    },
-    {
-        "challengeId": 31,
-        "title": "Now go here",
-        "description": "",
-        "lat": 33.348896,
-        "lon": -96.559648,
-        "expectedMinutes": 5,
-        "priority": 1
-    },
-    {
-        "challengeId": 32,
-        "title": "Now go here",
-        "description": "",
-        "lat": 33.348704,
-        "lon": -96.558113,
-        "expectedMinutes": 5,
-        "priority": 1
-    },
-    {
-        "challengeId": 33,
-        "title": "Answer",
-        "description": "Choose the smallest person in the group",
-        "answer": null,
-        "expectedMinutes": 2,
+        "expectedMinutes": 1,
         "priority": 1
     },
     {
         "challengeId": 34,
-        "title": "Pickup",
-        "description": "You must carry them to the next waypoint",
-        "expectedMinutes": 2,
-        "priority": 1,
-        "mustUploadPicture": true
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.348896,
+        "lon": -96.559648,
+        "expectedMinutes": 3,
+        "priority": 1
     },
     {
         "challengeId": 35,
-        "title": "Carry her here",
+        "title": "Now go here",
         "description": "",
-        "lat": 33.346300,
-        "lon": -96.558395,
-        "expectedMinutes": 5,
+        "lat": 33.348704,
+        "lon": -96.558113,
+        "expectedMinutes": 3,
         "priority": 1
     },
     {
         "challengeId": 36,
         "title": "Answer",
-        "description": "Which princess would understand Samson best?",
-        "answer": "Rapunzel",
-        "expectedMinutes": 2,
-        "priority": 8
+        "description": "Choose the smallest person in the group",
+        "answer": null,
+        "expectedMinutes": 1,
+        "priority": 1
     },
     {
         "challengeId": 37,
-        "title": "Now go here",
-        "description": "",
-        "lat": 33.346137,
-        "lon": -96.557328,
-        "expectedMinutes": 5,
-        "priority": 1,
-        "adminExplaination": "This is the Smith's house"
+        "title": "You must carry them to the next waypoint",
+        "description": "Carry her here",
+        "lat": 33.3463,
+        "lon": -96.558395,
+        "expectedMinutes": 3,
+        "priority": 1
     },
     {
         "challengeId": 38,
-        "title": "Who said this to royalty?",
-        "description": "there has not been such great faith among all the people",
-        "answer": "Ammon",
-        "expectedMinutes": 2,
+        "title": "Answer",
+        "description": "Which princess would understand Samson best?",
+        "answer": "Rapunzel",
+        "expectedMinutes": 1,
         "priority": 8
     },
     {
         "challengeId": 39,
-        "title": "Service",
-        "description": "Do at least 3 of these things for the people that live here: \nSort legos, \nDo a puppet show, \nTake out the trash, \nVacuum a room, \nor Homeowner’s choice",
-        "expectedMinutes": 15,
-        "priority": 1,
-        "mustUploadPicture": true
-    },
-    {
-        "challengeId": 40,
-        "title": "Cookie",
-        "description": "Give them a few cookies if you have some",
-        "expectedMinutes": 2,
-        "priority": 1
-    },
-    {
-        "challengeId": 41,
-        "title": "Answer",
-        "description": "Which princess could have also survived Daniel's lions’ den?",
-        "answer": "Jasmine",
-        "expectedMinutes": 2,
-        "priority": 8
-    },
-    {
-        "challengeId": 42,
         "title": "Now go here",
         "description": "",
         "lat": 33.346137,
         "lon": -96.557328,
-        "expectedMinutes": 5,
+        "expectedMinutes": 3,
+        "priority": 1
+    },
+    {
+        "challengeId": 40,
+        "title": "Who said this to royalty?",
+        "description": "there has not been such great faith among all the people",
+        "answer": "Ammon",
+        "expectedMinutes": 1,
+        "priority": 8
+    },
+    {
+        "challengeId": 41,
+        "title": "Service",
+        "description": "Do at least 3 of these things for the people that live here: \nSort legos, \nDo a puppet show, \nTake out the trash, \nVacuum a room, \nor Homeowner\u00e2\u20ac\u2122s choice",
+        "expectedMinutes": 8,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 42,
+        "title": "Cookie",
+        "description": "Give them a few cookies if you have some",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 43,
+        "title": "Answer",
+        "description": "Which princess could have also survived Daniel's lions\u00e2\u20ac\u2122 den?",
+        "answer": "Jasmine",
+        "expectedMinutes": 1,
+        "priority": 8
+    },
+    {
+        "challengeId": 44,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.347309,
+        "lon": -96.555662,
+        "expectedMinutes": 3,
         "priority": 1,
         "adminExplaination": "This is the Jacobsen's house"
     },
     {
-        "challengeId": 43,
+        "challengeId": 45,
         "title": "Service",
         "description": "Walk their dog or spread some mulch",
-        "expectedMinutes": 15,
+        "expectedMinutes": 8,
         "priority": 1,
         "mustUploadPicture": true
-    },
-    {
-        "challengeId": 44,
-        "title": "Cookie",
-        "description": "Give the owners a few cookies if still you have some",
-        "expectedMinutes": 2,
-        "priority": 1,
-        "mustUploadPicture": true
-    },
-    {
-        "challengeId": 45,
-        "title": "Answer",
-        "description": "Chose someone (it cannot be someone that has been picked before)",
-        "answer": null,
-        "expectedMinutes": 2,
-        "priority": 1
     },
     {
         "challengeId": 46,
-        "title": "Act",
-        "description": "Everyone has to guess what the chosen person is acting out. (chosen person take this phone and only you are allowed to look at the next page)",
-        "expectedMinutes": 5,
+        "title": "Cookie",
+        "description": "Give the owners a few cookies if still you have some",
+        "expectedMinutes": 1,
         "priority": 1
     },
     {
         "challengeId": 47,
-        "title": "Act",
-        "description": "Act out 'The temple' without using words or noises. When someone guesses it, move on.",
-        "expectedMinutes": 5,
+        "title": "Answer",
+        "description": "Chose someone (it cannot be someone that has been picked before)",
+        "answer": null,
+        "expectedMinutes": 1,
         "priority": 1
     },
     {
         "challengeId": 48,
+        "title": "Act",
+        "description": "Everyone has to guess what the chosen person is acting out. (chosen person take this phone and only you are allowed to look at the next page)",
+        "expectedMinutes": 3,
+        "priority": 1
+    },
+    {
+        "challengeId": 49,
+        "title": "Act",
+        "description": "Act out 'The temple' without using words or noises. When someone guesses it, move on.",
+        "expectedMinutes": 3,
+        "priority": 1
+    },
+    {
+        "challengeId": 50,
         "title": "Now go here",
         "description": "",
         "lat": 33.348348,
         "lon": -96.555787,
-        "expectedMinutes": 5,
+        "expectedMinutes": 3,
         "priority": 1,
         "adminExplaination": "This is the Dahl's house"
     },
     {
-        "challengeId": 49,
+        "challengeId": 51,
         "title": "Lay down on the ground",
         "description": "Spell 'Walk With Me' with your bodies",
-        "expectedMinutes": 2,
+        "expectedMinutes": 1,
         "priority": 1,
         "mustUploadPicture": true
+    },
+    {
+        "challengeId": 52,
+        "title": "Quest Complete!",
+        "description": "Wow you did it. Congradulations! Now head inside. If you have not eaten a cookie, you get 2.",
+        "expectedMinutes": 1,
+        "priority": 1
     }
-
-
 ]
