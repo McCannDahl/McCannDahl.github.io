@@ -273,7 +273,7 @@
     {
         "challengeId": 29,
         "title": "Service",
-        "description": "Do at least 3 of these things for the people that live here: \nRead a child a book, \nSweep the floors, \nClean a mirror, \nVacuum a room, \nor Homeowner’s choice",
+        "description": "Wash a car",
         "expectedMinutes": 15,
         "priority": 1,
         "mustUploadPicture": true
@@ -357,7 +357,7 @@
     {
         "challengeId": 39,
         "title": "Service",
-        "description": "Do at least 3 of these things for the people that live here: \nPull weeds, \nClean baseboards in one room, \nTake out the trash, \nVacuum a room, \nor Homeowner’s choice",
+        "description": "Do at least 3 of these things for the people that live here: \nSort legos, \nDo a puppet show, \nTake out the trash, \nVacuum a room, \nor Homeowner’s choice",
         "expectedMinutes": 15,
         "priority": 1,
         "mustUploadPicture": true
@@ -385,12 +385,12 @@
         "lon": -96.557328,
         "expectedMinutes": 5,
         "priority": 1,
-        "adminExplaination": "This is the Smith's house"
+        "adminExplaination": "This is the Jacobsen's house"
     },
     {
         "challengeId": 43,
         "title": "Service",
-        "description": "Walk their dog",
+        "description": "Walk their dog or spread some mulch",
         "expectedMinutes": 15,
         "priority": 1,
         "mustUploadPicture": true
