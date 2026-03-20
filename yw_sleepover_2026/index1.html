@@ -168,9 +168,8 @@
             let c = getChallenge(id)
             while (c) {
                 total += c.expectedMinutes
-                if (c.nextChallenge)
-                    c = getChallenge(c.nextChallenge)
-                else break
+                let nextId = c.nextChallenge ?? (c.challengeId + 1)
+                c = getChallenge(nextId)
             }
             return total
         }
@@ -179,10 +178,10 @@
             let remain = remainingMinutes()
             let required = estimateRemainingTime(challenge.challengeId)
             // Lets not skip anything right now
-            // if (remain < required && challenge.priority > 1) {
-            //     if (challenge.nextChallenge)
-            //         return getChallenge(challenge.nextChallenge)
-            // }
+            if (remain < required && challenge.priority > 1 && remain < 30) {
+                let nextId = challenge.nextChallenge ?? (challenge.challengeId + 1)
+                return getChallenge(nextId)
+            }
             return challenge
         }
         function handlePhotoUpload() {
