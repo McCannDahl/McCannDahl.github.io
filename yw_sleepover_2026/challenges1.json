@@ -119,8 +119,8 @@
     {
         "challengeId": 13,
         "title": "Service",
-        "description": "You have made it to Rapunzel's tower. Knock on the door, split up, and spend 8 minuets cleaning her tower.",
-        "expectedMinutes": 8,
+        "description": "You have made it to Rapunzel's tower. Knock on the door, split up, and spend 10 minuets cleaning her tower.",
+        "expectedMinutes": 10,
         "priority": 1,
         "mustUploadPicture": true
     },
@@ -206,8 +206,8 @@
     },
     {
         "challengeId": 23,
-        "title": "Answer using \"The For Strength Of Youth\" - Look in the section called \"Walk in God’s light\"",
-        "description": "How can I know if I\u00e2\u20ac\u2122m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
+        "title": "Answer using The For Strength Of Youth - Look in the section called Walk in Gods light",
+        "description": "How can I know if I'm feeling the Holy Ghost? Learning to be aware of the Spirit takes",
         "answer": "time, practice, and patience",
         "expectedMinutes": 3,
         "priority": 8,
@@ -295,8 +295,8 @@
     {
         "challengeId": 32,
         "title": "Service",
-        "description": "Take 8mins and wash one of these cars",
-        "expectedMinutes": 8,
+        "description": "Take 10mins and wash one of these cars",
+        "expectedMinutes": 10,
         "priority": 1,
         "mustUploadPicture": true
     },
@@ -326,7 +326,7 @@
     {
         "challengeId": 36,
         "title": "Answer",
-        "description": "Which princess could have also survived Daniel's lions\u00e2\u20ac\u2122 den?",
+        "description": "Which princess could have also survived Daniels lions den?",
         "answer": "Jasmine",
         "expectedMinutes": 1,
         "priority": 8

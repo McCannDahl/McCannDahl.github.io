@@ -58,7 +58,7 @@
     {
         "challengeId": 7,
         "title": "Answer",
-        "description": "Which princess could have also survived Daniel's lions\u00e2\u20ac\u2122 den?",
+        "description": "Which princess could have also survived Daniels lions den?",
         "answer": "Jasmine",
         "expectedMinutes": 1,
         "priority": 8
@@ -66,8 +66,8 @@
     {
         "challengeId": 8,
         "title": "Service",
-        "description": "Take 8 mins to either: walk their dog or spread some mulch",
-        "expectedMinutes": 8,
+        "description": "Take 10 mins to either: walk their dog or spread some mulch",
+        "expectedMinutes": 10,
         "priority": 1,
         "mustUploadPicture": true
     },
@@ -84,7 +84,17 @@
         "description": "Which princess would understand Samson best?",
         "answer": "Rapunzel",
         "expectedMinutes": 1,
-        "priority": 8
+        "priority": 8,
+        "nextChallenge": 105
+    },
+    {
+        "challengeId": 105,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.346238,
+        "lon": -96.555744,
+        "expectedMinutes": 3,
+        "priority": 1
     },
     {
         "challengeId": 11,
@@ -106,8 +116,8 @@
     {
         "challengeId": 13,
         "title": "Service",
-        "description": "Knock on the door. Take 8 mins and either: \nSort legos, \nDo a puppet show, \nor Homeowner\u00e2\u20ac\u2122s choice",
-        "expectedMinutes": 8,
+        "description": "Knock on the door. Take 10 mins and either: \nSort legos, \nDo a puppet show, \nor Homeowners choice",
+        "expectedMinutes": 10,
         "priority": 1,
         "mustUploadPicture": true
     },
@@ -221,8 +231,8 @@
     },
     {
         "challengeId": 26,
-        "title": "Answer using \"The For Strength Of Youth\" - Look in the section called \"Walk in God’s light\"",
-        "description": "How can I know if I\u00e2\u20ac\u2122m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
+        "title": "Answer using The For Strength Of Youth - Look in the section called Walk in God’s light",
+        "description": "How can I know if I'm feeling the Holy Ghost? Learning to be aware of the Spirit takes",
         "answer": "time, practice, and patience",
         "expectedMinutes": 3,
         "priority": 8,
