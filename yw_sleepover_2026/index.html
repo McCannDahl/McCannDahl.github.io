@@ -223,11 +223,11 @@
             restartBtn.style.display = "inline-block"
 
             // Add back button if not on first challenge
-            if (currentChallengeId > 1) {
-                challengeBox.innerHTML += `
-        <button onclick="goToPrevious()" style="background: #666; color: white;">← Back</button>
-    `
-            }
+    //         if (currentChallengeId > 1) {
+    //             challengeBox.innerHTML += `
+    //     <button onclick="goToPrevious()" style="background: #666; color: white;">← Back</button>
+    // `
+    //         }
 
             if (challenge.hasOwnProperty('answer')) {
                 challengeBox.innerHTML += `
