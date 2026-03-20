@@ -59,8 +59,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Team 1 Swing</h2>
-        <p>Please enter the password to continue:</p>
+        <p>Please enter your team password to continue:</p>
         <input type="password" id="passwordInput" placeholder="Enter password" />
         <button onclick="checkPassword()">Submit</button>
         <div class="error-message" id="errorMessage">Incorrect password. Please try again.</div>
@@ -72,11 +71,15 @@
             const errorMessage = document.getElementById('errorMessage');
             
             // You can change this password to whatever you want
-            const correctPassword = 'swing2026';
+            const team1Password = "Glass Slipper";
+            const team2Password = "Enchanted Rose";
             
-            if (password === correctPassword) {
+            if (password === team1Password) {
                 // Redirect to the intended destination
-                window.location.href = 'https://www.dahl-fam.com/yw_sleepover_2026/index?step=6&title=Choose';
+                window.location.href = 'https://www.dahl-fam.com/yw_sleepover_2026/index1?step=7&title=Choose';
+            } else if (password === team2Password) {
+                // Redirect to the intended destination
+                window.location.href = 'https://www.dahl-fam.com/yw_sleepover_2026/index2?step=28&title=Choose';
             } else {
                 // Show error message
                 errorMessage.style.display = 'block';

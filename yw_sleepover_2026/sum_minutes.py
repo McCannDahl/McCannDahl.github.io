@@ -2,7 +2,7 @@
 import json
 
 # Load the challenges.json file
-with open('challenges.json', 'r') as f:
+with open('challenges2.json', 'r') as f:
     challenges = json.load(f)
 
 # Sum all expectedMinutes values

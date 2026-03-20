@@ -3,14 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=https://www.dahl-fam.com/yw_sleepover_2026/index?step=6&title=Choose">
-    <script>
-        // Fallback redirect if meta refresh doesn't work
-        window.location.href = 'https://www.dahl-fam.com/yw_sleepover_2026/index?step=6&title=Choose';
-    </script>
+    <title>Team 1 Swing - Password Required</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .login-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .login-container h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: #dc3545;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to <a href="https://www.dahl-fam.com/yw_sleepover_2026/index?step=6&title=Choose">Baptism notes</a>...</p>
+    <div class="login-container">
+        <p>Please enter your team password to continue:</p>
+        <input type="password" id="passwordInput" placeholder="Enter password" />
+        <button onclick="checkPassword()">Submit</button>
+        <div class="error-message" id="errorMessage">Incorrect password. Please try again.</div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // You can change this password to whatever you want
+            const team1Password = "Glass Slipper";
+            const team2Password = "Enchanted Rose";
+            
+            if (password === team1Password) {
+                // Redirect to the intended destination
+                window.location.href = 'https://www.dahl-fam.com/yw_sleepover_2026/index1?step=7&title=Choose';
+            } else if (password === team2Password) {
+                // Redirect to the intended destination
+                window.location.href = 'https://www.dahl-fam.com/yw_sleepover_2026/index2?step=28&title=Choose';
+            } else {
+                // Show error message
+                errorMessage.style.display = 'block';
+                // Clear the password field
+                document.getElementById('passwordInput').value = '';
+                // Focus back to password input
+                document.getElementById('passwordInput').focus();
+            }
+        }
+        
+        // Allow Enter key to submit
+        document.getElementById('passwordInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
 </body>
 </html>

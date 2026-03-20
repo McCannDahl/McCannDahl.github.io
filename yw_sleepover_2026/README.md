@@ -19,3 +19,9 @@ The app will be a single webpage. I will create a json file with all the challen
 - Priority - a number - (example: 3) - lower priority challenges will be skipped if time is tight
 
 If the user refreshes the page, it should resume their time and current challenge.
+
+# Team 1
+password = "Glass Slipper"
+
+# Team 2
+password = "Enchanted Rose"

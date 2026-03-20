@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Adventure Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Arial;
+            background: #f5f5f5;
+        }
+
+        /* Header */
+
+        .header {
+            background: #3b6df2;
+            color: white;
+            padding: 14px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Map */
+
+        #map {
+            height: 50vh;
+            width: 100%;
+        }
+
+        /* Challenge List */
+
+        #challengeList {
+            padding: 12px;
+        }
+
+        /* Cards */
+
+        .challengeCard {
+
+            background: white;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .challengeTitle {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .challengeMeta {
+            font-size: 14px;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        .next {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        /* Mobile Improvements */
+
+        button {
+            font-size: 16px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            background: #3b6df2;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        Fairy Tale Adventure
+    </div>
+
+    <div id="map"></div>
+
+    <div id="challengeList"></div>
+
+    <script>
+        function copyStepLink(challengeId, challengeTitle, el) {
+            let url = `${window.location.origin}${window.location.pathname}?step=${challengeId}&title=${encodeURIComponent(challengeTitle)}`;
+            url = url.replace("admin", "index");
+            navigator.clipboard.writeText(url).then(() => {
+                el.innerText = "copied";
+                setTimeout(() => {
+                    el.innerText = "copy link to skip to this step";
+                }, 2000);
+            });
+        }
+        async function loadChallenges() {
+const res = await fetch(`challenges1.json?v=${Date.now()}`, {
+    cache: "no-store"
+})
+            const challenges = await res.json();
+
+            const map = L.map("map").setView([33.3498, -96.552], 16);
+
+            L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                { attribution: "© OpenStreetMap" }
+            ).addTo(map);
+
+            const byId = {};
+            challenges.forEach(c => byId[c.challengeId] = c);
+
+            const list = document.getElementById("challengeList");
+
+            challenges.forEach(c => {
+
+                /* Map markers */
+
+                if (c.lat && c.lon) {
+
+                    const marker = L.marker([c.lat, c.lon]).addTo(map);
+
+                    marker.bindPopup(`
+                <b>${c.title}</b><br>
+                ${c.description}
+            `);
+                }
+
+                /* Card */
+
+                const card = document.createElement("div");
+                card.className = "challengeCard";
+
+                let next = "";
+
+                if (c.nextChallenge) {
+                    next = `Next Challenge → ${c.nextChallenge}`;
+                }
+
+                if (c.options) {
+                    next = c.options.map(o =>
+                        `${o.text} → ${o.challengeId}`
+                    ).join("<br>");
+                }
+                const answerHtml = c.answer
+                    ? `<div class="challengeMeta">✅ Answer: ${c.answer}</div>`
+                    : "";
+
+                const adminExplainationHtml = c.adminExplaination
+                    ? `<div class="challengeMeta" style="background: #fff3cd; padding: 8px; border-radius: 4px; border-left: 4px solid #ffc107; margin-top: 8px;">
+                        <strong>📝 Admin Explanation:</strong><br>
+                        ${c.adminExplaination}
+                    </div>`
+                    : "";
+
+                card.innerHTML = `
+    <div class="challengeTitle">
+        ${c.challengeId}. ${c.title}
+    </div>
+
+    <div>
+        ${c.description}
+    </div>
+
+    ${answerHtml}
+
+    ${adminExplainationHtml}
+
+    <div class="challengeMeta">
+        ⏱ ${c.expectedMinutes || "?"} minutes
+    </div>
+
+    <div class="challengeMeta">
+        Priority: ${c.priority || "?"}
+    </div>
+
+    <div class="next">
+        ${next}
+    </div>
+
+    <div class="challengeMeta" style="margin-top:10px;">
+        <a href="javascript:void(0);" 
+           onclick="copyStepLink(${c.challengeId},'${c.title}', this)">
+           copy link to skip to this step
+        </a>
+    </div>
+`;
+
+                list.appendChild(card);
+
+            });
+
+        }
+
+        loadChallenges();
+
+    </script>
+
+</body>
+
+</html>

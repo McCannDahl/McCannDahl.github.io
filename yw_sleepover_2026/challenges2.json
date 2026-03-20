@@ -1,0 +1,417 @@
+[
+    {
+        "challengeId": 1,
+        "title": "Intro",
+        "description": "Please HELP! Many of your kinfolk throughout your kindom are in need of your assistance. Follow these questful instructions, overcome the bewitching challenges, choose wisely, and you shall be eternally rewarded.",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 2,
+        "title": "But quickly!!!!",
+        "description": "Time is of the essence! You must complete these challenges within 90mins. If you get stuck, you can refresh this page and/or ask your leaders for help.",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 3,
+        "title": "Requirements",
+        "description": "For your quest you need cookies. Find the cookies. You have 20 seconds to find them.",
+        "confirmationText": "We have a plate of cookies.",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 4,
+        "title": "Choose",
+        "description": "You have two options. Which do you choose?",
+        "options": [
+            {
+                "text": "Eat the cookies now",
+                "challengeId": 5
+            },
+            {
+                "text": "Take them with us",
+                "challengeId": 6
+            }
+        ],
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 5,
+        "title": "Enjoy",
+        "description": "Enjoy your cookies.",
+        "expectedMinutes": 2,
+        "priority": 1
+    },
+    {
+        "challengeId": 6,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.347309,
+        "lon": -96.555662,
+        "expectedMinutes": 3,
+        "priority": 1,
+        "adminExplaination": "This is the Jacobsen's house"
+    },
+    {
+        "challengeId": 7,
+        "title": "Answer",
+        "description": "Which princess could have also survived Daniel's lions\u00e2\u20ac\u2122 den?",
+        "answer": "Jasmine",
+        "expectedMinutes": 1,
+        "priority": 8
+    },
+    {
+        "challengeId": 8,
+        "title": "Service",
+        "description": "Take 8 mins to either: walk their dog or spread some mulch",
+        "expectedMinutes": 8,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 9,
+        "title": "Cookie",
+        "description": "Give the owners a few cookies if still you have some",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 10,
+        "title": "Answer",
+        "description": "Which princess would understand Samson best?",
+        "answer": "Rapunzel",
+        "expectedMinutes": 1,
+        "priority": 8
+    },
+    {
+        "challengeId": 11,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.346137,
+        "lon": -96.557328,
+        "expectedMinutes": 3,
+        "priority": 1
+    },
+    {
+        "challengeId": 12,
+        "title": "Who said this to royalty?",
+        "description": "there has not been such great faith among all the people",
+        "answer": "Ammon",
+        "expectedMinutes": 1,
+        "priority": 8
+    },
+    {
+        "challengeId": 13,
+        "title": "Service",
+        "description": "Knock on the door. Take 8 mins and either: \nSort legos, \nDo a puppet show, \nor Homeowner\u00e2\u20ac\u2122s choice",
+        "expectedMinutes": 8,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 14,
+        "title": "Cookie",
+        "description": "Give them a few cookies if you have some",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+
+    {
+        "challengeId": 15,
+        "title": "Well done!",
+        "description": "Now go here",
+        "lat": 33.346352,
+        "lon": -96.558249,
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 16,
+        "title": "Answer",
+        "description": "When ye are in the service of your fellow beings ye are only in the service of your",
+        "answer": "god",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+
+
+    {
+        "challengeId": 17,
+        "title": "Answer",
+        "description": "Choose the smallest person in the group",
+        "answer": null,
+        "expectedMinutes": 1,
+        "priority": 5
+    },
+    {
+        "challengeId": 18,
+        "title": "You must carry them to the next waypoint",
+        "description": "Carry her here",
+        "lat": 33.348723,
+        "lon": -96.558123,
+        "expectedMinutes": 5,
+        "priority": 5
+    },
+    {
+        "challengeId": 19,
+        "title": "Good job. Put her down now",
+        "description": "Now go here",
+        "lat": 33.350451,
+        "lon": -96.558359,
+        "expectedMinutes": 5,
+        "priority": 1,
+        "adminExplaination": "This is the Northrup home location"
+    },
+    {
+        "challengeId": 20,
+        "title": "Dig",
+        "description": "Your next clue is buried",
+        "dontShowContinue": true,
+        "expectedMinutes": 2,
+        "priority": 1,
+        "adminExplaination": "They should dig and find a bag with paper and a QR code"
+    },
+    {
+        "challengeId": 21,
+        "title": "Baptism notes",
+        "description": "Take 3mins to write a note to someone who just got baptized. What would the savior say to someone that just got baptized?",
+        "confirmationText": "Everyone wrote a note.",
+        "expectedMinutes": 3,
+        "priority": 1,
+        "adminExplaination": ""
+    },
+    {
+        "challengeId": 22,
+        "title": "Answer",
+        "description": "Which princess would have done best following the star to Bethlehem?",
+        "answer": "Moana",
+        "imageToShowAfterAnswer": "https://pbs.twimg.com/media/DrkWYOYWsAA-Yr8.jpg",
+        "expectedMinutes": 1,
+        "priority": 8
+    },
+    {
+        "challengeId": 23,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.350054,
+        "lon": -96.558496,
+        "expectedMinutes": 2,
+        "priority": 1,
+        "adminExplaination": "This is the Northrup home location"
+    },
+    {
+        "challengeId": 24,
+        "title": "Dropoff",
+        "description": "Drop off your notes in their mailbox. Also drop off some cookies if you have some.",
+        "expectedMinutes": 1,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 25,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.348839,
+        "lon": -96.558035,
+        "expectedMinutes": 2,
+        "priority": 1
+    },
+    {
+        "challengeId": 26,
+        "title": "Answer using \"The For Strength Of Youth\" - Look in the section called \"Walk in God’s light\"",
+        "description": "How can I know if I\u00e2\u20ac\u2122m feeling the Holy Ghost? Learning to be aware of the Spirit takes",
+        "answer": "time, practice, and patience",
+        "expectedMinutes": 3,
+        "priority": 8,
+        "adminExplaination": "p19 of the strength of youth"
+    },
+    {
+        "challengeId": 27,
+        "title": "Clue",
+        "description": "\"To dream I'd find romance\"",
+        "dontShowContinue": true,
+        "expectedMinutes": 4,
+        "priority": 1,
+        "adminExplaination": "This is a quote from Frozen. When Anna is singing, a painting is shown. What is the name of the painting?"
+    },
+    {
+        "challengeId": 28,
+        "title": "Choose",
+        "description": "You have two options. Which do you choose?",
+        "options": [
+            {
+                "text": "One person does something",
+                "challengeId": 29
+            },
+            {
+                "text": "Everyone does something",
+                "challengeId": 31
+            }
+        ],
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 29,
+        "title": "Answer",
+        "description": "Who will it be?",
+        "answer": null,
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 30,
+        "title": "Slide",
+        "description": "The chosen person slides down the slide 6.5 times. Hurry, you only have 2mins to complete this!",
+        "mustUploadPicture": true,
+        "expectedMinutes": 3,
+        "priority": 1,
+        "nextChallenge": 32,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 31,
+        "title": "Slide",
+        "description": "Everyone slide down the slide at the same time together. Hurry, you only have 2mins to complete this!",
+        "mustUploadPicture": true,
+        "expectedMinutes": 3,
+        "priority": 1,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 32,
+        "title": "Well done!",
+        "description": "Now go here",
+        "lat": 33.34952,
+        "lon": -96.555883,
+        "expectedMinutes": 2,
+        "priority": 1,
+        "adminExplaination": "This is the Aaron home location"
+    },
+    {
+        "challengeId": 33,
+        "title": "Service",
+        "description": "You have made it to Rapunzel's tower. Knock on the door, split up, and spend 8 minuets cleaning her tower.",
+        "expectedMinutes": 8,
+        "priority": 1,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 34,
+        "title": "Cookie",
+        "description": "Give Rapunzel a cookie if you have one",
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 35,
+        "title": "Answer",
+        "description": "Chose someone (it cannot be someone that has been picked before)",
+        "answer": null,
+        "expectedMinutes": 1,
+        "priority": 10
+    },
+    {
+        "challengeId": 36,
+        "title": "Act",
+        "description": "Everyone has to guess what the chosen person is acting out. (chosen person take this phone and only you are allowed to look at the next page)",
+        "expectedMinutes": 3,
+        "priority": 10
+    },
+    {
+        "challengeId": 37,
+        "title": "Act",
+        "description": "Act out 'The temple' without using words or noises. When someone guesses it, move on.",
+        "expectedMinutes": 3,
+        "priority": 10
+    },
+    {
+        "challengeId": 38,
+        "title": "Now go here",
+        "description": "",
+        "lat": 33.348348,
+        "lon": -96.555787,
+        "expectedMinutes": 3,
+        "priority": 1,
+        "adminExplaination": "This is the Dahl's house"
+    },
+    {
+        "challengeId": 39,
+        "title": "Lay down on the ground",
+        "description": "Spell 'Walk With Me' with your bodies",
+        "expectedMinutes": 1,
+        "priority": 10,
+        "mustUploadPicture": true
+    },
+    {
+        "challengeId": 40,
+        "title": "Watch & Answer",
+        "description": "How many Os are in the snake? (hint: watch more than the first 10s)",
+        "link": "https://www.youtube.com/watch?v=22OWX1NUprU",
+        "answer": "9",
+        "expectedMinutes": 3,
+        "priority": 8
+    },
+    {
+        "challengeId": 41,
+        "title": "Choose",
+        "description": "You have two options. Which do you choose?",
+        "options": [
+            {
+                "text": "One person does something (it cannot be the same individual as the previous challenge if you chose that)",
+                "challengeId": 42
+            },
+            {
+                "text": "Everyone does something",
+                "challengeId": 44
+            }
+        ],
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 42,
+        "title": "Answer",
+        "description": "Who will it be? (it cannot be the same individual as the previous challenge if you chose that)",
+        "answer": null,
+        "expectedMinutes": 1,
+        "priority": 1
+    },
+    {
+        "challengeId": 43,
+        "title": "Jump",
+        "description": "One person must jump over everyoone else.",
+        "mustUploadPicture": true,
+        "expectedMinutes": 3,
+        "priority": 1,
+        "nextChallenge": 45,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 44,
+        "title": "Pyramid",
+        "description": "Form a human pyramid.",
+        "mustUploadPicture": true,
+        "expectedMinutes": 3,
+        "priority": 1,
+        "adminExplaination": "Perform the activity and take a picture of them doing it. They must take a picture of them doing it to move on."
+    },
+    {
+        "challengeId": 45,
+        "title": "Answer",
+        "description": "Which princess loves the story of Jonah?",
+        "answer": "Ariel",
+        "expectedMinutes": 1,
+        "priority": 8
+    },
+    {
+        "challengeId": 46,
+        "title": "Quest Complete!",
+        "description": "Wow you did it. Congradulations! Now head inside. If you have not eaten a cookie, you get 2.",
+        "expectedMinutes": 1,
+        "priority": 1
+    }
+]

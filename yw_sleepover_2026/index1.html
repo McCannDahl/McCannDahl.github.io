@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        #timer {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 22px;
+        }
+
+        #challengeBox {
+            max-width: 420px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 8px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 18px;
+            width: 80%;
+        }
+
+        #radar {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+
+        #arrow {
+            font-size: 120px;
+        }
+
+        #compass {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+
+        #restartBtn {
+            display: none;
+            background: #c33;
+            color: white;
+        }
+
+        #video, #canvas {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        #version {
+            position: fixed;
+            bottom: 8px;
+            right: 10px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        #challengeNumber {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="timer"></div>
+    <div id="version"></div>
+    <div id="challengeNumber"></div>
+
+    <div id="compass">
+        <div id="compassArrow">↑</div>
+    </div>
+
+    <button id="startBtn">Start</button>
+    <button id="restartBtn">Restart</button>
+
+    <div id="radar" style="display:none">
+        <div id="arrow">↑</div>
+    </div>
+
+    <div id="challengeBox"></div>
+
+    <script>
+        const APP_VERSION = "v1.0.0"
+        document.getElementById("version").innerText = APP_VERSION
+        const TOTAL_TIME = 90 // total minutes
+        const ARRIVAL_DISTANCE = 5
+        const MAX_RADAR_DISTANCE = 30
+
+        let challenges = []
+        let photoTaken = false
+
+        let startTime = Number(localStorage.getItem("startTime")) || null
+        let currentChallengeId = Number(localStorage.getItem("currentChallengeId")) || 1
+
+        let heading = 0
+        let gpsHeading = null
+        let userPosition = null
+
+        const arrow = document.getElementById("arrow")
+        const radar = document.getElementById("radar")
+        const compassArrow = document.getElementById("compassArrow")
+        const startBtn = document.getElementById("startBtn")
+        const restartBtn = document.getElementById("restartBtn")
+        const challengeBox = document.getElementById("challengeBox")
+        const timerEl = document.getElementById("timer")
+        const challengeNumberEl = document.getElementById("challengeNumber")
+
+        // ---------------- CHALLENGE LOGIC ----------------
+        function getChallenge(id) {
+            return challenges.find(c => c.challengeId == id)
+        }
+
+        function remainingMinutes() {
+            if (!startTime) return TOTAL_TIME
+            const elapsed = (Date.now() - startTime) / 60000
+            return TOTAL_TIME - elapsed
+        }
+
+        function estimateRemainingTime(id) {
+            let total = 0
+            let c = getChallenge(id)
+            while (c) {
+                total += c.expectedMinutes
+                if (c.nextChallenge)
+                    c = getChallenge(c.nextChallenge)
+                else break
+            }
+            return total
+        }
+
+        function maybeSkip(challenge) {
+            let remain = remainingMinutes()
+            let required = estimateRemainingTime(challenge.challengeId)
+            // Lets not skip anything right now
+            // if (remain < required && challenge.priority > 1) {
+            //     if (challenge.nextChallenge)
+            //         return getChallenge(challenge.nextChallenge)
+            // }
+            return challenge
+        }
+        function handlePhotoUpload() {
+            if (!photoTaken) {
+                alert("Please take a photo before continuing.")
+                return
+            }
+            completeChallenge()
+        }
+
+
+        function showChallenge() {
+            let challenge = getChallenge(currentChallengeId)
+            challenge = maybeSkip(challenge)
+            if (!challenge) return
+
+            currentChallengeId = challenge.challengeId
+            localStorage.setItem("currentChallengeId", currentChallengeId)
+
+            // Update challenge number display
+            challengeNumberEl.innerText = `Challenge ${currentChallengeId}`
+
+            challengeBox.innerHTML = `
+    <h2>${challenge.title}</h2>
+    <p>${challenge.description}</p>
+  `
+
+            // Show link if present
+            if (challenge.link) {
+                challengeBox.innerHTML += `
+        <br><a href="${challenge.link}" target="_blank" style="color: #4CAF50; text-decoration: underline; font-size: 16px; margin: 10px 0; display: inline-block;">Open Link</a>
+    `
+            }
+
+            // Show/Hide radar arrow depending on challenge GPS
+            if (challenge.lat && challenge.lon) {
+                radar.style.display = "flex"
+            } else {
+                radar.style.display = "none"
+            }
+
+            // restartBtn.style.display = "inline-block"
+
+            // Add back button if not on first challenge
+    //         if (currentChallengeId > 1) {
+    //             challengeBox.innerHTML += `
+    //     <button onclick="goToPrevious()" style="background: #666; color: white;">← Back</button>
+    // `
+    //         }
+
+            if (challenge.hasOwnProperty('answer')) {
+                challengeBox.innerHTML += `
+      <input id="answerBox" placeholder="Type answer here">
+      <button onclick='submitAnswer(${JSON.stringify(challenge.answer)})'>Submit</button>
+    `
+            }
+
+            if (challenge.mustUploadPicture) {
+                challengeBox.innerHTML += `
+        <video id="video" autoplay></video>
+        <canvas id="canvas" style="display:none"></canvas>
+        <br><br>
+        <button id="snap">Take Photo</button>
+        <button id="uploadBtn" disabled onclick="handlePhotoUpload()">Submit Photo</button>
+    `
+                // Initialize camera after DOM elements are created
+                setTimeout(() => initializeCamera(), 100)
+            }
+
+            if (challenge.options) {
+                challenge.options.forEach(o => {
+                    let btn = document.createElement("button")
+                    btn.innerText = o.text
+                    btn.onclick = () => goTo(o.challengeId ?? currentChallengeId + 1)
+                    challengeBox.appendChild(btn)
+                })
+            } else if (!challenge.hasOwnProperty('answer') && !challenge.mustUploadPicture) {
+                if (!challenge.dontShowContinue) {
+                    let btn = document.createElement("button")
+                    btn.innerText = challenge.confirmationText || "Continue"
+                    btn.id = "continueBtn"
+                    btn.onclick = completeChallenge
+                    challengeBox.appendChild(btn)
+                }
+            }
+        }
+
+        function submitAnswer(correct) {
+            let val = document.getElementById("answerBox").value.trim().toLowerCase()
+            if (correct === null || val === correct.toLowerCase()) {
+                let challenge = getChallenge(currentChallengeId)
+                if (challenge.imageToShowAfterAnswer) {
+                    challengeBox.innerHTML += `
+                        <br><img src="${challenge.imageToShowAfterAnswer}" alt="Answer image" style="max-width: 100%; height: auto; border-radius: 8px; margin: 10px 0;">
+                    `
+                }
+                completeChallenge()
+            }
+            else
+                alert("Try again")
+        }
+
+        function completeChallenge() {
+            let challenge = getChallenge(currentChallengeId)
+
+            // Enforce photo upload
+            if (challenge.mustUploadPicture) {
+                if (!photoTaken) {
+                    alert("You must take a photo to continue.")
+                    return
+                }
+            }
+
+            // Enforce GPS proximity if required
+            if (challenge.lat && challenge.lon) {
+                if (!userPosition) {
+                    alert("Waiting for GPS signal...")
+                    return
+                }
+
+                let target = { lat: challenge.lat, lon: challenge.lon }
+                let dist = distanceMeters(userPosition, target)
+
+                if (dist > ARRIVAL_DISTANCE) {
+                    alert(`You need to get closer! (${Math.round(dist)}m away)`)
+                    return
+                }
+            }
+
+            // proceed normally
+            let nextId = challenge.nextChallenge ?? (challenge.challengeId + 1)
+            let nextChallenge = getChallenge(nextId)
+            if (nextChallenge)
+                goTo(nextId)
+            else
+                challengeBox.innerHTML = "<h2> You did it!</h2>"
+        }
+        const goToBase = (id) => {
+            currentChallengeId = id
+            localStorage.setItem("currentChallengeId", id)
+            showChallenge()
+        }
+
+        // ---------------- TIMER ----------------
+        function updateTimer() {
+            let remain = remainingMinutes()
+            if (remain <= 0) {
+                timerEl.innerText = "Time Up!"
+                return
+            }
+            let m = Math.floor(remain)
+            let s = Math.floor((remain - m) * 60)
+            timerEl.innerText = `${m}:${s.toString().padStart(2, '0')}`
+        }
+        setInterval(updateTimer, 1000)
+
+        // ---------------- GPS/COMPASS ----------------
+        function toRad(d) { return d * Math.PI / 180 }
+        function distanceMeters(a, b) {
+            const R = 6371000
+            const dLat = toRad(b.lat - a.lat)
+            const dLon = toRad(b.lon - a.lon)
+            const lat1 = toRad(a.lat)
+            const lat2 = toRad(b.lat)
+            const x = Math.sin(dLat / 2) ** 2 + Math.sin(dLon / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2)
+            const c = 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x))
+            return R * c
+        }
+        function bearing(a, b) {
+            const lat1 = toRad(a.lat)
+            const lat2 = toRad(b.lat)
+            const dLon = toRad(b.lon - a.lon)
+            const y = Math.sin(dLon) * Math.cos(lat2)
+            const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon)
+            return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360
+        }
+        function angleDiff(a, b) { return ((b - a + 540) % 360) - 180 }
+
+
+        function updateNavigation() {
+            if (!userPosition) return
+            let challenge = getChallenge(currentChallengeId)
+
+            let distDisplay = document.getElementById("distanceIndicator")
+            if (!distDisplay && document.getElementById("radar")) {
+                distDisplay = document.createElement("div")
+                distDisplay.id = "distanceIndicator"
+                distDisplay.style.fontSize = "22px"
+                distDisplay.style.fontWeight = "bold"
+                distDisplay.style.margin = "15px auto"
+                document.getElementById("radar").insertAdjacentElement('afterend', distDisplay)
+            }
+
+            if (!challenge.lat || !challenge.lon) {
+                arrow.style.display = "none"
+                if (distDisplay) distDisplay.style.display = "none"
+                document.body.style.background = "#111"
+                return
+            }
+            let target = { lat: challenge.lat, lon: challenge.lon }
+            let dist = distanceMeters(userPosition, target)
+
+            if (dist <= ARRIVAL_DISTANCE) {
+                arrow.style.display = "none"
+            } else {
+                arrow.style.display = "block"
+            }
+            if (distDisplay) distDisplay.style.display = "block"
+            if (distDisplay) {
+                distDisplay.innerText = `You're ${Math.round(dist)}m away`
+            }
+
+            // Smooth gradient background based on distance
+            let lightness = Math.max(10, 50 - ((dist - ARRIVAL_DISTANCE) / (MAX_RADAR_DISTANCE - ARRIVAL_DISTANCE)) * 40)
+            if (dist > MAX_RADAR_DISTANCE) lightness = 10
+            if (dist <= ARRIVAL_DISTANCE) lightness = 50
+            document.body.style.background = `radial-gradient(circle at center, hsl(120, 80%, ${lightness}%), #111)`
+            document.body.style.backgroundAttachment = "fixed"
+
+            let btn = document.getElementById("continueBtn")
+            if (btn) {
+                btn.disabled = dist > ARRIVAL_DISTANCE
+            }
+
+            let uploadBtn = document.getElementById("uploadBtn")
+            if (uploadBtn) {
+                uploadBtn.disabled = (dist > ARRIVAL_DISTANCE) || !photoTaken
+            }
+
+            if (dist < ARRIVAL_DISTANCE) {
+                navigator.vibrate?.([200, 100, 200])
+            }
+
+            let targetBearing = bearing(userPosition, target)
+            let activeHeading = heading
+            if (gpsHeading && dist > 30) activeHeading = gpsHeading
+            let rotation = angleDiff(activeHeading, targetBearing)
+            arrow.style.transform = `rotate(${rotation}deg)`
+        }
+
+        function handleOrientation(event) {
+            let newHeading;
+
+            // iOS: webkitCompassHeading
+            if (event.webkitCompassHeading !== undefined) {
+                if (event.webkitCompassAccuracy && event.webkitCompassAccuracy > 50) return;
+                newHeading = event.webkitCompassHeading; // 0 = north
+            }
+            // Android/other browsers: use absolute orientation
+            else if (event.alpha != null) {
+                if (!event.absolute) {
+                    // if not absolute, we can't trust alpha for true north
+                    return;
+                }
+                // invert so arrow points north correctly
+                newHeading = 360 - event.alpha;
+            } else return;
+
+            // smoothing to reduce wobble
+            heading = (heading + (newHeading - heading) * 0.1 + 360) % 360;
+
+            // update compass arrow
+            compassArrow.style.transform = `rotate(${heading}deg)`;
+
+            // update middle navigation arrow if any
+            updateNavigation();
+        }
+
+        function startGPS() {
+            navigator.geolocation.watchPosition(
+                pos => {
+                    userPosition = { lat: pos.coords.latitude, lon: pos.coords.longitude }
+                    if (pos.coords.heading && pos.coords.speed > 1) gpsHeading = pos.coords.heading
+                    updateNavigation()
+                },
+                err => alert(err.message),
+                { enableHighAccuracy: true }
+            )
+        }
+
+        // ---------------- START APP ----------------
+        async function startApp() {
+            startBtn.style.display = "none"
+            radar.style.display = "flex"
+
+            if (!startTime) {
+                startTime = Date.now()
+                localStorage.setItem("startTime", startTime)
+            }
+            const res = await fetch(`challenges1.json?v=${Date.now()}`, {
+                cache: "no-store"
+            })
+            challenges = await res.json()
+
+            // Check query params again now that challenges are loaded
+            checkQueryParams()
+            showChallenge()
+            startGPS()
+            window.addEventListener("deviceorientationabsolute", handleOrientation, true)
+            window.addEventListener("deviceorientation", handleOrientation, true)
+        }
+
+        // ---------------- RESTART APP ----------------
+        restartBtn.onclick = () => {
+            if (!confirm("Restart?")) return
+            localStorage.removeItem("startTime")
+            localStorage.removeItem("currentChallengeId")
+            startTime = null
+            currentChallengeId = 1
+            startBtn.style.display = "inline-block"
+            restartBtn.style.display = "none"
+            radar.style.display = "none"
+            let distDisplay = document.getElementById("distanceIndicator")
+            if (distDisplay) distDisplay.style.display = "none"
+            document.body.style.background = "#111"
+            challengeBox.innerHTML = ""
+            timerEl.innerText = ""
+            challengeNumberEl.innerText = ""
+            
+            // Clear URL parameters to prevent jumping to challenge on refresh
+            window.history.replaceState({}, document.title, window.location.pathname)
+        }
+
+        startBtn.onclick = startApp
+
+        // Auto-resume if a session is already in progress
+        if (startTime) startApp()
+
+        // Check for query parameters to skip to specific challenge
+        function checkQueryParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const stepParam = urlParams.get('step');
+            const titleParam = urlParams.get('title');
+
+            if (stepParam) {
+                const stepId = parseInt(stepParam);
+                if (!isNaN(stepId) && stepId > 0) {
+                    if (stepId > currentChallengeId) {
+                        // If challenges are loaded, validate the title matches
+                        if (challenges.length > 0) {
+                            const challenge = challenges.find(c => c.challengeId === stepId);
+                            if (challenge) {
+                                // Validate title if provided
+                                if (titleParam) {
+                                    const decodedTitle = decodeURIComponent(titleParam);
+                                    if (challenge.title !== decodedTitle) {
+                                        console.warn('Title mismatch - expected:', challenge.title, 'got:', decodedTitle);
+                                        return; // Don't proceed if title doesn't match
+                                    }
+                                }
+
+                                // Override the current challenge ID from query parameter
+                                currentChallengeId = stepId;
+                                localStorage.setItem("currentChallengeId", currentChallengeId);
+
+                                // Show the challenge immediately
+                                showChallenge();
+                            }
+                        } else {
+                            // Challenges not loaded yet, just set the ID and let startApp handle validation
+                            currentChallengeId = stepId;
+                            localStorage.setItem("currentChallengeId", currentChallengeId);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Check query params on page load
+        checkQueryParams();
+
+        // Initialize camera when page loads
+        function initializeCamera() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            const snapButton = document.getElementById('snap');
+            
+            if (!video || !canvas || !snapButton) return;
+            
+            // Get access to the camera
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                const constraints = { video: { facingMode: "user" } };
+                navigator.mediaDevices.getUserMedia(constraints)
+                    .then(function(stream) {
+                        video.srcObject = stream;
+                        video.play();
+                    })
+                    .catch(function(error) {
+                        console.error("Error accessing the camera: ", error);
+                    });
+            }
+            
+            // Trigger photo take
+            snapButton.addEventListener("click", function() {
+                if (photoTaken) {
+                    retakePhoto();
+                } else {
+                    // Set canvas dimensions to match video
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    
+                    // Draw the current video frame to canvas
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    
+                    // Hide video and show canvas (frozen image)
+                    video.style.display = 'none';
+                    canvas.style.display = 'block';
+                    
+                    markPhotoTaken();
+                }
+            });
+        }
+        
+        function markPhotoTaken() {
+            photoTaken = true
+            const snapBtn = document.getElementById("snap")
+            if (snapBtn) snapBtn.innerText = "Retake Photo"
+            const btn = document.getElementById("uploadBtn")
+            if (btn) {
+                let challenge = getChallenge(currentChallengeId)
+                if (challenge.lat && challenge.lon && userPosition) {
+                    updateNavigation()
+                } else {
+                    btn.disabled = false
+                }
+            }
+        }
+        
+        function retakePhoto() {
+            photoTaken = false
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const snapBtn = document.getElementById("snap");
+            const uploadBtn = document.getElementById("uploadBtn");
+            
+            if (video && canvas) {
+                video.style.display = 'block';
+                canvas.style.display = 'none';
+            }
+            if (snapBtn) snapBtn.innerText = "Take Photo";
+            if (uploadBtn) uploadBtn.disabled = true;
+        }
+
+        // Reset photoTaken flag when moving to a new challenge
+        function goTo(id) {
+            photoTaken = false
+            goToBase(id)
+        }
+
+        // Go to previous challenge
+        function goToPrevious() {
+            if (currentChallengeId > 1) {
+                goTo(currentChallengeId - 1)
+            }
+        }
+    </script>
+</body>
+
+</html>
