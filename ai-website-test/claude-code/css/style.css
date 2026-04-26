@@ -1,0 +1,235 @@
+/*
+ * Style sheet for the personal portfolio website.
+ * Defines styles for light/dark mode, responsiveness, and layout.
+ */
+
+/* Global Reset and Variables */
+:root {
+    /* Light Mode Defaults */
+    --color-primary: #007bff;
+    --color-text: #333;
+    --color-background: #f8f9fa;
+    --color-card-bg: #ffffff;
+    --color-secondary-text: #6c757d;
+    --color-border: #e9ecef;
+    --color-header-bg: #ffffff;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --color-primary: #8ab4f8;
+    --color-text: #e9ecef;
+    --color-background: #1a1a2e;
+    --color-card-bg: #2c2c41;
+    --color-secondary-text: #b0b0c0;
+    --color-border: #3a3a50;
+    --color-header-bg: #161625;
+}
+
+/* Base Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+section {
+    scroll-margin-top: 60px; /* Offset for fixed header */
+}
+
+h1, h2, h3 {
+    color: var(--color-text);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+/* Header and Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-header-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--color-primary);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-text);
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 5px 0;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+.header-controls button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-left: 15px;
+    color: var(--color-text);
+}
+
+/* General Content Styling */
+.job-card, .education-card {
+    background-color: var(--color-card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--color-primary);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.job-header h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+.job-client {
+    font-style: italic;
+    color: var(--color-secondary-text);
+}
+
+.job-location {
+    font-size: 0.9rem;
+    margin: 5px 0 15px;
+}
+
+.job-description ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.job-description li {
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+/* Skills Section */
+#skills {
+    background-color: var(--color-background);
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.skill-category {
+    background-color: var(--color-card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.skill-category h3 {
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.skills-list {
+    font-size: 0.95rem;
+    color: var(--color-secondary-text);
+}
+
+/* Education Section */
+.education-card {
+    border-left: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.education-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.education-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.graduation-year {
+    font-style: italic;
+    color: var(--color-secondary-text);
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-header-bg);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-secondary-text);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    nav a {
+        margin: 5px 10px;
+    }
+    .header-controls {
+        margin-top: 10px;
+    }
+    .section-padding {
+        padding: 40px 0;
+    }
+}
