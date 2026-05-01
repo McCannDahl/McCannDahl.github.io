@@ -28361,7 +28361,7 @@ aEb(a){var s=B.b.eQ(B.l5,a)
 if(s<0||s>=25)return null
 return B.l5[s+1]},
 aLi(a){var s,r,q,p="http://localhost:3000"
-try{s=B.Ni.gCk(window.location)
+try{s=B.Ni.gCk(window.location)+"/finback"
 r=A.l(s)
 return r+a}catch(q){return p+a}return p+a},
 b_8(a){var s,r,q,p,o,n=B.c.ci(a)
