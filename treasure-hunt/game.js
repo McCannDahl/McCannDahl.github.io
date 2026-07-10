@@ -4,7 +4,7 @@
 const CLUES = [
   {
     image: "images/clue1.jpg",
-    password: "CAT",
+    password: "Abigail",
     math: [
       { question: "2 + 3 = ?", answer: 5 },
       { question: "4 - 1 = ?", answer: 3 },
@@ -12,7 +12,7 @@ const CLUES = [
   },
   {
     image: "images/clue2.jpg",
-    password: "DOG",
+    password: "Melody",
     math: [
       { question: "1 + 6 = ?", answer: 7 },
       { question: "8 - 5 = ?", answer: 3 },
@@ -20,7 +20,7 @@ const CLUES = [
   },
   {
     image: "images/clue3.jpg",
-    password: "SUN",
+    password: "Bill",
     math: [
       { question: "3 + 4 = ?", answer: 7 },
       { question: "9 - 2 = ?", answer: 7 },
@@ -28,7 +28,7 @@ const CLUES = [
   },
   {
     image: "images/clue4.jpg",
-    password: "MOON",
+    password: "Jesus",
     math: [
       { question: "5 + 2 = ?", answer: 7 },
       { question: "6 - 4 = ?", answer: 2 },
@@ -36,7 +36,7 @@ const CLUES = [
   },
   {
     image: "images/clue5.jpg",
-    password: "STAR",
+    password: "Oaks",
     math: [
       { question: "4 + 4 = ?", answer: 8 },
       { question: "7 - 3 = ?", answer: 4 },
@@ -44,7 +44,7 @@ const CLUES = [
   },
   {
     image: "images/clue6.jpg",
-    password: "FISH",
+    password: "Nephi",
     math: [
       { question: "2 + 5 = ?", answer: 7 },
       { question: "5 - 2 = ?", answer: 3 },
@@ -52,7 +52,7 @@ const CLUES = [
   },
   {
     image: "images/clue7.jpg",
-    password: "BIRD",
+    password: "Watermelon",
     math: [
       { question: "6 + 3 = ?", answer: 9 },
       { question: "8 - 6 = ?", answer: 2 },
@@ -60,7 +60,7 @@ const CLUES = [
   },
   {
     image: "images/clue8.jpg",
-    password: "TREE",
+    password: "Abish",
     math: [
       { question: "1 + 8 = ?", answer: 9 },
       { question: "9 - 5 = ?", answer: 4 },
@@ -68,7 +68,7 @@ const CLUES = [
   },
   {
     image: "images/clue9.jpg",
-    password: "BOOK",
+    password: "Unicorn",
     math: [
       { question: "3 + 3 = ?", answer: 6 },
       { question: "7 - 4 = ?", answer: 3 },
@@ -76,7 +76,7 @@ const CLUES = [
   },
   {
     image: "images/clue10.jpg",
-    password: "CAKE",
+    password: "Trolls",
     math: [
       { question: "4 + 5 = ?", answer: 9 },
       { question: "6 - 2 = ?", answer: 4 },
