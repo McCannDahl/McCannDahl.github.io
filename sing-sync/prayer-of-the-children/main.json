@@ -1,10 +1,10 @@
 {
     "title": "Prayer of the Children",
     "parts": {
-      "T1": {"title": "Tenor 1", "url": "http://mccann.dahl-fam.com/sing-sync/prayer-of-the-children/tenor1.mp3"},
-      "T2": {"title": "Tenor 2", "url": "http://mccann.dahl-fam.com/sing-sync/prayer-of-the-children/tenor2.mp3"},
-      "B1": {"title": "Bass 1", "url": "http://mccann.dahl-fam.com/sing-sync/prayer-of-the-children/bass1.mp3"},
-      "B2": {"title": "Bass 2", "url": "http://mccann.dahl-fam.com/sing-sync/prayer-of-the-children/bass2.mp3"},
-      "All": {"title": "All", "url": "http://mccann.dahl-fam.com/sing-sync/prayer-of-the-children/all.mp3"}
+      "T1": {"title": "Tenor 1", "url": "https://www.dahl-fam.com/sing-sync/prayer-of-the-children/tenor1.mp3"},
+      "T2": {"title": "Tenor 2", "url": "https://www.dahl-fam.com/sing-sync/prayer-of-the-children/tenor2.mp3"},
+      "B1": {"title": "Bass 1", "url": "https://www.dahl-fam.com/sing-sync/prayer-of-the-children/bass1.mp3"},
+      "B2": {"title": "Bass 2", "url": "https://www.dahl-fam.com/sing-sync/prayer-of-the-children/bass2.mp3"},
+      "All": {"title": "All", "url": "https://www.dahl-fam.com/sing-sync/prayer-of-the-children/all.mp3"}
     }
   }
