@@ -1,0 +1,21 @@
+{
+  "title": "244. Come Along, Come Along",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/244.%20Come%20Along%2C%20Come%20Along/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/244.%20Come%20Along%2C%20Come%20Along/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/244.%20Come%20Along%2C%20Come%20Along/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/244.%20Come%20Along%2C%20Come%20Along/Bass.wav"
+    }
+  }
+}

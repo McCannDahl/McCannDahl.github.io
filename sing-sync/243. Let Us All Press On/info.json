@@ -1,0 +1,21 @@
+{
+  "title": "243. Let Us All Press On",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/243.%20Let%20Us%20All%20Press%20On/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/243.%20Let%20Us%20All%20Press%20On/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/243.%20Let%20Us%20All%20Press%20On/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/243.%20Let%20Us%20All%20Press%20On/Bass.wav"
+    }
+  }
+}
