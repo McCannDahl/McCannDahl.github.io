@@ -1,0 +1,21 @@
+{
+  "title": "1207. Still, Still, Still",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1207.%20Still%2C%20Still%2C%20Still/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1207.%20Still%2C%20Still%2C%20Still/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1207.%20Still%2C%20Still%2C%20Still/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1207.%20Still%2C%20Still%2C%20Still/Bass.wav"
+    }
+  }
+}

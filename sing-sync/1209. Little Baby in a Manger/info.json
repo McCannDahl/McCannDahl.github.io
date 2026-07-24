@@ -1,0 +1,21 @@
+{
+  "title": "1209. Little Baby in a Manger",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1209.%20Little%20Baby%20in%20a%20Manger/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1209.%20Little%20Baby%20in%20a%20Manger/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1209.%20Little%20Baby%20in%20a%20Manger/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1209.%20Little%20Baby%20in%20a%20Manger/Bass.wav"
+    }
+  }
+}
