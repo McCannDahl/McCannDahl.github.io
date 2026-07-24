@@ -1,0 +1,21 @@
+{
+  "title": "1203. What Child Is This",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1203.%20What%20Child%20Is%20This/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1203.%20What%20Child%20Is%20This/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1203.%20What%20Child%20Is%20This/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1203.%20What%20Child%20Is%20This/Bass.wav"
+    }
+  }
+}
