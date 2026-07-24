@@ -1,0 +1,21 @@
+{
+  "title": "111. Rock of Ages",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/111.%20Rock%20of%20Ages/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/111.%20Rock%20of%20Ages/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/111.%20Rock%20of%20Ages/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/111.%20Rock%20of%20Ages/Bass.wav"
+    }
+  }
+}
