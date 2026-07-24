@@ -1,0 +1,21 @@
+{
+  "title": "1011. Holding Hands Around the World",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1011.%20Holding%20Hands%20Around%20the%20World/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1011.%20Holding%20Hands%20Around%20the%20World/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1011.%20Holding%20Hands%20Around%20the%20World/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1011.%20Holding%20Hands%20Around%20the%20World/Bass.wav"
+    }
+  }
+}

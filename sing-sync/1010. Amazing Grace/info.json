@@ -1,0 +1,21 @@
+{
+  "title": "1010. Amazing Grace",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1010.%20Amazing%20Grace/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1010.%20Amazing%20Grace/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1010.%20Amazing%20Grace/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1010.%20Amazing%20Grace/Bass.wav"
+    }
+  }
+}
