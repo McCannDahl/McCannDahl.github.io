@@ -1,0 +1,21 @@
+{
+  "title": "142. Sweet Hour of Prayer",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/142.%20Sweet%20Hour%20of%20Prayer/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/142.%20Sweet%20Hour%20of%20Prayer/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/142.%20Sweet%20Hour%20of%20Prayer/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/142.%20Sweet%20Hour%20of%20Prayer/Bass.wav"
+    }
+  }
+}
