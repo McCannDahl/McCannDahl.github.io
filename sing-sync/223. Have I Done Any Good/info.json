@@ -1,0 +1,21 @@
+{
+  "title": "223. Have I Done Any Good",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/223.%20Have%20I%20Done%20Any%20Good/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/223.%20Have%20I%20Done%20Any%20Good/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/223.%20Have%20I%20Done%20Any%20Good/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/223.%20Have%20I%20Done%20Any%20Good/Bass.wav"
+    }
+  }
+}
