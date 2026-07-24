@@ -1,0 +1,21 @@
+{
+  "title": "281. Help Me Teach with Inspiration",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/281.%20Help%20Me%20Teach%20with%20Inspiration/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/281.%20Help%20Me%20Teach%20with%20Inspiration/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/281.%20Help%20Me%20Teach%20with%20Inspiration/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/281.%20Help%20Me%20Teach%20with%20Inspiration/Bass.wav"
+    }
+  }
+}
