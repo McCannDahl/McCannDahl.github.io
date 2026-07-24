@@ -1,0 +1,21 @@
+{
+  "title": "1027. Welcome Home",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1027.%20Welcome%20Home/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1027.%20Welcome%20Home/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1027.%20Welcome%20Home/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1027.%20Welcome%20Home/Bass.wav"
+    }
+  }
+}

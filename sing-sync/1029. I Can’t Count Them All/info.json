@@ -1,0 +1,21 @@
+{
+  "title": "1029. I Can’t Count Them All",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1029.%20I%20Can%E2%80%99t%20Count%20Them%20All/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1029.%20I%20Can%E2%80%99t%20Count%20Them%20All/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1029.%20I%20Can%E2%80%99t%20Count%20Them%20All/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1029.%20I%20Can%E2%80%99t%20Count%20Them%20All/Bass.wav"
+    }
+  }
+}

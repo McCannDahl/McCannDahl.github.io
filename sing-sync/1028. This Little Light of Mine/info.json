@@ -1,0 +1,21 @@
+{
+  "title": "1028. This Little Light of Mine",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1028.%20This%20Little%20Light%20of%20Mine/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1028.%20This%20Little%20Light%20of%20Mine/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1028.%20This%20Little%20Light%20of%20Mine/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1028.%20This%20Little%20Light%20of%20Mine/Bass.wav"
+    }
+  }
+}
