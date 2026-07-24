@@ -1,0 +1,21 @@
+{
+  "title": "1069. Speak to Us, Lord",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1069.%20Speak%20to%20Us%2C%20Lord/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1069.%20Speak%20to%20Us%2C%20Lord/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1069.%20Speak%20to%20Us%2C%20Lord/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1069.%20Speak%20to%20Us%2C%20Lord/Bass.wav"
+    }
+  }
+}
