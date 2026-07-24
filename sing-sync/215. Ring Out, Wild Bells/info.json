@@ -1,0 +1,21 @@
+{
+  "title": "215. Ring Out, Wild Bells",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/215.%20Ring%20Out%2C%20Wild%20Bells/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/215.%20Ring%20Out%2C%20Wild%20Bells/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/215.%20Ring%20Out%2C%20Wild%20Bells/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/215.%20Ring%20Out%2C%20Wild%20Bells/Bass.wav"
+    }
+  }
+}

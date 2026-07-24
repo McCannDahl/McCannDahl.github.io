@@ -1,0 +1,21 @@
+{
+  "title": "216. We Are Sowing",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/216.%20We%20Are%20Sowing/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/216.%20We%20Are%20Sowing/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/216.%20We%20Are%20Sowing/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/216.%20We%20Are%20Sowing/Bass.wav"
+    }
+  }
+}

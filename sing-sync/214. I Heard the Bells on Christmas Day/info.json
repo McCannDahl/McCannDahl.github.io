@@ -1,0 +1,21 @@
+{
+  "title": "214. I Heard the Bells on Christmas Day",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/214.%20I%20Heard%20the%20Bells%20on%20Christmas%20Day/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/214.%20I%20Heard%20the%20Bells%20on%20Christmas%20Day/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/214.%20I%20Heard%20the%20Bells%20on%20Christmas%20Day/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/214.%20I%20Heard%20the%20Bells%20on%20Christmas%20Day/Bass.wav"
+    }
+  }
+}
