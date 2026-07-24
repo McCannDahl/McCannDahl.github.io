@@ -1,0 +1,21 @@
+{
+  "title": "338. America the Beautiful",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/338.%20America%20the%20Beautiful/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/338.%20America%20the%20Beautiful/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/338.%20America%20the%20Beautiful/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/338.%20America%20the%20Beautiful/Bass.wav"
+    }
+  }
+}
