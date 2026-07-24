@@ -1,0 +1,21 @@
+{
+  "title": "1066. Fight the Good Fight",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1066.%20Fight%20the%20Good%20Fight/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1066.%20Fight%20the%20Good%20Fight/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1066.%20Fight%20the%20Good%20Fight/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1066.%20Fight%20the%20Good%20Fight/Bass.wav"
+    }
+  }
+}

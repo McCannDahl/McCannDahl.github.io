@@ -1,0 +1,21 @@
+{
+  "title": "1065. Isaiah Said",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1065.%20Isaiah%20Said/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1065.%20Isaiah%20Said/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1065.%20Isaiah%20Said/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1065.%20Isaiah%20Said/Bass.wav"
+    }
+  }
+}
