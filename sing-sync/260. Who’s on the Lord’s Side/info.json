@@ -1,0 +1,21 @@
+{
+  "title": "260. Who’s on the Lord’s Side",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/260.%20Who%E2%80%99s%20on%20the%20Lord%E2%80%99s%20Side/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/260.%20Who%E2%80%99s%20on%20the%20Lord%E2%80%99s%20Side/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/260.%20Who%E2%80%99s%20on%20the%20Lord%E2%80%99s%20Side/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/260.%20Who%E2%80%99s%20on%20the%20Lord%E2%80%99s%20Side/Bass.wav"
+    }
+  }
+}
