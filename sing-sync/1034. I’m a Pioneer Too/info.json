@@ -1,0 +1,21 @@
+{
+  "title": "1034. I’m a Pioneer Too",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1034.%20I%E2%80%99m%20a%20Pioneer%20Too/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1034.%20I%E2%80%99m%20a%20Pioneer%20Too/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1034.%20I%E2%80%99m%20a%20Pioneer%20Too/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1034.%20I%E2%80%99m%20a%20Pioneer%20Too/Bass.wav"
+    }
+  }
+}
