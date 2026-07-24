@@ -1,0 +1,21 @@
+{
+  "title": "249. Called to Serve",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/249.%20Called%20to%20Serve/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/249.%20Called%20to%20Serve/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/249.%20Called%20to%20Serve/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/249.%20Called%20to%20Serve/Bass.wav"
+    }
+  }
+}
