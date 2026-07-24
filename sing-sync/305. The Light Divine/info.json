@@ -1,0 +1,21 @@
+{
+  "title": "305. The Light Divine",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/305.%20The%20Light%20Divine/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/305.%20The%20Light%20Divine/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/305.%20The%20Light%20Divine/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/305.%20The%20Light%20Divine/Bass.wav"
+    }
+  }
+}
