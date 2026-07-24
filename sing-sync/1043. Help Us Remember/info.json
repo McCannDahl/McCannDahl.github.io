@@ -1,0 +1,21 @@
+{
+  "title": "1043. Help Us Remember",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1043.%20Help%20Us%20Remember/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1043.%20Help%20Us%20Remember/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1043.%20Help%20Us%20Remember/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1043.%20Help%20Us%20Remember/Bass.wav"
+    }
+  }
+}
