@@ -1,0 +1,21 @@
+{
+  "title": "204. Silent Night",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/204.%20Silent%20Night/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/204.%20Silent%20Night/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/204.%20Silent%20Night/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/204.%20Silent%20Night/Bass.wav"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "title": "203. Angels We Have Heard on High",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/203.%20Angels%20We%20Have%20Heard%20on%20High/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/203.%20Angels%20We%20Have%20Heard%20on%20High/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/203.%20Angels%20We%20Have%20Heard%20on%20High/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/203.%20Angels%20We%20Have%20Heard%20on%20High/Bass.wav"
+    }
+  }
+}
