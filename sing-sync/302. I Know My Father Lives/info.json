@@ -1,0 +1,21 @@
+{
+  "title": "302. I Know My Father Lives",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/302.%20I%20Know%20My%20Father%20Lives/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/302.%20I%20Know%20My%20Father%20Lives/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/302.%20I%20Know%20My%20Father%20Lives/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/302.%20I%20Know%20My%20Father%20Lives/Bass.wav"
+    }
+  }
+}
