@@ -1,0 +1,21 @@
+{
+  "title": "1050. Stand by Me",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1050.%20Stand%20by%20Me/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1050.%20Stand%20by%20Me/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1050.%20Stand%20by%20Me/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1050.%20Stand%20by%20Me/Bass.wav"
+    }
+  }
+}
