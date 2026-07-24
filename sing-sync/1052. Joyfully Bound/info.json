@@ -1,0 +1,21 @@
+{
+  "title": "1052. Joyfully Bound",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1052.%20Joyfully%20Bound/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1052.%20Joyfully%20Bound/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1052.%20Joyfully%20Bound/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1052.%20Joyfully%20Bound/Bass.wav"
+    }
+  }
+}
