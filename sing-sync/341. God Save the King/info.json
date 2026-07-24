@@ -1,0 +1,21 @@
+{
+  "title": "341. God Save the King",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/341.%20God%20Save%20the%20King/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/341.%20God%20Save%20the%20King/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/341.%20God%20Save%20the%20King/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/341.%20God%20Save%20the%20King/Bass.wav"
+    }
+  }
+}
