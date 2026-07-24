@@ -1,0 +1,21 @@
+{
+  "title": "274. The Iron Rod",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/274.%20The%20Iron%20Rod/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/274.%20The%20Iron%20Rod/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/274.%20The%20Iron%20Rod/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/274.%20The%20Iron%20Rod/Bass.wav"
+    }
+  }
+}

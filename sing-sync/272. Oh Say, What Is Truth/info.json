@@ -1,0 +1,21 @@
+{
+  "title": "272. Oh Say, What Is Truth",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/272.%20Oh%20Say%2C%20What%20Is%20Truth/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/272.%20Oh%20Say%2C%20What%20Is%20Truth/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/272.%20Oh%20Say%2C%20What%20Is%20Truth/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/272.%20Oh%20Say%2C%20What%20Is%20Truth/Bass.wav"
+    }
+  }
+}
