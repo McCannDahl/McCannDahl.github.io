@@ -1,0 +1,21 @@
+{
+  "title": "1007. As Bread Is Broken",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1007.%20As%20Bread%20Is%20Broken/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1007.%20As%20Bread%20Is%20Broken/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1007.%20As%20Bread%20Is%20Broken/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1007.%20As%20Bread%20Is%20Broken/Bass.wav"
+    }
+  }
+}

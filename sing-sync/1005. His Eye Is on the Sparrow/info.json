@@ -1,0 +1,21 @@
+{
+  "title": "1005. His Eye Is on the Sparrow",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1005.%20His%20Eye%20Is%20on%20the%20Sparrow/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1005.%20His%20Eye%20Is%20on%20the%20Sparrow/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1005.%20His%20Eye%20Is%20on%20the%20Sparrow/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1005.%20His%20Eye%20Is%20on%20the%20Sparrow/Bass.wav"
+    }
+  }
+}

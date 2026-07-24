@@ -1,0 +1,21 @@
+{
+  "title": "1006. Think a Sacred Song",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1006.%20Think%20a%20Sacred%20Song/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1006.%20Think%20a%20Sacred%20Song/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1006.%20Think%20a%20Sacred%20Song/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1006.%20Think%20a%20Sacred%20Song/Bass.wav"
+    }
+  }
+}
