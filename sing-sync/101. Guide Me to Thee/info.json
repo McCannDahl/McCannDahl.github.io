@@ -1,0 +1,21 @@
+{
+  "title": "101. Guide Me to Thee",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/101.%20Guide%20Me%20to%20Thee/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/101.%20Guide%20Me%20to%20Thee/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/101.%20Guide%20Me%20to%20Thee/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/101.%20Guide%20Me%20to%20Thee/Bass.wav"
+    }
+  }
+}
