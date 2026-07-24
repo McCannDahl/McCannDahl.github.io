@@ -1,0 +1,21 @@
+{
+  "title": "166. Abide with Me!",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/166.%20Abide%20with%20Me%21/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/166.%20Abide%20with%20Me%21/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/166.%20Abide%20with%20Me%21/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/166.%20Abide%20with%20Me%21/Bass.wav"
+    }
+  }
+}
