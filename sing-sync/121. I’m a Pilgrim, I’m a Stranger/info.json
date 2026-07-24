@@ -1,0 +1,21 @@
+{
+  "title": "121. I’m a Pilgrim, I’m a Stranger",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/121.%20I%E2%80%99m%20a%20Pilgrim%2C%20I%E2%80%99m%20a%20Stranger/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/121.%20I%E2%80%99m%20a%20Pilgrim%2C%20I%E2%80%99m%20a%20Stranger/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/121.%20I%E2%80%99m%20a%20Pilgrim%2C%20I%E2%80%99m%20a%20Stranger/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/121.%20I%E2%80%99m%20a%20Pilgrim%2C%20I%E2%80%99m%20a%20Stranger/Bass.wav"
+    }
+  }
+}
