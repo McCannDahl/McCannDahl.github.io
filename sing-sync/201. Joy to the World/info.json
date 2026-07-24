@@ -1,0 +1,21 @@
+{
+  "title": "201. Joy to the World",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/201.%20Joy%20to%20the%20World/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/201.%20Joy%20to%20the%20World/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/201.%20Joy%20to%20the%20World/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/201.%20Joy%20to%20the%20World/Bass.wav"
+    }
+  }
+}
