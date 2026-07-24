@@ -1,0 +1,21 @@
+{
+  "title": "1060. Build an Ark",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1060.%20Build%20an%20Ark/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1060.%20Build%20an%20Ark/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1060.%20Build%20an%20Ark/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1060.%20Build%20an%20Ark/Bass.wav"
+    }
+  }
+}

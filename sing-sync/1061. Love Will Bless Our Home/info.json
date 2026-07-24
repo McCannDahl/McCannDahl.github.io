@@ -1,0 +1,21 @@
+{
+  "title": "1061. Love Will Bless Our Home",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1061.%20Love%20Will%20Bless%20Our%20Home/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1061.%20Love%20Will%20Bless%20Our%20Home/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1061.%20Love%20Will%20Bless%20Our%20Home/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1061.%20Love%20Will%20Bless%20Our%20Home/Bass.wav"
+    }
+  }
+}
