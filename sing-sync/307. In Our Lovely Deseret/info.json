@@ -1,0 +1,21 @@
+{
+  "title": "307. In Our Lovely Deseret",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/307.%20In%20Our%20Lovely%20Deseret/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/307.%20In%20Our%20Lovely%20Deseret/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/307.%20In%20Our%20Lovely%20Deseret/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/307.%20In%20Our%20Lovely%20Deseret/Bass.wav"
+    }
+  }
+}

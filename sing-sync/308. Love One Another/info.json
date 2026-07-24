@@ -1,0 +1,21 @@
+{
+  "title": "308. Love One Another",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/308.%20Love%20One%20Another/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/308.%20Love%20One%20Another/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/308.%20Love%20One%20Another/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/308.%20Love%20One%20Another/Bass.wav"
+    }
+  }
+}
