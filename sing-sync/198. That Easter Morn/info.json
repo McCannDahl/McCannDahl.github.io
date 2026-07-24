@@ -1,0 +1,21 @@
+{
+  "title": "198. That Easter Morn",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/198.%20That%20Easter%20Morn/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/198.%20That%20Easter%20Morn/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/198.%20That%20Easter%20Morn/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/198.%20That%20Easter%20Morn/Bass.wav"
+    }
+  }
+}
