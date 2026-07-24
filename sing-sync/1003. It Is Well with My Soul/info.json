@@ -1,0 +1,21 @@
+{
+  "title": "1003. It Is Well with My Soul",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1003.%20It%20Is%20Well%20with%20My%20Soul/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1003.%20It%20Is%20Well%20with%20My%20Soul/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1003.%20It%20Is%20Well%20with%20My%20Soul/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1003.%20It%20Is%20Well%20with%20My%20Soul/Bass.wav"
+    }
+  }
+}
