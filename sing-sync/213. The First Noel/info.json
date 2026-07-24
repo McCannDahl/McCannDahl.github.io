@@ -1,0 +1,21 @@
+{
+  "title": "213. The First Noel",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/213.%20The%20First%20Noel/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/213.%20The%20First%20Noel/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/213.%20The%20First%20Noel/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/213.%20The%20First%20Noel/Bass.wav"
+    }
+  }
+}
