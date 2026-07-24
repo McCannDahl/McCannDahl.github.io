@@ -1,0 +1,21 @@
+{
+  "title": "1059. This Is My Father’s World",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1059.%20This%20Is%20My%20Father%E2%80%99s%20World/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1059.%20This%20Is%20My%20Father%E2%80%99s%20World/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1059.%20This%20Is%20My%20Father%E2%80%99s%20World/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1059.%20This%20Is%20My%20Father%E2%80%99s%20World/Bass.wav"
+    }
+  }
+}

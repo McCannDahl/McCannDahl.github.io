@@ -1,0 +1,21 @@
+{
+  "title": "1058. My Song in the Night",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1058.%20My%20Song%20in%20the%20Night/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1058.%20My%20Song%20in%20the%20Night/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1058.%20My%20Song%20in%20the%20Night/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1058.%20My%20Song%20in%20the%20Night/Bass.wav"
+    }
+  }
+}
