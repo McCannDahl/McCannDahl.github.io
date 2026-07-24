@@ -1,0 +1,21 @@
+{
+  "title": "339. My Country, ’Tis of Thee",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/339.%20My%20Country%2C%20%E2%80%99Tis%20of%20Thee/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/339.%20My%20Country%2C%20%E2%80%99Tis%20of%20Thee/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/339.%20My%20Country%2C%20%E2%80%99Tis%20of%20Thee/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/339.%20My%20Country%2C%20%E2%80%99Tis%20of%20Thee/Bass.wav"
+    }
+  }
+}

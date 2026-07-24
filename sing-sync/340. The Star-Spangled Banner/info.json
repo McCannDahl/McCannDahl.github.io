@@ -1,0 +1,21 @@
+{
+  "title": "340. The Star-Spangled Banner",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/340.%20The%20Star-Spangled%20Banner/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/340.%20The%20Star-Spangled%20Banner/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/340.%20The%20Star-Spangled%20Banner/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/340.%20The%20Star-Spangled%20Banner/Bass.wav"
+    }
+  }
+}
