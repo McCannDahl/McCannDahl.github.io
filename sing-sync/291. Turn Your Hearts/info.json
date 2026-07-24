@@ -1,0 +1,21 @@
+{
+  "title": "291. Turn Your Hearts",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/291.%20Turn%20Your%20Hearts/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/291.%20Turn%20Your%20Hearts/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/291.%20Turn%20Your%20Hearts/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/291.%20Turn%20Your%20Hearts/Bass.wav"
+    }
+  }
+}
