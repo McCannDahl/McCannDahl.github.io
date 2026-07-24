@@ -1,0 +1,21 @@
+{
+  "title": "230. Scatter Sunshine",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/230.%20Scatter%20Sunshine/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/230.%20Scatter%20Sunshine/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/230.%20Scatter%20Sunshine/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/230.%20Scatter%20Sunshine/Bass.wav"
+    }
+  }
+}
