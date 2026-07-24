@@ -1,0 +1,21 @@
+{
+  "title": "208. O Little Town of Bethlehem",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/208.%20O%20Little%20Town%20of%20Bethlehem/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/208.%20O%20Little%20Town%20of%20Bethlehem/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/208.%20O%20Little%20Town%20of%20Bethlehem/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/208.%20O%20Little%20Town%20of%20Bethlehem/Bass.wav"
+    }
+  }
+}
