@@ -1,0 +1,21 @@
+{
+  "title": "224. I Have Work Enough to Do",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/224.%20I%20Have%20Work%20Enough%20to%20Do/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/224.%20I%20Have%20Work%20Enough%20to%20Do/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/224.%20I%20Have%20Work%20Enough%20to%20Do/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/224.%20I%20Have%20Work%20Enough%20to%20Do/Bass.wav"
+    }
+  }
+}
