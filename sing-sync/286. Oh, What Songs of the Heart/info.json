@@ -1,0 +1,21 @@
+{
+  "title": "286. Oh, What Songs of the Heart",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/286.%20Oh%2C%20What%20Songs%20of%20the%20Heart/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/286.%20Oh%2C%20What%20Songs%20of%20the%20Heart/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/286.%20Oh%2C%20What%20Songs%20of%20the%20Heart/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/286.%20Oh%2C%20What%20Songs%20of%20the%20Heart/Bass.wav"
+    }
+  }
+}
