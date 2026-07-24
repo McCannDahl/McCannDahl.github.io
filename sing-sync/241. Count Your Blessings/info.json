@@ -1,0 +1,21 @@
+{
+  "title": "241. Count Your Blessings",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/241.%20Count%20Your%20Blessings/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/241.%20Count%20Your%20Blessings/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/241.%20Count%20Your%20Blessings/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/241.%20Count%20Your%20Blessings/Bass.wav"
+    }
+  }
+}
