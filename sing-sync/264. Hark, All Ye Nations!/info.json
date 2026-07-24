@@ -1,0 +1,21 @@
+{
+  "title": "264. Hark, All Ye Nations!",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/264.%20Hark%2C%20All%20Ye%20Nations%21/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/264.%20Hark%2C%20All%20Ye%20Nations%21/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/264.%20Hark%2C%20All%20Ye%20Nations%21/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/264.%20Hark%2C%20All%20Ye%20Nations%21/Bass.wav"
+    }
+  }
+}
