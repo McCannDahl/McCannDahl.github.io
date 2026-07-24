@@ -1,0 +1,21 @@
+{
+  "title": "1206. Were You There",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1206.%20Were%20You%20There/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1206.%20Were%20You%20There/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1206.%20Were%20You%20There/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1206.%20Were%20You%20There/Bass.wav"
+    }
+  }
+}

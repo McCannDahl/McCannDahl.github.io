@@ -1,0 +1,21 @@
+{
+  "title": "1205. Let Easter Anthems Ring",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1205.%20Let%20Easter%20Anthems%20Ring/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1205.%20Let%20Easter%20Anthems%20Ring/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1205.%20Let%20Easter%20Anthems%20Ring/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1205.%20Let%20Easter%20Anthems%20Ring/Bass.wav"
+    }
+  }
+}
