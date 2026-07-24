@@ -1,0 +1,21 @@
+{
+  "title": "1048. Our Prayer to Thee",
+  "parts": {
+    "S": {
+      "title": "Soprano",
+      "url": "https://www.dahl-fam.com/sing-sync/1048.%20Our%20Prayer%20to%20Thee/Soprano.wav"
+    },
+    "A": {
+      "title": "Alto",
+      "url": "https://www.dahl-fam.com/sing-sync/1048.%20Our%20Prayer%20to%20Thee/Alto.wav"
+    },
+    "T": {
+      "title": "Tenor",
+      "url": "https://www.dahl-fam.com/sing-sync/1048.%20Our%20Prayer%20to%20Thee/Tenor.wav"
+    },
+    "B": {
+      "title": "Bass",
+      "url": "https://www.dahl-fam.com/sing-sync/1048.%20Our%20Prayer%20to%20Thee/Bass.wav"
+    }
+  }
+}
